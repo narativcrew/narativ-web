@@ -1,0 +1,78 @@
+{
+  "slices": {
+    "components": {
+      "intro": {
+        "library": "slices",
+        "id": "intro",
+        "name": "Intro",
+        "description": "Intro",
+        "model": {
+          "id": "intro",
+          "type": "SharedSlice",
+          "name": "Intro",
+          "description": "Intro",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "Intro",
+              "primary": {
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "heading1",
+                    "label": "Title",
+                    "placeholder": "This is where it all begins..."
+                  }
+                },
+                "description": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "paragraph",
+                    "label": "Description",
+                    "placeholder": "A nice description of your feature"
+                  }
+                }
+              },
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format",
+              "items": {}
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
+            "primary": {
+              "title": [
+                {
+                  "type": "heading1",
+                  "text": "Break",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Aliqua occaecat eu excepteur anim et. Dolor sint dolore consectetur est eiusmod. Reprehenderit laborum elit eiusmod aute adipisicing laborum ipsum eiusmod cillum culpa cupidatat quis.",
+                  "spans": []
+                }
+              ]
+            },
+            "slice_type": "intro"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
+      }
+    }
+  }
+}

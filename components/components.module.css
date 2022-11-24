@@ -1,0 +1,6 @@
+.featuredImage {
+    width: 100%;
+    height: 200px;
+    background: center no-repeat;
+    background-size: cover;
+}

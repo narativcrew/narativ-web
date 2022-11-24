@@ -1,0 +1,22 @@
+.newsListItem {
+    display: flex;
+}
+
+.dateBox {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    background: #258AFF;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.dateBox span:first-of-type {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.dateBox span:last-of-type {
+    font-size: 0.8em;
+}
