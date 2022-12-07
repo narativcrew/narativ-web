@@ -3,7 +3,7 @@ import { PrismicProvider } from '@prismicio/react'
 import { PrismicPreview } from '@prismicio/next'
 import 'bootstrap/dist/css/bootstrap.css'
 import '/public/fonts/typo.css'
-import '../styles/globals.css'
+import '../styles/globals.scss'
 import { repositoryName } from '../prismicio'
 import Layout from '../components/layout'
 

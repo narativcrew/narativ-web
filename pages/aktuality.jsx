@@ -5,7 +5,9 @@ import { NewsListItem } from '/components/news'
 
 const News = () => (
     <>
-        <FeaturedImage image={bg} />
+        <FeaturedImage image={bg}>
+
+        </FeaturedImage>
         <div className="container">
             <h1>News</h1>
             <NewsListItem />

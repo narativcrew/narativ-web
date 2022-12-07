@@ -1,4 +1,17 @@
 .header {
-    background-color: #fff;
     padding: 20px 0;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: .25s ease-in-out;
+}
+
+.header a {
+    color: #000;
+}
+
+.bgWhite {
+    background-color: #fff;
 }

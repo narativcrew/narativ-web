@@ -1,14 +1,25 @@
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
+
+import { cx } from '/utils'
 import styles from './header.module.css'
 
 const Header = () => {
+    const [scroll, setScroll] = useState(false);
+
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+            setScroll(window.scrollY > 50);
+        });
+    }, []);
+
     return (
         <>
-            <div className={styles.header}>
+            <div className={cx(styles.header, scroll ? styles.bgWhite : null)}>
                 <div className="container">
-                    <div className="row">
+                    <div className="row align-items-center">
                         <div className="col-md-4">
-                            <h3>Narativ</h3>
+                            <h3 className='mb-0'>Narativ</h3>
                         </div>
                         <div className="col-md-8">
                             <nav>
