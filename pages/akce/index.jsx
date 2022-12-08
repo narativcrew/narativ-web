@@ -15,49 +15,26 @@ const Events = () => {
                 </div>
             </div>
             <div className="row">
-                <div className="col-md-6">
-                    <EventListItem
-                        id="1"
-                        title="Úvod do teorie a praxe Otevřeného dialogu"
-                        description={(
-                            <p>Termín: 3.-4. 3. 2022 (vždy 9:00 – 16:30),<br />
+                <div className="col-md-12">
+                    <div class="thumbnail">
+                        <img src="<news-thumbnail-2.jpg>" alt="News thumbnail 2"/>
+                        <div class="caption">
+                        <h3>Úvod do teorie a praxe Otevřeného dialogu</h3>
+                        <p>Termín: 3.-4. 3. 2022 (vždy 9:00 – 16:30),<br />
                             Rozsah: 16 výukových hodin; Cena: 3.200,- Kč</p>
-                        )}
-                        image={EventThumb}
-                    />
+                        </div>
+                    </div>
                 </div>
-                <div className="col-md-6">
-                    <EventListItem
-                        id="2"
-                        title="Úvod do teorie a praxe Otevřeného dialogu"
-                        description={(
-                            <p>Termín: 3.-4. 3. 2022 (vždy 9:00 – 16:30)</p>
-                        )}
-                        image={EventThumb}
-                    />
-                </div>
-                <div className="col-md-6">
-                    <EventListItem
-                        id="3"
-                        title="Úvod do teorie a praxe Otevřeného dialogu"
-                        description={(
+                <div className="col-md-12">
+                    <div class="thumbnail">
+                        <img src="news-thumbnail-2.jpg" alt="News thumbnail 2"/>
+                        <div class="caption">
+                            <h3>Úvod do teorie a praxe Otevřeného dialogu</h3>
                             <p>Termín: 3.-4. 3. 2022 (vždy 9:00 – 16:30),<br />
                                 Rozsah: 16 výukových hodin; Cena: 3.200,- Kč</p>
-                        )}
-                        image={EventThumb}
-                    />
-                </div>
-                <div className="col-md-6">
-                    <EventListItem
-                        id="4"
-                        title="Úvod do teorie a praxe Otevřeného dialogu"
-                        description={(
-                            <p>Termín: 3.-4. 3. 2022 (vždy 9:00 – 16:30),<br />
-                                Rozsah: 16 výukových hodin; Cena: 3.200,- Kč</p>
-                        )}
-                        image={EventThumb}
-                    />
-                </div>
+                        </div>
+                    </div>
+                </div> 
             </div>
             <div className='row'>
                 <div className='col-md-12 text-center'>
