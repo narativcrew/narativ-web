@@ -1,5 +1,11 @@
-const Contact = () => {
-    return (
+import FeaturedImage from '/components/FeaturedImage'
+import bg from '/public/images/contact-featured-image.png'
+
+const Contact = () => (
+    <>
+        <FeaturedImage image={bg}>
+
+        </FeaturedImage>
         <div className="container mt-5">
             <div className="row">
                 <div className="col-md-6">
@@ -32,7 +38,7 @@ const Contact = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    </>
+)
 
 export default Contact
