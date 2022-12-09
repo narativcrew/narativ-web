@@ -8,12 +8,7 @@ const Contact = () => (
         </FeaturedImage>
         <div className="container mt-5">
             <div className="row">
-                <div className="col-md-6">
-                    <h1>Kontakt</h1>
-                </div>
-            </div>
-            <div className="row">
-                <div className="col-md-6 offset-md-3">
+                <div className="col-md-8 offset-md-2">
                     <h1>Napiste nam:</h1>
                     <form>
                         <div className="form-group">
