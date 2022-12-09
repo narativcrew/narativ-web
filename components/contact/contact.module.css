@@ -1,0 +1,41 @@
+.contactBgBox {
+    background: #1D263A;
+}
+
+h1.contactHeading {
+    color: white;
+    text-align: center;
+    line-height: 100px;
+}
+
+.contactFormWrapper {
+    background-color: white;
+    padding:1.25rem;
+}
+
+.formGroup {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+}
+
+.formLabel {
+    line-height: 30px;
+}
+
+.contactFormField {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border-top: none;
+    border-bottom: 1px solid #0A043C;
+    border-left: none;
+    border-right: none;
+    opacity: 0.15;
+    line-height: 30px;
+}

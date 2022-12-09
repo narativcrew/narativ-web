@@ -1,38 +1,47 @@
+import stylesContact from '/components/contact/contact.module.css'
+
 import FeaturedImage from '/components/FeaturedImage'
 import bg from '/public/images/contact-featured-image.png'
+import { BlockButton } from '../components/Buttons'
 
 const Contact = () => (
     <>
         <FeaturedImage image={bg}>
 
         </FeaturedImage>
-        <div className="container mt-5">
-            <div className="row">
-                <div className="col-md-8 col-lg-6 offset-md-2 offset-lg-3">
-                    <h1>Napiste nam:</h1>
-                    <form>
-                        <div className="form-group">
-                            <label for="inputName">Your name</label>
-                            <input type="name" className="form-control" id="inputName" aria-describedby="nameHelp" placeholder="Your name here"/>
-                            <small id="nameHelp" className="form-text text-muted">We'll never share your name with anyone else.</small>
+        <div className={stylesContact.contactBgBox}>
+            <div className="container">
+                <div className="row">
+                    <h1 className={stylesContact.contactHeading}>Napiste nam</h1>
+                </div>
+                <div className="row">
+                    <div className="col-md-8 col-lg-6 offset-md-2 offset-lg-3">
+                        <div className={stylesContact.contactFormWrapper}>
+                            <form>
+                                <div className={stylesContact.formGroup}>
+                                    <label for="inputName" className={stylesContact.formLabel}>Your name</label>
+                                    <input type="name" className={stylesContact.contactFormField} id="inputName" aria-describedby="nameHelp" placeholder="Your name here"/>
+                                </div>
+                                <div className={stylesContact.formGroup}>
+                                    <label for="inputEmail" className={stylesContact.formLabel}>Your email</label>
+                                    <input type="email" className={stylesContact.contactFormField} id="inputEmail" placeholder="Your email here"/>
+                                </div>
+                                <div className={stylesContact.formGroup}>
+                                    <label for="inputSubject" className={stylesContact.formLabel}>Subject</label>
+                                    <input type="email" className={stylesContact.contactFormField} id="inputSubject" placeholder="Subject"/>
+                                </div>
+                                <div className={stylesContact.formGroup}>
+                                    <label for="textareaMessage" className={stylesContact.formLabel}>Message</label>
+                                    <textarea className={stylesContact.contactFormField} id="textareaMessage" rows="3" placeholder="Your message here"></textarea>
+                                </div>
+                                <BlockButton type="submit">Odeslat</BlockButton>
+                            </form>
                         </div>
-                        <div class="form-group">
-                            <label for="inputEmail">Your email</label>
-                            <input type="email" className="form-control" id="inputEmail" placeholder="Your email here"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputSubject">Subject</label>
-                            <input type="email" className="form-control" id="inputSubject" placeholder="Subject"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="textareaMessage">Message</label>
-                            <textarea class="form-control" id="textareaMessage" rows="3" placeholder="Your message here"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
+        
     </>
 )
 
