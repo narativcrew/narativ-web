@@ -2,7 +2,7 @@ import FeaturedImage from '/components/FeaturedImage'
 import bg from '/public/images/news-featured-image.png'
 
 import { NewsListItem } from '/components/news'
-import { PrimaryButton } from '/components/Buttons'
+import { BlockButton } from '/components/Buttons'
 
 
 const News = () => (
@@ -11,28 +11,28 @@ const News = () => (
 
         </FeaturedImage>
         <div className="container">
-            <h1>News</h1>
+            <h1>Aktuality</h1>
             <NewsListItem id="1"
-                        title="Nieco"
+                        title="Výroční zpráva za rok 2020"
                         description={(
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem.</p>
+                            <p>Zveřejňujeme výroční zprávu za rok 2020.</p>
                         )} 
                     />
             <NewsListItem id="1"
-                        title="Nieco"
+                        title="Připravujeme psychoterapeutický výcvik v Otevřeném dialogu"
                         description={(
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem.</p>
+                            <p>Ve spolupráci s organizací Zahrada 2000 připravujeme 5-letý Komplexní psychoterapeutický výcvik v Otevřeném dialogu, který má akreditaci pro psychoterapeutické vzdělání ve zdravotnictví. První běh výcviku začne v listopadu 2021 v Jeseníku.</p>
                         )} 
                     />
             <NewsListItem id="1"
-                        title="Nieco"
+                        title="Narativní videa jdou do světa a uvítají vaši podporu"
                         description={(
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem.</p>
+                            <p>Už skoro deset let se potkáváme při různých příležitostech, workshopech, konferencích, neformálně. Během nich jsem většinou byla v roli kameramanky a posléze stříhačky natočeného materiálu. Možná jste to zaregistrovali, z některých akcí vznikla i DVDs.</p>
                         )} 
                     />
             <div className='row'>
-                <div className='col-md-12 text-center'>
-                    <PrimaryButton>Zobrazit další aktuality</PrimaryButton>
+                <div className='col-md-4 offset-md-4 text-center'>
+                    <BlockButton>Zobrazit další aktuality</BlockButton>
                 </div>
             </div>
         </div>
