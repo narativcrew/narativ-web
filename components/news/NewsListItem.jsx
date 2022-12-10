@@ -1,6 +1,6 @@
 import styles from './news.module.css'
 
-const NewsListItem = () => (
+const NewsListItem = ({ id, title, description, image }) => (
     <>
         <div className={styles.newsListItem}>
             <div className={styles.dateBoxWrapper}>
@@ -10,8 +10,8 @@ const NewsListItem = () => (
                 </div>
             </div>
             <div className={styles.newsText}>
-                <h3>Titulek</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem.</p>
+                <h3>{title}</h3>
+                {description}
             </div>
         </div>
     </>

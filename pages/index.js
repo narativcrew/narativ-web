@@ -5,10 +5,13 @@ import { components } from '../slices'
 import bg from '/public/images/hp-header.png'
 import EventThumb from '/public/images/placeholders/EventItem.jpg'
 
+import cx from 'classnames'
 import stylesHomepage from '/components/homepage/homepage.module.css'
 import stylesEvents from '/components/events/events.module.scss'
 import { EventListItem } from '/components/events'
-import { PrimaryButton } from '/components/Buttons'
+import { BlockButton } from '../components/Buttons'
+import NewsListItem from '../components/news/NewsListItem'
+import Footer from '../components/footer/Footer'
 
 export async function getStaticProps({ previewData }) {
     const client = createClient({ previewData })
@@ -113,8 +116,41 @@ const HomePage = ({ page, navigation, settings }) => (
                 </div>
             </div>
             <div className='row'>
-                <div className='col-md-12 text-center'>
-                    <PrimaryButton>Zobrazit další akce</PrimaryButton>
+                <div className='col-md-6 offset-md-6 text-center'>
+                    <BlockButton>Zobrazit další akce</BlockButton>
+                </div>
+            </div>
+        </div>
+        <div className={cx('container mt-5',stylesHomepage.newsBox)}>
+            <div className="row">
+                <div className="col-md-12">
+                    <NewsListItem id="1"
+                        title="Nieco"
+                        description={(
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem.</p>
+                        )} 
+                    />
+                </div>
+                <div className="col-md-12">
+                    <NewsListItem id="1"
+                        title="Nieco"
+                        description={(
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem.</p>
+                        )} 
+                    />
+                </div>
+                <div className="col-md-12">
+                    <NewsListItem id="1"
+                        title="Nieco"
+                        description={(
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem.</p>
+                        )} 
+                    />
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-md-6 offset-md-6 text-center">
+                    <BlockButton>Zobrazit všechny aktuality</BlockButton>
                 </div>
             </div>
         </div>

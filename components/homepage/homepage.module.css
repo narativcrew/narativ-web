@@ -37,3 +37,8 @@
     position: relative;
     z-index: 1;
 }
+
+.newsBox {
+    background: #F9FAFB;
+    padding-bottom: 1.25rem;
+}
