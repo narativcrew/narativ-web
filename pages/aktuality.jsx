@@ -12,11 +12,24 @@ const News = () => (
         </FeaturedImage>
         <div className="container">
             <h1>News</h1>
-            <NewsListItem />
-            <NewsListItem />
-            <NewsListItem />
-            <NewsListItem />
-            <NewsListItem />
+            <NewsListItem id="1"
+                        title="Nieco"
+                        description={(
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem.</p>
+                        )} 
+                    />
+            <NewsListItem id="1"
+                        title="Nieco"
+                        description={(
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem.</p>
+                        )} 
+                    />
+            <NewsListItem id="1"
+                        title="Nieco"
+                        description={(
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem.</p>
+                        )} 
+                    />
             <div className='row'>
                 <div className='col-md-12 text-center'>
                     <PrimaryButton>Zobrazit další aktuality</PrimaryButton>
