@@ -9,21 +9,19 @@ const EventDetail = () => {
 
   return (
     <>
-      <div className="container">
-        <div className={cx(styles.eventDetailHeadingBox, "row")}>
-          <div className="col-md-12 text-center">
-            <h1>Workshop o dialogické rodinné terapii s finskou lektorkou</h1>
-            <span>(id:{eventId})</span>
-            <span>
-              <i className="bi bi-cash-coin"></i>1500 Kc
-            </span>
-            <span>
-              <i className="bi bi-calendar"></i>23.5.2022
-            </span>
-            <span>
-              <i className="bi bi-geo-alt"></i>Brno
-            </span>
-          </div>
+      <div>
+        <div className={cx(styles.eventDetailHeadingBox, "text-center")}>
+          <h1>Workshop o dialogické rodinné terapii s finskou lektorkou</h1>
+          <span>(id:{eventId})</span>
+          <span>
+            <i className="bi bi-cash-coin"></i>1500 Kc
+          </span>
+          <span>
+            <i className="bi bi-calendar"></i>23.5.2022
+          </span>
+          <span>
+            <i className="bi bi-geo-alt"></i>Brno
+          </span>
         </div>
       </div>
       <div className="container mt-5">

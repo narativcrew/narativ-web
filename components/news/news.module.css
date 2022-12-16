@@ -33,3 +33,9 @@
 .newsText {
     padding: 1.25rem;
 }
+
+.newsDetailHeadingBox {
+    background: #F9FAFB;
+    padding-top: 100px;
+    padding-bottom:50px;
+}
