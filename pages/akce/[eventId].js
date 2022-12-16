@@ -9,7 +9,7 @@ const EventDetail = () => {
 
   return (
     <>
-      <div className="container mt-5">
+      <div className="container">
         <div className={cx(styles.eventDetailHeadingBox, "row")}>
           <div className="col-md-12 text-center">
             <h1>Workshop o dialogické rodinné terapii s finskou lektorkou</h1>
