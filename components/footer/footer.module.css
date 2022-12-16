@@ -1,0 +1,9 @@
+.footerColumn span {
+    font-weight: 600;
+    line-height: 30px;
+}
+
+.footerColumn span:first-of-type {
+    opacity: 0.6;
+    line-height: 50px;
+}

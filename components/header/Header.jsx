@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
+import cx from 'classnames'
 
-import { cx } from '/utils'
 import styles from './header.module.css'
 
 const Header = () => {
@@ -19,7 +19,9 @@ const Header = () => {
                 <div className="container">
                     <div className="row align-items-center">
                         <div className="col-md-4">
-                            <h3 className='mb-0'>Narativ</h3>
+                            <Link href="/">
+                                <h3 className='mb-0'>Narativ</h3>
+                            </Link>
                         </div>
                         <div className="col-md-8">
                             <nav>

@@ -34,8 +34,22 @@
     padding: 1.25rem;
 }
 
+.newsBox {
+    background: #F9FAFB;
+    padding-bottom: 1.25rem;
+}
+
 .newsDetailHeadingBox {
     background: #F9FAFB;
     padding-top: 100px;
     padding-bottom:50px;
+}
+
+.newsDetailHeadingBox span {
+    padding: 0.5rem;
+}
+
+.newsDetailHeadingBox i {
+    padding-right: 0.2rem;
+    color: #FF794D;
 }

@@ -1,17 +1,18 @@
 import { SliceZone } from '@prismicio/react'
+import cx from 'classnames'
 
 import { createClient } from '../prismicio'
 import { components } from '../slices'
 import bg from '/public/images/hp-header.png'
 import EventThumb from '/public/images/placeholders/EventItem.jpg'
 
-import cx from 'classnames'
 import stylesHomepage from '/components/homepage/homepage.module.css'
 import stylesEvents from '/components/events/events.module.scss'
 import { EventListItem } from '/components/events'
 import { BlockButton } from '../components/Buttons'
 import NewsListItem from '../components/news/NewsListItem'
 import Footer from '../components/footer/Footer'
+import Link from 'next/link'
 
 export async function getStaticProps({ previewData }) {
     const client = createClient({ previewData })
@@ -32,7 +33,7 @@ const HomePage = ({ page, navigation, settings }) => (
                 <div className="container">
                     <div className='row align-items-center' style={{ height: '100%' }}>
                         <div className='col-md-6 offset-md-6'>
-                            <h1>Novinky</h1>
+                            <h1 className="">Jsme sociální a vztahová platforma</h1>
                             <p>Narativ je vztahová či sociální platforma se záměrem šírit postmo    derní praxi v České republice a na Slovensku. Slovo Narativ vám může připomínat narativní terapii, ale odkazujeme tím spíše na vyprávění příběhů vůbec, které je zásadní pro všechny přístupy, které zahrnujeme do postmoderní rodiny.</p>
                         </div>
                     </div>
@@ -117,44 +118,61 @@ const HomePage = ({ page, navigation, settings }) => (
             </div>
             <div className='row'>
                 <div className='col-md-6 offset-md-6 text-center'>
-                    <BlockButton>Zobrazit další akce</BlockButton>
+                    <Link href="/akce">
+                        <BlockButton>Zobrazit další akce</BlockButton>
+                    </Link>
                 </div>
             </div>
         </div>
-        <div className={cx('container mt-5',stylesHomepage.newsBox)}>
-            <div className="row">
-                <div className="col-md-12">
-                    <NewsListItem id="1"
-                        title="Nieco"
-                        description={(
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem.</p>
-                        )} 
-                    />
+        <div className={cx('mt-5 py-5',stylesHomepage.newsBox)}>
+            <div className='container'>
+                <div className="row">
+                    <div className="col-md-6"><h1>Aktuality</h1></div>
                 </div>
-                <div className="col-md-12">
-                    <NewsListItem id="1"
-                        title="Nieco"
-                        description={(
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem.</p>
-                        )} 
-                    />
+                <div className="row">
+                    <div className="col-md-12">
+                        <NewsListItem
+                            id="1"
+                            title="Nieco"
+                            description={(
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem.</p>
+                            )}
+                        />
+                    </div>
+                    <div className="col-md-12">
+                        <NewsListItem
+                            id="1"
+                            title="Nieco"
+                            description={(
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem.</p>
+                            )}
+                        />
+                    </div>
+                    <div className="col-md-12">
+                        <NewsListItem
+                            id="1"
+                            title="Nieco"
+                            description={(
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem.</p>
+                            )}
+                        />
+                    </div>
                 </div>
-                <div className="col-md-12">
-                    <NewsListItem id="1"
-                        title="Nieco"
-                        description={(
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, vel aliquet nisl nisl sit amet lorem.</p>
-                        )} 
-                    />
-                </div>
-            </div>
-            <div className="row">
-                <div className="col-md-6 offset-md-6 text-center">
-                    <BlockButton>Zobrazit všechny aktuality</BlockButton>
+                <div className="row">
+                    <div className="col-md-6 offset-md-6 text-center">
+                        <Link href="/aktuality">
+                            <BlockButton>Zobrazit všechny aktuality</BlockButton>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>
-        <SliceZone slices={page.data.slices} components={components} />
+        {
+            /*
+                <SliceZone slices={page.data.slices} components={components} />
+            */
+        }
+
     </>
 )
 

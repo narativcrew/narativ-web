@@ -1,4 +1,6 @@
 import styles from './news.module.css'
+import Link from 'next/link'
+
 
 const NewsListItem = ({ id, title, description, image }) => (
     <>
@@ -10,7 +12,7 @@ const NewsListItem = ({ id, title, description, image }) => (
                 </div>
             </div>
             <div className={styles.newsText}>
-                <h3>{title}</h3>
+                <Link href={`/aktuality/{1}`}><h3>{title}</h3></Link>
                 {description}
             </div>
         </div>
