@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import cx from 'classnames'
 
 import styles from './header.module.css'
+
+import Logo from '/public/images/logo.svg'
+import LogoWhite from '/public/images/logo-white.svg'
 
 const Header = () => {
     const [scroll, setScroll] = useState(false);
@@ -20,7 +24,7 @@ const Header = () => {
                     <div className="row align-items-center">
                         <div className="col-md-4">
                             <Link href="/">
-                                <h3 className='mb-0'>Narativ</h3>
+                                <Image src={scroll ? Logo : LogoWhite} alt="Narativ" />
                             </Link>
                         </div>
                         <div className="col-md-8">

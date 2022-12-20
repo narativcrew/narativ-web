@@ -9,8 +9,7 @@ const NewsDetail = () => {
     return <>
         <div>
             <div className={cx(styles.newsDetailHeadingBox, "text-center")}>
-                <h1>Narativní videa jdou do světa a uvítají vaši podporu
- (id: {newsId})</h1>
+                <h1>Narativní videa jdou do světa a uvítají vaši podporu (id: {newsId})</h1>
                 <span>(id:{newsId})</span>
                 <span>
                     <i className="bi bi-calendar"></i>14.06.2020
@@ -33,8 +32,8 @@ const NewsDetail = () => {
                     </ul>
                 </p>
                 <p>A na co se můžete těšit?</p>
-                <p><a href="https://youtu.be/pX5IjKVEb00" target="_blank" title="pusťte si video">Ann-Rita Gjertzen</a>: Reflektující proces: historie, vývoj, současné trendy. Záznam z workshopu z listopadu 2011 v Brně.</p>
-                <p><a href="https://youtu.be/OBJFmOXCxXU" target="_blank" title="pusťte si video">Harlene Anderson</a>: Collaborative therapy and ethics. Záznam z workshopu v září 2011 v Brně.</p>
+                    <p><a href="https://youtu.be/pX5IjKVEb00" target="_blank" rel="noreferrer" title="pusťte si video">Ann-Rita Gjertzen</a>: Reflektující proces: historie, vývoj, současné trendy. Záznam z workshopu z listopadu 2011 v Brně.</p>
+                    <p><a href="https://youtu.be/OBJFmOXCxXU" target="_blank" rel="noreferrer" title="pusťte si video">Harlene Anderson</a>: Collaborative therapy and ethics. Záznam z workshopu v září 2011 v Brně.</p>
                 <p>Rocio Chaveste Gutierréz: Postmoderní filozofie a praxe napříč kulturami. Záznam z workshopu v Brně z června 2011.</p>
                 <p>Harlene Anderson, John Shotter: Umění a praxe spolupráce v organizacích, komerční sféře a komunitních službách. Záznam z Brna, duben 2013.</p>
                 <p>Jaakko Seikkula: Otevřený dialog: Nové paradigma v péči o duševní zdraví. Záznam z prvního Jaakkova workshopu z r. 2013.</p>

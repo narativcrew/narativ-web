@@ -1,4 +1,4 @@
-import styles from './components.module.css'
+import styles from './components.module.scss'
 
 export const PrimaryButton = ({ children, ...props }) => (
     <button className="btn btn-primary" {...props}>

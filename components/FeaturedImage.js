@@ -1,4 +1,4 @@
-import styles from './components.module.css'
+import styles from './components.module.scss'
 import cx from 'classnames'
 
 const FeaturedImage = ({ image, hasOverlay, children }) => (

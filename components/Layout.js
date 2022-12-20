@@ -1,6 +1,6 @@
 import { Header } from './header'
 import { Footer } from './footer'
-import styles from './components.module.css'
+import styles from './components.module.scss'
 
 export const FullPage = ({ children }) => (
     <div className={styles.fullpage}>

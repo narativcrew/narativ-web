@@ -2,15 +2,28 @@
     position: relative;
     height: 300px;
     margin-bottom: 2rem;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .thumb__image {
     object-fit: cover;
+    transition: 0.5s ease-in-out;
 }
 
 .event_list__item {
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
     display: block;
+
+    &:hover {
+        .thumb__image {
+            transform: scale(1.1);
+        }
+    }
+
+    p {
+        color: #000;
+    }
 }
 
 .event_list__description {

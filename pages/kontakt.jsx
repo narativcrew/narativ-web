@@ -1,12 +1,19 @@
-import stylesContact from '/components/contact/contact.module.css'
-
+import Head from 'next/head'
 import cx from 'classnames'
+
+import stylesContact from '/components/contact/contact.module.css'
 import FeaturedImage from '/components/FeaturedImage'
+import { BlockButton } from '/components/Buttons'
+
 import bg from '/public/images/contact-featured-image.png'
-import { BlockButton } from '../components/Buttons'
 
 const Contact = () => (
     <>
+        <Head>
+            <title>Narativ | Kontakt</title>
+            <meta property="og:title" content="Narativ | Kontakt" key="title" />
+        </Head>
+
         <FeaturedImage image={bg}>
 
         </FeaturedImage>

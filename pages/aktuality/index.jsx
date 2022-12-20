@@ -1,3 +1,5 @@
+import Head from 'next/head'
+
 import FeaturedImage from '/components/FeaturedImage'
 import bg from '/public/images/news-featured-image.png'
 import styles from '/components/news/news.module.css'
@@ -8,6 +10,11 @@ import { BlockButton } from '/components/Buttons'
 
 const News = () => (
     <>
+        <Head>
+            <title>Narativ | Aktuality</title>
+            <meta property="og:title" content="Narativ | Aktuality" key="title" />
+        </Head>
+
         <FeaturedImage image={bg}>
 
         </FeaturedImage>
