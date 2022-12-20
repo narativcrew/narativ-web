@@ -5,7 +5,7 @@ import stylesContact from '/components/contact/contact.module.css'
 import FeaturedImage from '/components/FeaturedImage'
 import { BlockButton } from '/components/Buttons'
 
-import bg from '/public/images/contact-featured-image.png'
+import bg from '/public/images/contact-featured-image.jpg'
 
 const Contact = () => (
     <>

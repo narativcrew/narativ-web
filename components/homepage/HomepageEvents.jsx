@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import EventThumb from '/public/images/placeholders/EventItem.jpg'
+import EventThumb from '/public/images/placeholders/office.jpg'
 import MindfulnessImg from '/public/images/placeholders/mindfulness.jpg'
 import Conversation from '/public/images/placeholders/conversation.jpg'
 import Relationship from '/public/images/placeholders/relationship.jpg'

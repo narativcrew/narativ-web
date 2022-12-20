@@ -2,7 +2,7 @@ import Image from 'next/image'
 import cx from 'classnames';
 
 import stylesHomepage from './homepage.module.scss'
-import bg from '/public/images/hp-header.png'
+import bg from '/public/images/hp-header.jpg'
 import BannerShape2 from '/public/images/banner-shape-2.png'
 
 const Attribute = ({ title, description }) => (

@@ -6,8 +6,8 @@ import { BlockButton } from "/components/Buttons";
 
 import stylesEvents from "/components/events/events.module.scss";
 
-import bg from "/public/images/events-featured-image.png";
-import EventThumb from "/public/images/placeholders/EventItem.jpg";
+import bg from "/public/images/events-featured-image.jpg";
+import EventThumb from "/public/images/placeholders/office.jpg";
 
 const Events = () => (
     <>

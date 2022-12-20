@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
 import FeaturedImage from '/components/FeaturedImage'
-import bg from '/public/images/news-featured-image.png'
+import bg from '/public/images/news-featured-image.jpg'
 import styles from '/components/news/news.module.css'
 
 import { NewsListItem } from '/components/news'
