@@ -6,7 +6,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 import '/public/fonts/typo.css'
 import '../styles/globals.scss'
 import { repositoryName } from '../prismicio'
-import Layout from '../components/layout'
+import Layout from '/components/Layout'
 
 function MyApp({ Component, pageProps }) {
     return (
