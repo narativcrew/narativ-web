@@ -12,9 +12,24 @@
     min-height: 200px;
     border-right: 1px solid rgba(223, 223, 223, 0.7);
 
+    p {
+        margin-bottom: 0;
+    }
+
     &:last-child {
         border-right: none;
     }
+}
+
+.attributesNumber {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 42px;
+    letter-spacing: -1px;
+    color: #20BFA9;
+    opacity: 0.3;
+    text-align: center;
+    //margin-right: 40px;
 }
 
 .featuredImage {
