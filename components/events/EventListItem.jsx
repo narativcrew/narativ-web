@@ -1,7 +1,7 @@
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from 'next/image';
+import Link from 'next/link';
 
-import styles from './events.module.scss'
+import styles from './events.module.scss';
 
 const EventListItem = ({ id, title, description, image }) => (
     <Link href={`/akce/${id}`} className={styles.event_list__item}>

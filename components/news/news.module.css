@@ -11,7 +11,7 @@
     width: 100px;
     height: 100px;
     text-align: center;
-    background: #258AFF;
+    background: #258aff;
     border-radius: 5px;
     color: #fff;
     padding: 0.25rem;
@@ -35,14 +35,14 @@
 }
 
 .newsBox {
-    background: #F9FAFB;
+    background: #f9fafb;
     padding-bottom: 1.25rem;
 }
 
 .newsDetailHeadingBox {
-    background: #F9FAFB;
+    background: #f9fafb;
     padding-top: 100px;
-    padding-bottom:50px;
+    padding-bottom: 50px;
 }
 
 .newsDetailHeadingBox span {
@@ -51,5 +51,5 @@
 
 .newsDetailHeadingBox i {
     padding-right: 0.2rem;
-    color: #FF794D;
+    color: #ff794d;
 }

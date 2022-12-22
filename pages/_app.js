@@ -1,12 +1,12 @@
-import Link from 'next/link'
-import { PrismicProvider } from '@prismicio/react'
-import { PrismicPreview } from '@prismicio/next'
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-icons/font/bootstrap-icons.css'
-import '/public/fonts/typo.css'
-import '../styles/globals.scss'
-import { repositoryName } from '../prismicio'
-import Layout from '/components/Layout'
+import Link from 'next/link';
+import { PrismicProvider } from '@prismicio/react';
+import { PrismicPreview } from '@prismicio/next';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import '/public/fonts/typo.css';
+import '../styles/globals.scss';
+import { repositoryName } from '../prismicio';
+import Layout from '/components/Layout';
 
 function MyApp({ Component, pageProps }) {
     return (
@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
                 </Layout>
             </PrismicPreview>
         </PrismicProvider>
-    )
+    );
 }
 
-export default MyApp
+export default MyApp;

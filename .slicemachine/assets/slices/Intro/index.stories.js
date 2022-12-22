@@ -1,9 +1,28 @@
 import MyComponent from '../../../../slices/Intro';
 
 export default {
-  title: 'slices/Intro'
-}
+    title: 'slices/Intro',
+};
 
-
-export const _Default = () => <MyComponent slice={{"variation":"default","version":"sktwi1xtmkfgx8626","items":[{}],"primary":{"title":[{"type":"heading1","text":"Break","spans":[]}],"description":[{"type":"paragraph","text":"Aliqua occaecat eu excepteur anim et. Dolor sint dolore consectetur est eiusmod. Reprehenderit laborum elit eiusmod aute adipisicing laborum ipsum eiusmod cillum culpa cupidatat quis.","spans":[]}]},"slice_type":"intro","id":"_Default"}} />
-_Default.storyName = ''
+export const _Default = () => (
+    <MyComponent
+        slice={{
+            variation: 'default',
+            version: 'sktwi1xtmkfgx8626',
+            items: [{}],
+            primary: {
+                title: [{ type: 'heading1', text: 'Break', spans: [] }],
+                description: [
+                    {
+                        type: 'paragraph',
+                        text: 'Aliqua occaecat eu excepteur anim et. Dolor sint dolore consectetur est eiusmod. Reprehenderit laborum elit eiusmod aute adipisicing laborum ipsum eiusmod cillum culpa cupidatat quis.',
+                        spans: [],
+                    },
+                ],
+            },
+            slice_type: 'intro',
+            id: '_Default',
+        }}
+    />
+);
+_Default.storyName = '';

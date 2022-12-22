@@ -2,10 +2,8 @@
 
 import Intro from './Intro';
 
-export {
-	Intro,
-};
+export { Intro };
 
 export const components = {
-	intro: Intro,
+    intro: Intro,
 };

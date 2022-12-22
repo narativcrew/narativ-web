@@ -1,13 +1,13 @@
-import Head from 'next/head'
+import Head from 'next/head';
 
-import FeaturedImage from "/components/FeaturedImage";
-import { EventListItem } from "/components/events";
-import { BlockButton } from "/components/Buttons";
+import FeaturedImage from '/components/FeaturedImage';
+import { EventListItem } from '/components/events';
+import { BlockButton } from '/components/Buttons';
 
-import stylesEvents from "/components/events/events.module.scss";
+import stylesEvents from '/components/events/events.module.scss';
 
-import bg from "/public/images/events-featured-image.jpg";
-import EventThumb from "/public/images/placeholders/office.jpg";
+import bg from '/public/images/events-featured-image.jpg';
+import EventThumb from '/public/images/placeholders/office.jpg';
 
 const Events = () => (
     <>
@@ -33,9 +33,9 @@ const Events = () => (
                             title="Úvod do teorie a praxe Otevřeného dialogu"
                             description={
                                 <p>
-                                Termín: 3.-4. 3. 2022 (vždy 9:00 – 16:30),
-                                <br />
-                                Rozsah: 16 výukových hodin; Cena: 3.200,- Kč
+                                    Termín: 3.-4. 3. 2022 (vždy 9:00 – 16:30),
+                                    <br />
+                                    Rozsah: 16 výukových hodin; Cena: 3.200,- Kč
                                 </p>
                             }
                             image={EventThumb}
@@ -55,9 +55,9 @@ const Events = () => (
                             title="Úvod do teorie a praxe Otevřeného dialogu"
                             description={
                                 <p>
-                                Termín: 3.-4. 3. 2022 (vždy 9:00 – 16:30),
-                                <br />
-                                Rozsah: 16 výukových hodin; Cena: 3.200,- Kč
+                                    Termín: 3.-4. 3. 2022 (vždy 9:00 – 16:30),
+                                    <br />
+                                    Rozsah: 16 výukových hodin; Cena: 3.200,- Kč
                                 </p>
                             }
                             image={EventThumb}
@@ -69,9 +69,9 @@ const Events = () => (
                             title="Úvod do teorie a praxe Otevřeného dialogu"
                             description={
                                 <p>
-                                Termín: 3.-4. 3. 2022 (vždy 9:00 – 16:30),
-                                <br />
-                                Rozsah: 16 výukových hodin; Cena: 3.200,- Kč
+                                    Termín: 3.-4. 3. 2022 (vždy 9:00 – 16:30),
+                                    <br />
+                                    Rozsah: 16 výukových hodin; Cena: 3.200,- Kč
                                 </p>
                             }
                             image={EventThumb}
