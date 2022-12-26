@@ -1,17 +1,14 @@
+import React from 'react';
 import { SliceSimulator } from '@prismicio/slice-simulator-react';
 import { SliceZone } from '@prismicio/react';
 
 import { components } from '../slices';
 import state from '../.slicemachine/libraries-state.json';
 
-const SliceSimulatorPage = () => {
-    return (
-        <SliceSimulator
-            sliceZone={({ slices }) => <SliceZone slices={slices} components={components} />}
-            state={state}
-        />
-    );
-};
+const SliceSimulatorPage = () => (
+    // eslint-disable-next-line react/no-unstable-nested-components
+    <SliceSimulator sliceZone={({ slices }) => <SliceZone slices={slices} components={components} />} state={state} />
+);
 
 export default SliceSimulatorPage;
 
@@ -19,7 +16,6 @@ export default SliceSimulatorPage;
 export const getStaticProps = async () => {
     if (process.env.NODE_ENV === 'production') {
         return { notFound: true };
-    } else {
-        return { props: {} };
     }
+    return { props: {} };
 };

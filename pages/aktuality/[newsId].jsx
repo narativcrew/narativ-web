@@ -1,5 +1,6 @@
+import React from 'react';
 import { useRouter } from 'next/router';
-import styles from '/components/news/news.module.css';
+import styles from 'components/news/news.module.css';
 import cx from 'classnames';
 
 const NewsDetail = () => {
@@ -13,7 +14,8 @@ const NewsDetail = () => {
                     <h1>Narativní videa jdou do světa a uvítají vaši podporu (id: {newsId})</h1>
                     <span>(id:{newsId})</span>
                     <span>
-                        <i className="bi bi-calendar"></i>14.06.2020
+                        <i className="bi bi-calendar" />
+                        14.06.2020
                     </span>
                 </div>
             </div>
@@ -35,11 +37,12 @@ const NewsDetail = () => {
                         </p>
                         <p>
                             <iframe
+                                title="Narativní videa jdou do světa a uvítají vaši podporu"
                                 src="https://www.youtube.com/embed/18UgkCW3mj8"
-                                frameborder="0"
+                                frameBorder="0"
                                 width="560"
                                 height="315"
-                            ></iframe>
+                            />
                         </p>
                         <p>
                             Vím, že výzev na dobrovolné přispívání jste zřejmě době nouzové dostali hodně, nicméně i my

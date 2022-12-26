@@ -1,6 +1,8 @@
+import React from 'react';
 import { useRouter } from 'next/router';
 import cx from 'classnames';
-import styles from '/components/events/events.module.scss';
+import styles from 'components/events/events.module.scss';
+
 import { BlockButton } from '../../components/Buttons';
 
 const EventDetail = () => {
@@ -14,13 +16,16 @@ const EventDetail = () => {
                     <h1>Workshop o dialogické rodinné terapii s finskou lektorkou</h1>
                     <span>(id:{eventId})</span>
                     <span>
-                        <i className="bi bi-cash-coin"></i>1500 Kc
+                        <i className="bi bi-cash-coin" />
+                        1500 Kc
                     </span>
                     <span>
-                        <i className="bi bi-calendar"></i>23.5.2022
+                        <i className="bi bi-calendar" />
+                        23.5.2022
                     </span>
                     <span>
-                        <i className="bi bi-geo-alt"></i>Brno
+                        <i className="bi bi-geo-alt" />
+                        Brno
                     </span>
                 </div>
             </div>

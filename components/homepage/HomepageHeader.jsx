@@ -1,11 +1,11 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import Image from 'next/image';
 import cx from 'classnames';
+import bg from 'public/images/hp-header.jpg';
+import BannerShape2 from 'public/images/banner-shape-2.png';
 
 import stylesHomepage from './homepage.module.scss';
-
-import bg from '/public/images/hp-header.jpg';
-import BannerShape2 from '/public/images/banner-shape-2.png';
-import { BlockButton, LinkButton } from '/components/Buttons';
 
 const Attribute = ({ number, title, description }) => (
     <div className={cx('col-md-4', 'align-items-center', 'd-flex', stylesHomepage.attributesItem)}>
@@ -20,6 +20,12 @@ const Attribute = ({ number, title, description }) => (
         </div>
     </div>
 );
+
+Attribute.propTypes = {
+    number: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+};
 
 const HomepageHeader = () => (
     <div className={stylesHomepage.header}>

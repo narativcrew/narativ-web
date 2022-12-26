@@ -1,11 +1,10 @@
+import React from 'react';
 import Head from 'next/head';
 import cx from 'classnames';
-
-import stylesContact from '/components/contact/contact.module.css';
-import FeaturedImage from '/components/FeaturedImage';
-import { BlockButton } from '/components/Buttons';
-
-import bg from '/public/images/contact-featured-image.jpg';
+import stylesContact from 'components/contact/contact.module.css';
+import FeaturedImage from 'components/FeaturedImage';
+import { BlockButton } from 'components/Buttons';
+import bg from 'public/images/contact-featured-image.jpg';
 
 const Contact = () => (
     <>
@@ -14,7 +13,7 @@ const Contact = () => (
             <meta property="og:title" content="Narativ | Kontakt" key="title" />
         </Head>
 
-        <FeaturedImage image={bg}></FeaturedImage>
+        <FeaturedImage image={bg} />
         <div className={stylesContact.contactBgBox}>
             <div className="container pb-5 pt-2">
                 <div className="row">
@@ -24,49 +23,49 @@ const Contact = () => (
                     <div className={cx('col-md-8 col-lg-6 offset-md-2 offset-lg-3', stylesContact.contactFormWrapper)}>
                         <form>
                             <div className={stylesContact.formGroup}>
-                                <label for="inputName" className={stylesContact.formLabel}>
+                                <label htmlFor="inputName" className={stylesContact.formLabel}>
                                     Your name
+                                    <input
+                                        type="name"
+                                        className={stylesContact.contactFormField}
+                                        id="inputName"
+                                        aria-describedby="nameHelp"
+                                        placeholder="Your name here"
+                                    />
                                 </label>
-                                <input
-                                    type="name"
-                                    className={stylesContact.contactFormField}
-                                    id="inputName"
-                                    aria-describedby="nameHelp"
-                                    placeholder="Your name here"
-                                />
                             </div>
                             <div className={stylesContact.formGroup}>
-                                <label for="inputEmail" className={stylesContact.formLabel}>
+                                <label htmlFor="inputEmail" className={stylesContact.formLabel}>
                                     Your email
+                                    <input
+                                        type="email"
+                                        className={stylesContact.contactFormField}
+                                        id="inputEmail"
+                                        placeholder="Your email here"
+                                    />
                                 </label>
-                                <input
-                                    type="email"
-                                    className={stylesContact.contactFormField}
-                                    id="inputEmail"
-                                    placeholder="Your email here"
-                                />
                             </div>
                             <div className={stylesContact.formGroup}>
-                                <label for="inputSubject" className={stylesContact.formLabel}>
+                                <label htmlFor="inputSubject" className={stylesContact.formLabel}>
                                     Subject
+                                    <input
+                                        type="email"
+                                        className={stylesContact.contactFormField}
+                                        id="inputSubject"
+                                        placeholder="Subject"
+                                    />
                                 </label>
-                                <input
-                                    type="email"
-                                    className={stylesContact.contactFormField}
-                                    id="inputSubject"
-                                    placeholder="Subject"
-                                />
                             </div>
                             <div className={stylesContact.formGroup}>
-                                <label for="textareaMessage" className={stylesContact.formLabel}>
+                                <label htmlFor="textareaMessage" className={stylesContact.formLabel}>
                                     Message
+                                    <textarea
+                                        className={stylesContact.contactFormField}
+                                        id="textareaMessage"
+                                        rows="3"
+                                        placeholder="Your message here"
+                                    />
                                 </label>
-                                <textarea
-                                    className={stylesContact.contactFormField}
-                                    id="textareaMessage"
-                                    rows="3"
-                                    placeholder="Your message here"
-                                ></textarea>
                             </div>
                             <BlockButton type="submit">Odeslat</BlockButton>
                         </form>

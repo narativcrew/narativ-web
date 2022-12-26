@@ -1,11 +1,10 @@
+import React from 'react';
 import Head from 'next/head';
-
-import FeaturedImage from '/components/FeaturedImage';
-import bg from '/public/images/news-featured-image.jpg';
-import styles from '/components/news/news.module.css';
-
-import { NewsListItem } from '/components/news';
-import { BlockButton } from '/components/Buttons';
+import FeaturedImage from 'components/FeaturedImage';
+import styles from 'components/news/news.module.css';
+import { NewsListItem } from 'components/news';
+import { BlockButton } from 'components/Buttons';
+import bg from 'public/images/news-featured-image.jpg';
 
 const News = () => (
     <>
@@ -14,7 +13,7 @@ const News = () => (
             <meta property="og:title" content="Narativ | Aktuality" key="title" />
         </Head>
 
-        <FeaturedImage image={bg}></FeaturedImage>
+        <FeaturedImage image={bg} />
         <div className={styles.newsBox}>
             <div className="container py-5 mt-6">
                 <h1>Aktuality</h1>

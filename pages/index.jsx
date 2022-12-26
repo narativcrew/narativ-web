@@ -1,11 +1,11 @@
+import React from 'react';
 import Head from 'next/head';
 // import { SliceZone } from '@prismicio/react'
 
 import { createClient } from '../prismicio';
 // import { components } from '../slices'
-
-import HomepageHeader from '/components/homepage/HomepageHeader';
-import HomepageEvents from '/components/homepage/HomepageEvents';
+import HomepageHeader from '../components/homepage/HomepageHeader';
+import HomepageEvents from '../components/homepage/HomepageEvents';
 import HomepageNews from '../components/homepage/HomepageNews';
 
 export async function getStaticProps({ previewData }) {
@@ -20,7 +20,7 @@ export async function getStaticProps({ previewData }) {
     };
 }
 
-const HomePage = ({ page, navigation, settings }) => (
+const HomePage = () => (
     <>
         <Head>
             <title>Narativ</title>

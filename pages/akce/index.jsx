@@ -1,13 +1,11 @@
+import React from 'react';
 import Head from 'next/head';
-
-import FeaturedImage from '/components/FeaturedImage';
-import { EventListItem } from '/components/events';
-import { BlockButton } from '/components/Buttons';
-
-import stylesEvents from '/components/events/events.module.scss';
-
-import bg from '/public/images/events-featured-image.jpg';
-import EventThumb from '/public/images/placeholders/office.jpg';
+import FeaturedImage from 'components/FeaturedImage';
+import { EventListItem } from 'components/events';
+import { BlockButton } from 'components/Buttons';
+import stylesEvents from 'components/events/events.module.scss';
+import bg from 'public/images/events-featured-image.jpg';
+import EventThumb from 'public/images/placeholders/office.jpg';
 
 const Events = () => (
     <>
