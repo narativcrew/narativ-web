@@ -10,7 +10,6 @@ import MemberThumb4 from 'public/images/placeholders/jakub_cerny.jpeg';
 import MemberThumb5 from 'public/images/placeholders/lucia_ukropova.jpeg';
 import MemberThumb6 from 'public/images/placeholders/barbora_petrankova.jpeg';
 
-
 const Members = () => (
     <>
         <Head>

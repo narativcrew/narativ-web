@@ -13,7 +13,9 @@ const EventDetail = () => {
         <>
             <div>
                 <div className={cx(styles.eventDetailHeadingBox, 'text-center px-5')}>
-                    <h1>Dialog: Nástroj pozitivní změny v chování žáků a "rozpouštění" problémů ve škole</h1>
+                    <h1>
+                        Dialog: Nástroj pozitivní změny v chování žáků a &ldquo;rozpouštění&rdquo; problémů ve škole
+                    </h1>
                     <span>(id:{eventId})</span>
                     <span>
                         <i className="bi bi-cash-coin" />
@@ -126,13 +128,14 @@ const EventDetail = () => {
                         </figure>
                         <p>
                             Pokud bychom chtěli Loeka charakterizovat jen jedním slovem, bylo by to nejspíš slovo
-                            "sjednotitel". Ve svém životě, v práci, doma i v zahraničí Loek znovu a znovu objevuje, že
-                            udržitelný svět a udržitelná změna vyžaduje zlidšťování procesů, jakými se změny dějí. Tam,
-                            kde v dnešní době stále dominuje paradigma vytvořitelného a kontrolovatelného,
-                            ​​předvídatelného (vzdělávacího) světa, kde jsou lidé vnímáni jako nástroje změny a výkonu,
-                            je posun k novému paradigmatu stále potřebnější. Od individualistické orientace ke vztahové
-                            orientaci, kde lidé konstruují realitu, svět nebo se mění společně s ostatními na základě
-                            propojení a dialogu. Poskytování prostoru pro improvizaci, pro reflexi a reflektující praxi.
+                            &ldquo;sjednotitel&rdquo;. Ve svém životě, v práci, doma i v zahraničí Loek znovu a znovu
+                            objevuje, že udržitelný svět a udržitelná změna vyžaduje zlidšťování procesů, jakými se
+                            změny dějí. Tam, kde v dnešní době stále dominuje paradigma vytvořitelného a
+                            kontrolovatelného, předvídatelného (vzdělávacího) světa, kde jsou lidé vnímáni jako nástroje
+                            změny a výkonu, je posun k novému paradigmatu stále potřebnější. Od individualistické
+                            orientace ke vztahové orientaci, kde lidé konstruují realitu, svět nebo se mění společně s
+                            ostatními na základě propojení a dialogu. Poskytování prostoru pro improvizaci, pro reflexi
+                            a reflektující praxi.
                         </p>
                         <p>
                             Základem Loekovy tvorby jsou myšlenky sociálního konstrukcionismu. Postavit lidi do centra
