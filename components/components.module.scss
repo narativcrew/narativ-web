@@ -30,6 +30,32 @@
     }
 }
 
+.cardButton {
+    display: block;
+    min-width: 40%;
+    max-width: 60%;
+    height: 85px;
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: 0.3rem;
+    color: #fff;
+    background-color: #a4cd39;
+    border-color: #a4cd39;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    user-select: none;
+    border: 1px solid transparent;
+    border-radius: unset;
+    transition: 0.25s ease-in-out;
+
+    &:hover {
+        // background-color: rgba(#A4CD39, 0.7);
+        background-color: #213053;
+    }
+}
+
 .overlay {
     position: relative;
     color: #fff;

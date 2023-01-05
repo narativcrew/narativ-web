@@ -22,3 +22,13 @@ export const BlockButton = ({ children, ...props }) => (
 BlockButton.propTypes = {
     children: PropTypes.node.isRequired,
 };
+
+export const CardButton = ({ children, ...props }) => (
+    <button type="button" className={styles.cardButton} {...props}>
+        {children}
+    </button>
+);
+
+CardButton.propTypes = {
+    children: PropTypes.node.isRequired,
+};
