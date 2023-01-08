@@ -1,6 +1,8 @@
 import React from 'react';
 import cx from 'classnames';
+import Image from 'next/image';
 import styles from 'components/members/members.module.css';
+import MemberThumb1 from 'public/images/placeholders/petra_detersova.png';
 
 const MemberDetail = () => (
     <>
@@ -18,11 +20,7 @@ const MemberDetail = () => (
                 </div>
             </div>
             <div className={cx(styles.noPadding, 'col-md-6')}>
-                <img
-                    className="img-fluid w-100"
-                    src="http://narativ.cz/files/styles/ctverecek/public/petra_detersova_0.png?itok=-02ZFkuk"
-                    alt=""
-                />
+                <Image className="img-fluid w-100" src={MemberThumb1} alt="Petra Detra" />
             </div>
         </div>
         <div className={cx(styles.memberDetailContactsBox, 'text-center py-5')}>
