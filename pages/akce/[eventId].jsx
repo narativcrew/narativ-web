@@ -2,6 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import cx from 'classnames';
 import styles from 'components/events/events.module.scss';
+import Image from 'next/image';
 
 import { BlockButton } from '../../components/Buttons';
 
@@ -120,10 +121,12 @@ const EventDetail = () => {
                         </p>
                         <h4>Loek Schoenmakers, Ph.D.</h4>
                         <figure className="figure float-start mx-3">
-                            <img
+                            <Image
                                 className="figure-img img-fluid rounded"
                                 src="https://static.wixstatic.com/media/32e4a2_3957f03481e04ce3bffdae5665ab99bf~mv2.png/v1/fill/w_200,h_250,fp_0.47_0.27,q_90,usm_0.66_1.00_0.01,enc_auto/32e4a2_3957f03481e04ce3bffdae5665ab99bf~mv2.png"
-                                alt=""
+                                width={200}
+                                height={250}
+                                alt="Loek Schoenmakers, Ph.D."
                             />
                         </figure>
                         <p>
@@ -187,13 +190,11 @@ const EventDetail = () => {
                             Storno podmínky: <br />
                             Při zrušení účasti do 9.10.2022 vracíme plnou částku, po tomto datu už platbu nevracíme.
                         </p>
-                        <p>
-                            Časový harmonogram: <br />
-                            <ul>
-                                <li>pátek 14.10. 9:30 - 17:00</li>
-                                <li>sobota 15.10. 9:00 - 16:30</li>
-                            </ul>
-                        </p>
+                        Časový harmonogram: <br />
+                        <ul>
+                            <li>pátek 14.10. 9:30 - 17:00</li>
+                            <li>sobota 15.10. 9:00 - 16:30</li>
+                        </ul>
                         <p>Kontakt na organizátory: Přemysl Ulman, premysl.ulman@gmail.com +420 608 900 015</p>
                         <BlockButton>Přihlásit se na workshop</BlockButton>
                     </div>

@@ -1,6 +1,6 @@
 .featuredImage {
     width: 100%;
-    min-height: 200px;
+    min-height: 400px;
     background: center no-repeat;
     background-size: cover;
 }
@@ -34,7 +34,7 @@
     display: block;
     min-width: 40%;
     max-width: 60%;
-    height: 85px;
+    height: 60px;
     padding: 0.5rem 1rem;
     font-size: 1.25rem;
     line-height: 1.5;
@@ -78,4 +78,62 @@
 
 .fullpage {
     height: 100vh;
+}
+
+.featuredBlockContent {
+    color: #fff;
+    padding: 50px 30px 50px 30px;
+    @media (min-width: 768px) {
+        padding: 85px 100px 70px 100px;
+    }
+    @media (min-width: 992px) {
+        padding: 85px 30px 70px 30px;
+    }
+    @media (min-width: 1200px) {
+        padding: 200px 100px 200px 60px;
+    }
+    @media (min-width: 1600px) {
+        padding: 200px 100px 200px 315px;
+    }
+
+    h2 {
+        font-weight: 600;
+        font-size: 42px;
+        line-height: 50px;
+
+        /* or 120% */
+        letter-spacing: -1px;
+    }
+}
+
+.featuredBlockTexts {
+    h6 {
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 32px;
+        letter-spacing: -0.3px;
+        color: #FFFFFF;
+    }
+    span {
+        font-size: 17px;
+        line-height: 30px;
+        color: #FFFFFF;
+        opacity: 0.8;
+    }
+}
+
+.featuredBlockLine {
+    span {
+        display: inline-block;
+        width: 40px;
+        height: 4px;
+        background: #fff;
+        margin-right: 25px;
+    }
+}
+
+.featuredBlockImage {
+    min-height: 400px;
+    background: center no-repeat;
+    background-size: cover;
 }

@@ -1,21 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import Image from 'next/image';
 import { CardButton } from 'components/Buttons';
 import cx from 'classnames';
 
 import styles from './members.module.css';
 
 const MemberListItem = ({ id, title, desc, image }) => (
-    <div className={styles.memberCard}>
-        <Image className={styles.memberCardImg} src={image} alt={title} />
-        <div className={cx('text-start', styles.memberCardContent)}>
-            <h5 className={styles.memberCardTitle}>{title}</h5>
-            <div className={styles.memberCardText}>{desc}</div>
-            <Link href={`/clenove/${id}`}>
-                <CardButton>Vice</CardButton>
-            </Link>
+    <div className="col-lg-4 mb-4">
+        <div className={cx(styles.memberCard)}>
+            <div className={styles.memberCardImg} style={{ backgroundImage: `url(${image.src})` }} />
+            <div className={cx('text-start', styles.memberCardContent)}>
+                <h5 className={styles.memberCardTitle}>{title}</h5>
+                <div className={styles.memberCardText}>{desc}</div>
+                <div className={styles.memberCardButtonWrapper}>
+                    <Link href={`/clenove/${id}`}>
+                        <CardButton>Vice</CardButton>
+                    </Link>
+                </div>
+            </div>
         </div>
     </div>
 );

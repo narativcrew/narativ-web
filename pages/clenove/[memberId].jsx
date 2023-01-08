@@ -1,8 +1,8 @@
 import React from 'react';
 import cx from 'classnames';
-import Image from 'next/image';
 import styles from 'components/members/members.module.css';
-import MemberThumb1 from 'public/images/placeholders/petra_detersova.png';
+import FeaturedBlock from 'components/FeaturedBlock';
+import FeaturedPhoto from 'public/images/placeholders/petra.png';
 
 const MemberDetail = () => (
     <>
@@ -11,18 +11,11 @@ const MemberDetail = () => (
                 <h1>Petra Detersová</h1>
             </div>
         </div>
-        <div className="row justify-content-center">
-            <div className={cx(styles.memberDetailTopText, 'col-md-6 p-5')}>
-                <div>
-                    <p>Členkou Narativu som sa stala s kamerou v ruke a doteraz v ňom plním hlavne túto rolu.</p>
-                    <p>Lorem Ipsum</p>
-                    <p>Dolor sit amet</p>
-                </div>
-            </div>
-            <div className={cx(styles.noPadding, 'col-md-6')}>
-                <Image className="img-fluid w-100" src={MemberThumb1} alt="Petra Detra" />
-            </div>
-        </div>
+        <FeaturedBlock
+            text="Členkou Narativu som sa stala s kamerou v ruke a doteraz v ňom plním hlavne túto rolu."
+            title="Petra Detersová"
+            image={FeaturedPhoto}
+        />
         <div className={cx(styles.memberDetailContactsBox, 'text-center py-5')}>
             <h1>Kontakty</h1>
             <span>
