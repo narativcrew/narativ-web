@@ -1,14 +1,13 @@
 .membersBgBox {
-    background: #F9FAFB;
+    background: #f9fafb;
 }
 
 .memberCard {
     text-align: center;
-    border: 1px solid #E1ECF0;
+    border: 1px solid #e1ecf0;
     border-radius: 10px;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     margin-bottom: 3rem;
-    
 }
 
 .memberCardImg {
@@ -25,5 +24,52 @@
 
 .memberCardText {
     line-height: 30px;
-    opacity: 0.8
+    opacity: 0.8;
 }
+
+.memberDetailTopText {
+    background: linear-gradient(270.32deg, #047af5 0.34%, rgba(23, 135, 252, 0.6) 99.79%);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+}
+
+.memberDetailTopText p:first-of-type{
+    font-weight: 600;
+    font-size: 42px;
+    line-height: 50px;
+    letter-spacing: -1px;
+}
+
+.memberDetailTopText p:nth-of-type(2) {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    /* identical to box height, or 133% */
+    letter-spacing: -0.3px;
+}
+
+.memberDetailTopText p:nth-of-type(3) {
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 30px;
+}
+
+.memberDetailContactsBox {
+    background-color: #F9FAFB;
+    margin-bottom: 1.5rem;
+}
+
+.memberDetailContactsBox span {
+    padding: 0.5rem;
+}
+
+.memberDetailContactsBox i {
+    padding-right: 0.2rem;
+    color: #ff794d;
+}
+
+.noPadding {
+    padding: 0 !important;
+    margin: 0 !important;
+ }
