@@ -10,18 +10,17 @@ const FeaturedBlock = ({ text, title, subtitle, image, background }) => (
             <div className="col-md-6" style={{ background }}>
                 <div className={styles.featuredBlockContent}>
                     <h2>{text}</h2>
-                    {(title || subtitle) &&
+                    {(title || subtitle) && (
                         <div className="d-flex mt-5">
                             <div className={styles.featuredBlockLine}>
                                 <span />
                             </div>
-                            
                             <div className={styles.featuredBlockTexts}>
                                 {title && <h6>{title}</h6>}
                                 {subtitle && <span>{subtitle}</span>}
                             </div>
                         </div>
-                    }
+                    )}
                 </div>
             </div>
             <div
