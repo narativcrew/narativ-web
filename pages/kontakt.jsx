@@ -19,8 +19,8 @@ const Contact = () => (
                 <div className="row">
                     <h1 className={stylesContact.contactHeading}>Napiste nam</h1>
                 </div>
-                <div className="row">
-                    <div className={cx('col-md-8 col-lg-6 offset-md-2 offset-lg-3', stylesContact.contactFormWrapper)}>
+                <div className="row justify-content-center">
+                    <div className={cx('col-md-5', stylesContact.contactFormWrapper)}>
                         <form>
                             <div className={stylesContact.formGroup}>
                                 <label htmlFor="inputName" className={stylesContact.formLabel}>

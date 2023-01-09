@@ -3,6 +3,10 @@ import { useRouter } from 'next/router';
 import cx from 'classnames';
 import styles from 'components/events/events.module.scss';
 import Image from 'next/image';
+import FeaturedBlock from 'components/FeaturedBlock';
+import FeaturedPhoto from 'public/images/placeholders/loek.webp';
+import FeaturedImage from 'components/FeaturedImage';
+import bg from 'public/images/placeholders/loek-wide.webp'
 
 import { BlockButton } from '../../components/Buttons';
 
@@ -12,29 +16,25 @@ const EventDetail = () => {
 
     return (
         <>
-            <div>
-                <div className={cx(styles.eventDetailHeadingBox, 'text-center px-5')}>
-                    <h1>
-                        Dialog: Nástroj pozitivní změny v chování žáků a &ldquo;rozpouštění&rdquo; problémů ve škole
-                    </h1>
-                    <span>(id:{eventId})</span>
-                    <span>
-                        <i className="bi bi-cash-coin" />
-                        3.500,- Kč
-                    </span>
-                    <span>
-                        <i className="bi bi-calendar" />
-                        14.-15.10.2022
-                    </span>
-                    <span>
-                        <i className="bi bi-geo-alt" />
-                        Brno, Královopolská 139 (sál ZŠ Labyrinth)
-                    </span>
-                </div>
+            <FeaturedImage image={bg}/>
+            <div className={cx(styles.eventDetailHeadingBox, 'text-center')}>
+                <h1>Dialog: Nástroj pozitivní změny v chování žáků a &ldquo;rozpouštění&rdquo; problémů ve škole</h1>
+                <span>
+                    <i className="bi bi-cash-coin" />
+                    3.500,- Kč
+                </span>
+                <span>
+                    <i className="bi bi-calendar" />
+                    14.-15.10.2022
+                </span>
+                <span>
+                    <i className="bi bi-geo-alt" />
+                    Brno, Královopolská 139 (sál ZŠ Labyrinth)
+                </span>
             </div>
             <div className="container mt-5">
-                <div className="row">
-                    <div className="col-md-9">
+                <div className="row justify-content-center">
+                    <div className="col-md-8">
                         <h4>Uvod</h4>
                         <p>
                             Skupina Narativ vás srdečně zve na dvoudenní workshop o dialogickém přístupu ve vzdělávání
@@ -58,6 +58,15 @@ const EventDetail = () => {
                             komisi a kariérním systému pedagogických pracovníků, ve znění pozdějších předpisů, jako
                             studium k prohlubování odborné kvalifikace.
                         </p>
+                    </div>
+                </div>
+                <div className="row justify-content-center">
+                    <div className="col-md-3">
+                        <BlockButton>Prihlasit se na kurz</BlockButton>
+                    </div>
+                </div>
+                <div className="row justify-content-center mt-5">
+                    <div className="col-md-8">
                         <h4>Anotace workshopu</h4>
                         <p>
                             Jak můžeme v našich školách a třídách pracovat tak, abychom ovlivňovali chování dětí
@@ -119,16 +128,18 @@ const EventDetail = () => {
                             Na minulý workshop nám Loek na naše přání natočil i krátkou pozvánku – podívat se na ni
                             můžete zde.{' '}
                         </p>
+                    </div>
+                </div>
+            </div>
+            <FeaturedBlock
+                text="Pokud bychom chtěli Loeka charakterizovat jen jedním slovem, bylo by to nejspíš slovo
+                &ldquo;sjednotitel&rdquo;."
+                image={FeaturedPhoto}
+            />
+            <div className="container">
+                <div className="row justify-content-center mt-5">
+                    <div className="col-md-8">
                         <h4>Loek Schoenmakers, Ph.D.</h4>
-                        <figure className="figure float-start mx-3">
-                            <Image
-                                className="figure-img img-fluid rounded"
-                                src="https://static.wixstatic.com/media/32e4a2_3957f03481e04ce3bffdae5665ab99bf~mv2.png/v1/fill/w_200,h_250,fp_0.47_0.27,q_90,usm_0.66_1.00_0.01,enc_auto/32e4a2_3957f03481e04ce3bffdae5665ab99bf~mv2.png"
-                                width={200}
-                                height={250}
-                                alt="Loek Schoenmakers, Ph.D."
-                            />
-                        </figure>
                         <p>
                             Pokud bychom chtěli Loeka charakterizovat jen jedním slovem, bylo by to nejspíš slovo
                             &ldquo;sjednotitel&rdquo;. Ve svém životě, v práci, doma i v zahraničí Loek znovu a znovu
@@ -172,31 +183,6 @@ const EventDetail = () => {
                             odpověď na společenské dění a situace, které jsou doprovázeny omezováním dialogu a
                             spolupráce. Více zde.
                         </p>
-                    </div>
-                    <div className="col-md-3">
-                        <h4>Základní Informace</h4>
-                        <p>
-                            <span className="bold">Termin: </span>14.-15.10.2022
-                        </p>
-                        <p>
-                            <span>Misto: </span>Brno, Královopolská 139 (sál ZŠ Labyrinth)
-                        </p>
-                        <p>
-                            Cena: 3.500,- Kč <br />
-                            (nabízíme hromadné slevy v případě přihlášení vice osob z jené organizace - více info na
-                            e-mailu premysl.ulman@gmail.com) <br />
-                        </p>
-                        <p>
-                            Storno podmínky: <br />
-                            Při zrušení účasti do 9.10.2022 vracíme plnou částku, po tomto datu už platbu nevracíme.
-                        </p>
-                        Časový harmonogram: <br />
-                        <ul>
-                            <li>pátek 14.10. 9:30 - 17:00</li>
-                            <li>sobota 15.10. 9:00 - 16:30</li>
-                        </ul>
-                        <p>Kontakt na organizátory: Přemysl Ulman, premysl.ulman@gmail.com +420 608 900 015</p>
-                        <BlockButton>Přihlásit se na workshop</BlockButton>
                     </div>
                 </div>
             </div>
