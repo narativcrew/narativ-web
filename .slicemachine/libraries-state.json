@@ -1,76 +1,169 @@
 {
-    "slices": {
-        "components": {
-            "intro": {
-                "library": "slices",
-                "id": "intro",
-                "name": "Intro",
-                "description": "Intro",
-                "model": {
-                    "id": "intro",
-                    "type": "SharedSlice",
-                    "name": "Intro",
-                    "description": "Intro",
-                    "variations": [
-                        {
-                            "id": "default",
-                            "name": "Default",
-                            "docURL": "...",
-                            "version": "sktwi1xtmkfgx8626",
-                            "description": "Intro",
-                            "primary": {
-                                "title": {
-                                    "type": "StructuredText",
-                                    "config": {
-                                        "single": "heading1",
-                                        "label": "Title",
-                                        "placeholder": "This is where it all begins..."
-                                    }
-                                },
-                                "description": {
-                                    "type": "StructuredText",
-                                    "config": {
-                                        "single": "paragraph",
-                                        "label": "Description",
-                                        "placeholder": "A nice description of your feature"
-                                    }
-                                }
-                            },
-                            "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format",
-                            "items": {}
-                        }
-                    ]
+  "slices": {
+    "components": {
+      "intro": {
+        "library": "slices",
+        "id": "intro",
+        "name": "Intro",
+        "description": "Intro",
+        "model": {
+          "id": "intro",
+          "type": "SharedSlice",
+          "name": "Intro",
+          "description": "Intro",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "Intro",
+              "primary": {
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "heading1",
+                    "label": "Title",
+                    "placeholder": "This is where it all begins..."
+                  }
                 },
-                "mocks": {
-                    "default": {
-                        "variation": "default",
-                        "version": "sktwi1xtmkfgx8626",
-                        "items": [{}],
-                        "primary": {
-                            "title": [
-                                {
-                                    "type": "heading1",
-                                    "text": "Break",
-                                    "spans": []
-                                }
-                            ],
-                            "description": [
-                                {
-                                    "type": "paragraph",
-                                    "text": "Aliqua occaecat eu excepteur anim et. Dolor sint dolore consectetur est eiusmod. Reprehenderit laborum elit eiusmod aute adipisicing laborum ipsum eiusmod cillum culpa cupidatat quis.",
-                                    "spans": []
-                                }
-                            ]
-                        },
-                        "slice_type": "intro"
-                    }
-                },
-                "meta": {
-                    "fileName": "index",
-                    "extension": "js"
-                },
-                "screenshotPaths": {}
+                "description": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "paragraph",
+                    "label": "Description",
+                    "placeholder": "A nice description of your feature"
+                  }
+                }
+              },
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format",
+              "items": {}
             }
-        }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
+            "primary": {
+              "title": [
+                {
+                  "type": "heading1",
+                  "text": "Break",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Aliqua occaecat eu excepteur anim et. Dolor sint dolore consectetur est eiusmod. Reprehenderit laborum elit eiusmod aute adipisicing laborum ipsum eiusmod cillum culpa cupidatat quis.",
+                  "spans": []
+                }
+              ]
+            },
+            "slice_type": "intro"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
+      },
+      "member_detail": {
+        "library": "slices",
+        "id": "member_detail",
+        "name": "MemberCard",
+        "description": "MemberDetail",
+        "model": {
+          "id": "member_detail",
+          "type": "SharedSlice",
+          "name": "MemberCard",
+          "description": "MemberDetail",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "MemberDetail",
+              "primary": {
+                "member_name": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Member Name",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                },
+                "short_description": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Short Description",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                },
+                "profile_picture": {
+                  "type": "Image",
+                  "config": {
+                    "label": "Profile Picture",
+                    "constraint": {},
+                    "thumbnails": []
+                  }
+                }
+              },
+              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
+            "primary": {
+              "member_name": [
+                {
+                  "type": "paragraph",
+                  "text": "Fugiat ipsum occaecat fugiat exercitation et ipsum.",
+                  "spans": []
+                }
+              ],
+              "short_description": [
+                {
+                  "type": "paragraph",
+                  "text": "Reprehenderit irure est id deserunt dolor irure ex fugiat labore proident proident laboris. Ipsum eiusmod ad magna ullamco officia esse fugiat commodo nisi aliqua cillum nostrud proident anim.",
+                  "spans": []
+                }
+              ],
+              "profile_picture": {
+                "dimensions": {
+                  "width": 900,
+                  "height": 500
+                },
+                "alt": null,
+                "copyright": null,
+                "url": "https://images.unsplash.com/photo-1589652717521-10c0d092dea9"
+              }
+            },
+            "slice_type": "member_detail"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
+      }
     }
+  }
 }

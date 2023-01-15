@@ -1,33 +1,29 @@
 import React from 'react';
+import { SliceZone } from '@prismicio/react'
+import { components } from '../../slices'
+import { createClient } from "../../prismicio";
+
 import PropTypes from 'prop-types';
 import Image from 'next/image';
-import cx from 'classnames';
 import bg from 'public/images/hp-header.jpg';
 import BannerShape2 from 'public/images/banner-shape-2.png';
 
 import stylesHomepage from './homepage.module.scss';
+import HomepageAttribute from './HomepageAttribute';
 
-const Attribute = ({ number, title, description }) => (
-    <div className={cx('col-md-4', 'align-items-center', 'd-flex', stylesHomepage.attributesItem)}>
-        <div className="row">
-            <div className="col-2">
-                <div className={stylesHomepage.attributesNumber}>{number}</div>
-            </div>
-            <div className="col-10">
-                <h3>{title}</h3>
-                <p>{description}</p>
-            </div>
-        </div>
-    </div>
-);
+export async function getStaticProps({ previewData }) {
+    const client = createClient({ previewData });
 
-Attribute.propTypes = {
-    number: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-};
+    const page = await client.getSingle('homepage');
 
-const HomepageHeader = () => (
+    return {
+        props: {
+            page,
+        },
+    };
+}
+
+const HomepageHeader = ({page}) => (
     <div className={stylesHomepage.header}>
         <div className={stylesHomepage.featuredImage} style={{ backgroundImage: `url(${bg.src})` }}>
             <div className="container">
@@ -42,15 +38,7 @@ const HomepageHeader = () => (
                             >
                                 <Image className="floating" src={BannerShape2} alt="image" />
                             </div>
-                            <div className="content">
-                                <h2>Jsme sociální a&nbsp;vztahová platforma</h2>
-                                <p>
-                                    Narativ je vztahová či sociální platforma se záměrem šírit postmo derní praxi v
-                                    České republice a na Slovensku. Slovo Narativ vám může připomínat narativní terapii,
-                                    ale odkazujeme tím spíše na vyprávění příběhů vůbec, které je zásadní pro všechny
-                                    přístupy, které zahrnujeme do postmoderní rodiny.
-                                </p>
-                            </div>
+                            <SliceZone slices={page.data.slices} components={components} />
                         </div>
                     </div>
                 </div>
@@ -60,17 +48,17 @@ const HomepageHeader = () => (
         <div className={stylesHomepage.attributes}>
             <div className="container">
                 <div className="row">
-                    <Attribute
+                    <HomepageAttribute
                         number="01"
                         title="Terapie"
                         description="A team of experts passionate about product management"
                     />
-                    <Attribute
+                    <HomepageAttribute
                         number="02"
                         title="Vzdělávání"
                         description="A team of experts passionate about product management"
                     />
-                    <Attribute
+                    <HomepageAttribute
                         number="03"
                         title="Praxe"
                         description="A team of experts passionate about product management"
@@ -80,5 +68,9 @@ const HomepageHeader = () => (
         </div>
     </div>
 );
+
+HomepageHeader.propTypes = {
+    page: PropTypes.object,
+};
 
 export default HomepageHeader;
