@@ -1,8 +1,19 @@
 {
-    "_cts": {
-        "homepage": {}
+  "_cts": {
+    "homepage": {},
+    "page": {
+      "title": {
+        "config": {
+          "patternType": "HEADING",
+          "blocks": 1
+        }
+      }
     },
-    "slices": {
-        "Intro": {}
+    "footer": {
+      "center_column": {}
     }
+  },
+  "slices": {
+    "Intro": {}
+  }
 }

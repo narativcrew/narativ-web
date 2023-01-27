@@ -1,0 +1,9 @@
+import MyComponent from '../../../../slices/NewsListItem';
+
+export default {
+  title: 'slices/NewsListItem'
+}
+
+
+export const _Default = () => <MyComponent slice={{"variation":"default","version":"sktwi1xtmkfgx8626","items":[{}],"primary":{"title":[{"type":"heading1","text":"Frame","spans":[]}],"body":[{"type":"paragraph","text":"In ea ea fugiat commodo laborum cupidatat labore. Occaecat culpa pariatur mollit culpa velit irure nulla incididunt. Tempor eiusmod aliquip reprehenderit et exercitation anim veniam occaecat.","spans":[]}],"created_at":"2022-02-02"},"slice_type":"news_list_item","id":"_Default"}} />
+_Default.storyName = ''

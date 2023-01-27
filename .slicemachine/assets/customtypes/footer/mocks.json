@@ -1,0 +1,191 @@
+{
+  "id": "mock-doc-id",
+  "url": null,
+  "type": "footer",
+  "href": null,
+  "tags": [],
+  "first_publication_date": "1970-01-01T00:00:01+0000",
+  "last_publication_date": "1970-01-01T00:00:01+0000",
+  "slugs": [],
+  "linked_documents": [],
+  "lang": "en-us",
+  "alternate_languages": [],
+  "data": {
+    "left_column": [
+      {
+        "title": [
+          {
+            "type": "paragraph",
+            "text": "Cupidatat aliqua elit labore non fugiat sunt veniam tempor amet laborum do ad.",
+            "spans": []
+          }
+        ],
+        "link1_label": [
+          {
+            "type": "paragraph",
+            "text": "Do duis commodo sint excepteur officia. Eu consectetur ad qui enim aute esse ad sit officia do culpa nostrud aliqua quis ut. Duis laboris consectetur labore commodo.",
+            "spans": []
+          }
+        ],
+        "link1": {
+          "link_type": "Web",
+          "url": "https://prismic.io"
+        },
+        "link2_label": [
+          {
+            "type": "paragraph",
+            "text": "Ad eiusmod amet in amet aliqua. Ex aliquip minim elit nisi mollit. Ea velit pariatur adipisicing fugiat enim aliquip est laborum elit nulla culpa laboris.",
+            "spans": []
+          }
+        ],
+        "link2": {
+          "link_type": "Web",
+          "url": "http://google.com"
+        },
+        "link3_label": [
+          {
+            "type": "paragraph",
+            "text": "Dolore excepteur esse tempor ea anim. Eiusmod ullamco occaecat veniam dolore ut nostrud excepteur ad aute non aute.",
+            "spans": []
+          }
+        ],
+        "link3": {
+          "link_type": "Web",
+          "url": "https://prismic.io"
+        }
+      }
+    ],
+    "center_column": [
+      {
+        "title": [
+          {
+            "type": "paragraph",
+            "text": "Incididunt incididunt tempor veniam ipsum dolor Lorem tempor magna velit voluptate id. Anim culpa minim laboris in veniam velit officia consequat voluptate cupidatat. Exercitation Lorem quis aute ipsum fugiat aliquip labore dolore aute irure.",
+            "spans": []
+          }
+        ],
+        "link1_label": [
+          {
+            "type": "paragraph",
+            "text": "Dolore officia qui elit sunt sit ipsum.",
+            "spans": []
+          }
+        ],
+        "link1": {
+          "link_type": "Web",
+          "url": "https://prismic.io"
+        },
+        "link2_label": [
+          {
+            "type": "paragraph",
+            "text": "Nisi eiusmod sint minim laborum esse.",
+            "spans": []
+          }
+        ],
+        "link2": {
+          "link_type": "Web",
+          "url": "http://twitter.com"
+        },
+        "link3_label": [
+          {
+            "type": "paragraph",
+            "text": "Proident occaecat occaecat consectetur. Et ut consectetur laborum est labore. Qui incididunt consequat et exercitation nisi laborum occaecat ullamco.",
+            "spans": []
+          }
+        ],
+        "link3": {
+          "link_type": "Web",
+          "url": "http://google.com"
+        },
+        "link4_label": [
+          {
+            "type": "paragraph",
+            "text": "Cillum magna sit dolor irure.",
+            "spans": []
+          }
+        ],
+        "link4": {
+          "link_type": "Web",
+          "url": "http://google.com"
+        },
+        "link5_label": [
+          {
+            "type": "paragraph",
+            "text": "Ullamco deserunt aliquip minim in consequat commodo do reprehenderit. Velit veniam exercitation ea Lorem aute ullamco quis non commodo veniam. Proident ut do ex deserunt ad deserunt.",
+            "spans": []
+          }
+        ],
+        "link5": {
+          "link_type": "Web",
+          "url": "http://twitter.com"
+        }
+      }
+    ],
+    "right_column": [
+      {
+        "title": [
+          {
+            "type": "paragraph",
+            "text": "Ex tempor tempor nulla sint proident magna adipisicing. Qui consectetur eiusmod velit aliquip eiusmod officia dolor.",
+            "spans": []
+          }
+        ],
+        "link1_label": [
+          {
+            "type": "paragraph",
+            "text": "Ullamco qui laboris mollit sunt occaecat ad qui voluptate nostrud nulla labore aliqua. Labore fugiat adipisicing commodo et ea ea ullamco.",
+            "spans": []
+          }
+        ],
+        "link1": {
+          "link_type": "Web",
+          "url": "http://google.com"
+        },
+        "link2_label": [
+          {
+            "type": "paragraph",
+            "text": "Dolor minim labore sit aliquip sunt est et aliquip cillum anim.",
+            "spans": []
+          }
+        ],
+        "link2": {
+          "link_type": "Web",
+          "url": "http://google.com"
+        },
+        "link3_label": [
+          {
+            "type": "paragraph",
+            "text": "Culpa do quis incididunt ullamco excepteur incididunt esse reprehenderit consectetur.",
+            "spans": []
+          }
+        ],
+        "link3": {
+          "link_type": "Web",
+          "url": "https://slicemachine.dev"
+        },
+        "link4_label": [
+          {
+            "type": "paragraph",
+            "text": "Lorem sit excepteur consectetur magna minim elit aliqua est labore ut magna consequat.",
+            "spans": []
+          }
+        ],
+        "link4": {
+          "link_type": "Web",
+          "url": "http://twitter.com"
+        },
+        "link5_label": [
+          {
+            "type": "paragraph",
+            "text": "Eiusmod cillum eiusmod duis sint ut. Incididunt irure in minim consequat deserunt sit officia.",
+            "spans": []
+          }
+        ],
+        "link5": {
+          "link_type": "Web",
+          "url": "https://slicemachine.dev"
+        }
+      }
+    ]
+  }
+}
