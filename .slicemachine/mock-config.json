@@ -1,22 +1,8 @@
 {
-  "_cts": {
-    "homepage": {},
-    "member": {}
-  },
-  "slices": {
-    "Intro": {},
-    "MemberDetail": {},
-    "MemberCard": {
-      "default": {
-        "primary": {
-          "member_name": {
-            "config": {
-              "patternType": "PARAGRAPH",
-              "blocks": 1
-            }
-          }
-        }
-      }
+    "_cts": {
+        "homepage": {}
+    },
+    "slices": {
+        "Intro": {}
     }
-  }
 }

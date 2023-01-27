@@ -1,8 +1,5 @@
 import React from 'react';
 import Head from 'next/head';
-import { SliceZone } from '@prismicio/react'
-import { components } from '../../slices'
-import { createClient } from "../../prismicio";
 import cx from 'classnames';
 import FeaturedBlock from 'components/FeaturedBlock';
 import styles from 'components/members/members.module.css';
@@ -15,20 +12,7 @@ import MemberThumb5 from 'public/images/placeholders/lucia_ukropova.jpeg';
 import MemberThumb6 from 'public/images/placeholders/barbora_petrankova.jpeg';
 import AboutFeaturedImage from 'public/images/placeholders/about-featured.jpg';
 
-export async function getStaticProps({ previewData }) {
-    const client = createClient({ previewData });
-  
-    const members = await client.getAllByType("member");
-  
-    return {
-      props: {
-        members
-      },
-    };
-  }
-  
-
-const Members = ({members}) => (
+const Members = () => (
     <>
         <Head>
             <title>Narativ | Členové Narativu</title>
@@ -60,15 +44,18 @@ const Members = ({members}) => (
             </div>
             <div className="container">
                 <div className="row justify-content-center">
-                {members.length > 0 && (
-                     <>
-                        {members.map((member) => (
-                            <SliceZone slices={member.data.slices} components={components}/>
-                        
-                      ))}
-                     </>
-                )}
-                    {/* <MemberListItem
+                    <MemberListItem
+                        id="1"
+                        title="Petra Detersová"
+                        desc={
+                            <p>
+                                Členkou Narativu som sa stala s kamerou v ruke a doteraz v ňom plním hlavne túto rolu.
+                                Kdesi na začiatku boli diskusné Meganarativy
+                            </p>
+                        }
+                        image={MemberThumb1}
+                    />
+                    <MemberListItem
                         id="1"
                         title="Tatiana Dumbrava"
                         desc={
@@ -124,7 +111,7 @@ const Members = ({members}) => (
                             </p>
                         }
                         image={MemberThumb6}
-                    /> */}
+                    />
                 </div>
             </div>
         </div>
