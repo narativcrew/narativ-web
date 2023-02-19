@@ -360,37 +360,30 @@ export interface FooterDocumentDataRightColumnItem {
  * @typeParam Lang - Language API ID of the document.
  */
 export type FooterDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<FooterDocumentData>, "footer", Lang>;
-/** Content for Homepage Attribute documents */
-interface HomepageAttributeDocumentData {
-    /**
-     * Slice Zone field in *Homepage Attribute*
-     *
-     * - **Field Type**: Slice Zone
-     * - **Placeholder**: *None*
-     * - **API ID Path**: homepage_attribute.slices[]
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
-     *
-     */
-    slices: prismicT.SliceZone<HomepageAttributeDocumentDataSlicesSlice>;
-}
-/**
- * Slice for *Homepage Attribute → Slice Zone*
- *
- */
-type HomepageAttributeDocumentDataSlicesSlice = NarativAttributesSlice;
-/**
- * Homepage Attribute document from Prismic
- *
- * - **API ID**: `homepage_attribute`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type HomepageAttributeDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<HomepageAttributeDocumentData>, "homepage_attribute", Lang>;
 /** Content for Homepage documents */
 interface HomepageDocumentData {
+    /**
+     * Title field in *Homepage*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: homepage.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.RichTextField;
+    /**
+     * Description field in *Homepage*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: homepage.description
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
     /**
      * Slice Zone field in *Homepage*
      *
@@ -418,6 +411,85 @@ type HomepageDocumentDataSlicesSlice = IntroSlice;
  * @typeParam Lang - Language API ID of the document.
  */
 export type HomepageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<HomepageDocumentData>, "homepage", Lang>;
+/** Content for Member documents */
+interface MemberDocumentData {
+    /**
+     * Name field in *Member*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: member.name
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    name: prismicT.RichTextField;
+    /**
+     * Profile photo field in *Member*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: member.profile_photo
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    profile_photo: prismicT.ImageField<never>;
+    /**
+     * Phone number field in *Member*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: member.phone_number
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    phone_number: prismicT.RichTextField;
+    /**
+     * Email field in *Member*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: member.email
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    email: prismicT.RichTextField;
+    /**
+     * Webpage field in *Member*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: member.webpage
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    webpage: prismicT.RichTextField;
+    /**
+     * Description field in *Member*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: member.description
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+}
+/**
+ * Member document from Prismic
+ *
+ * - **API ID**: `member`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type MemberDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<MemberDocumentData>, "member", Lang>;
 /** Content for News documents */
 interface NewsDocumentData {
     /**
@@ -471,7 +543,7 @@ interface PageDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type PageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
-export type AllDocumentTypes = FooterDocument | HomepageAttributeDocument | HomepageDocument | NewsDocument | PageDocument;
+export type AllDocumentTypes = FooterDocument | HomepageDocument | MemberDocument | NewsDocument | PageDocument;
 /**
  * Primary content in Intro → Primary
  *
@@ -526,6 +598,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { FooterDocumentData, FooterDocumentDataLeftColumnItem, FooterDocumentDataCenterColumnItem, FooterDocumentDataRightColumnItem, FooterDocument, HomepageAttributeDocumentData, HomepageAttributeDocumentDataSlicesSlice, HomepageAttributeDocument, HomepageDocumentData, HomepageDocumentDataSlicesSlice, HomepageDocument, NewsDocumentData, NewsDocumentDataSlicesSlice, NewsDocument, PageDocumentData, PageDocument, AllDocumentTypes, IntroSliceDefaultPrimary, IntroSliceDefault, IntroSliceVariation, IntroSlice };
+        export type { FooterDocumentData, FooterDocumentDataLeftColumnItem, FooterDocumentDataCenterColumnItem, FooterDocumentDataRightColumnItem, FooterDocument, HomepageDocumentData, HomepageDocumentDataSlicesSlice, HomepageDocument, MemberDocumentData, MemberDocument, NewsDocumentData, NewsDocumentDataSlicesSlice, NewsDocument, PageDocumentData, PageDocument, AllDocumentTypes, IntroSliceDefaultPrimary, IntroSliceDefault, IntroSliceVariation, IntroSlice };
     }
 }

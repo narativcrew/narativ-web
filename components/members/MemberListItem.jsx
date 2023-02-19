@@ -5,14 +5,15 @@ import { CardButton } from 'components/Buttons';
 import cx from 'classnames';
 
 import styles from './members.module.css';
+import { PrismicRichText } from '@prismicio/react';
 
-const MemberListItem = ({ id, title, desc, image }) => (
+const MemberListItem = ({ id, name, desc, image }) => (
     <div className="col-lg-4 mb-4">
         <div className={cx(styles.memberCard)}>
-            <div className={styles.memberCardImg} style={{ backgroundImage: `url(${image.src})` }} />
+            <div className={styles.memberCardImg} style={{ backgroundImage: `url(${image})` }} />
             <div className={cx('text-start', styles.memberCardContent)}>
-                <h5 className={styles.memberCardTitle}>{title}</h5>
-                <div className={styles.memberCardText}>{desc}</div>
+                <h5 className={styles.memberCardTitle}><PrismicRichText field={name} /></h5>
+                <div className={styles.memberCardText}><PrismicRichText field={desc} /></div>
                 <div className={styles.memberCardButtonWrapper}>
                     <Link href={`/clenove/${id}`}>
                         <CardButton>Vice</CardButton>
@@ -25,11 +26,9 @@ const MemberListItem = ({ id, title, desc, image }) => (
 
 MemberListItem.propTypes = {
     id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     desc: PropTypes.string.isRequired,
-    image: PropTypes.shape({
-        src: PropTypes.string.isRequired,
-    }).isRequired,
+    image: PropTypes.string.isRequired
 };
 
 export default MemberListItem;

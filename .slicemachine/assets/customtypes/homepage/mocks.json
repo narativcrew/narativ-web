@@ -1,16 +1,30 @@
 {
-    "id": "mock-doc-id",
-    "url": null,
-    "type": "homepage",
-    "href": null,
-    "tags": [],
-    "first_publication_date": "1970-01-01T00:00:01+0000",
-    "last_publication_date": "1970-01-01T00:00:01+0000",
-    "slugs": [],
-    "linked_documents": [],
-    "lang": "en-us",
-    "alternate_languages": [],
-    "data": {
-        "slices": []
-    }
+  "id": "mock-doc-id",
+  "url": null,
+  "type": "homepage",
+  "href": null,
+  "tags": [],
+  "first_publication_date": "1970-01-01T00:00:01+0000",
+  "last_publication_date": "1970-01-01T00:00:01+0000",
+  "slugs": [],
+  "linked_documents": [],
+  "lang": "en-us",
+  "alternate_languages": [],
+  "data": {
+    "title": [
+      {
+        "type": "paragraph",
+        "text": "Officia consequat ut aute laboris voluptate excepteur cupidatat excepteur commodo proident. Esse id laborum do enim Lorem esse labore in.",
+        "spans": []
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "text": "Est veniam eiusmod ea cillum pariatur esse et laboris occaecat eiusmod reprehenderit nisi in commodo in.",
+        "spans": []
+      }
+    ],
+    "slices": []
+  }
 }

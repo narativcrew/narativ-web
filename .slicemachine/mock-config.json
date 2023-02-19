@@ -11,7 +11,8 @@
     },
     "footer": {
       "center_column": {}
-    }
+    },
+    "member": {}
   },
   "slices": {
     "Intro": {}

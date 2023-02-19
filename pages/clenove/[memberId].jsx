@@ -2,64 +2,42 @@ import React from 'react';
 import cx from 'classnames';
 import styles from 'components/members/members.module.css';
 import FeaturedBlock from 'components/FeaturedBlock';
-import FeaturedPhoto from 'public/images/placeholders/petra.png';
+import { PrismicRichText } from '@prismicio/react';
+import { createClient } from '../../prismicio';
+import * as prismicH from '@prismicio/helpers';
 
-const MemberDetail = () => (
+const MemberDetail = ({ member }) => (
     <>
         <div className={cx(styles.membersBgBox, 'py-5')}>
             <div className="container mt-5 text-center">
-                <h1>Petra Detersová</h1>
+                <h1><PrismicRichText field={member.data.name}/></h1>
             </div>
         </div>
         <FeaturedBlock
             text="Členkou Narativu som sa stala s kamerou v ruke a doteraz v ňom plním hlavne túto rolu."
             title="Petra Detersová"
-            image={FeaturedPhoto}
+            image={member.data.profile_photo.url}
         />
         <div className={cx(styles.memberDetailContactsBox, 'text-center py-5')}>
             <h1>Kontakty</h1>
             <span>
                 <i className="bi bi-phone" />
-                +420 123 456 678
+                <PrismicRichText field={member.data.phone_number} />
             </span>
             <span>
                 <i className="bi bi-envelope" />
-                petra.detra@narativ.cz
+                <PrismicRichText field={member.data.email}/>
             </span>
             <span>
                 <i className="bi bi-globe" />
-                petradetra.com
+                <PrismicRichText field={member.data.webpage}/>
             </span>
         </div>
         <div>
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-lg-8 col-md-10 col-sm-12">
-                        <p>
-                            Členkou Narativu som sa stala s kamerou v ruke a doteraz v ňom plním hlavne túto rolu. Kdesi
-                            na začiatku boli diskusné Meganarativy v temnom Clubwashi, postupne pribúdali najrôznejšie
-                            workshopy, akcie, konferencie – skrátka stretnutia a dialógy. A ani som si nevšimla a s
-                            Narativom som nielen zrástla, ale aj vyrástla.
-                        </p>
-                        <p>
-                            Vzdelaním som psychologička a žurnalistka, v súčasnej dobe však sedím na stoličke
-                            personalistky. Zatiaľ nemám vlastnú prax a nie som frekventantkou žiadneho výcviku. Možno to
-                            príde neskôr. Prax zbieram predovšetkým v rozhovorch. S kýmkoľvek. Nezabudnuteľnou však pre
-                            mňa bola napríklad sebaskúsenostná skupina s doktorom Dvořáčkom, prax na psychiatrickej
-                            klinike v Bohuniciach v Brne, množstv reflektujúcich tímov, ktoré boli aj predmetom mojej
-                            diplomky a, čo si budeme hovoriť, aj niektoré pracovné pohovory sa občas podobajú skôr
-                            stretnutiam na uzavretom oddelení :)
-                        </p>
-                        <p>
-                            Aj keď stojím často za kamerou, mám šancu dôkladne sa zoznámiť s prístupom toho-ktorého
-                            terapeuta pri spracovávaní videa. Tak tomu bolo s Harlene Anderson, s Rocío Chaveste
-                            Gutiérrez, s Ann-Ritou Gjertzen, Chrisom Kinmanom, Jaakkkom Seikkulom, Sylviou London,
-                            Petrom Roberom, Johnom Shottrom, Justine van Lawick a … pekne sa nám ten zoznam rozrastá.
-                            Každý z nich priniesol do môjho pohľadu na terapiu a život niečo nové, inak nezískateľné. V
-                            Narative sa cítim ako nasávač múdrosti a inšpirácie od celej skupiny, ktorá má v tomto silu
-                            dlhého zástupu profesorov a učebníc. Z tohoto a ďalších dôvodov verím, že Narativ bude trvať
-                            tak dlho, ako svieži dych po žuvačke Winterfresh.
-                        </p>
+                        <PrismicRichText field={member.data.description}/>
                     </div>
                 </div>
             </div>
@@ -68,3 +46,26 @@ const MemberDetail = () => (
 );
 
 export default MemberDetail;
+
+export async function getStaticProps({ params, previewData }) {
+    const client = createClient({ previewData });
+
+    const member = await client.getByUID('member', params.uid);
+
+    return {
+        props: {
+            member,
+        },
+    };
+}
+
+export async function getStaticPaths() {
+    const client = createClient();
+
+    const members = await client.getAllByType('member');
+
+    return {
+        paths: members.map((member) => prismicH.asLink(member)),
+        fallback: false,
+    };
+}
