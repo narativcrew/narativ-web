@@ -1,5 +1,4 @@
 import React from 'react';
-import { createClient } from "../../prismicio";
 
 import PropTypes from 'prop-types';
 import Image from 'next/image';
@@ -10,17 +9,7 @@ import stylesHomepage from './homepage.module.scss';
 import HomepageAttribute from './HomepageAttribute';
 import { PrismicRichText } from '@prismicio/react';
 
-export async function getStaticProps({ previewData }) {
-    const client = createClient({ previewData });
 
-    const page = await client.getSingle('homepage');
-
-    return {
-        props: {
-            intro
-        },
-    };
-}
 
 const HomepageHeader = ({intro}) => (
     <div className={stylesHomepage.header}>
@@ -28,7 +17,6 @@ const HomepageHeader = ({intro}) => (
             <div className="container">
                 <div className="row align-items-center h-100">
                     <div className="col-md-6 offset-md-6">
-                        {intro && (
                         <div className={stylesHomepage.bannerContent}>
                             <div
                                 className="hero-l3-shape-2 d-none d-md-block aos-init aos-animate"
@@ -41,16 +29,15 @@ const HomepageHeader = ({intro}) => (
                             
                                 <div className="content">
                                 <h2>
-                                    {intro.data.title && <PrismicRichText field={intro.data.title} />}
+                                    {intro?.data.title && <PrismicRichText field={intro.data.title} />}
                                 </h2>
                                 <p>
-                                    {intro.data.description && <PrismicRichText field={intro.data.description} />}
+                                    {intro?.data.description && <PrismicRichText field={intro.data.description} />}
                                 </p>
                             </div>
                             
                             
                         </div>
-                        )}
                     </div>
                 </div>
             </div>
