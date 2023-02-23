@@ -59,6 +59,7 @@ const Members = ({members}) => (
                         <>
                             {members.map((member) => (
                                 <MemberListItem
+                                key={member.uid}
                                 id={member.uid}
                                 name={member.data.name}
                                 desc={member.data.description}
