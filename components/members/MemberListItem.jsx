@@ -26,8 +26,8 @@ const MemberListItem = ({ id, name, desc, image }) => (
 
 MemberListItem.propTypes = {
     id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    desc: PropTypes.string.isRequired,
+    name: PropTypes.array.isRequired,
+    desc: PropTypes.array.isRequired,
     image: PropTypes.string.isRequired
 };
 

@@ -47,10 +47,12 @@ const MemberDetail = ({ member }) => (
 
 export default MemberDetail;
 
+//This doesn't seem to be called even though it's done the same way as documented 
+//https://nextjs.org/docs/basic-features/pages
 export async function getStaticProps({ params, previewData }) {
-    const client = createClient({ previewData });
-
-    const member = await client.getByUID('member', params.uid);
+    const client = createClient({previewData});
+    console.log("memberId: " + params.memberId)
+    const member = await client.getByUID('member', params.memberId);
 
     return {
         props: {
@@ -62,10 +64,15 @@ export async function getStaticProps({ params, previewData }) {
 export async function getStaticPaths() {
     const client = createClient();
 
-    const members = await client.getAllByType('member');
+    const members = await client.getAllByType('member');    
+
+    const paths = members.map((member) => ({
+        params: { memberId: member.id },
+      }))
+
 
     return {
-        paths: members.map((member) => prismicH.asLink(member)),
+        paths,
         fallback: false,
     };
 }

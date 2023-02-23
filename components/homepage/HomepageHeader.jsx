@@ -7,7 +7,7 @@ import BannerShape2 from 'public/images/banner-shape-2.png';
 
 import stylesHomepage from './homepage.module.scss';
 import HomepageAttribute from './HomepageAttribute';
-import { PrismicRichText } from '@prismicio/react';
+import { PrismicRichText, PrismicText } from '@prismicio/react';
 
 
 
@@ -29,11 +29,10 @@ const HomepageHeader = ({intro}) => (
                             
                                 <div className="content">
                                 <h2>
-                                    {intro?.data.title && <PrismicRichText field={intro.data.title} />}
+                                    {intro?.data.description && <PrismicText field={intro.data.title} />}
                                 </h2>
-                                <p>
-                                    {intro?.data.description && <PrismicRichText field={intro.data.description} />}
-                                </p>
+                                {intro?.data.description && <PrismicRichText field={intro.data.description} />}
+                                
                             </div>
                             
                             

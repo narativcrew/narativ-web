@@ -365,14 +365,14 @@ interface HomepageDocumentData {
     /**
      * Title field in *Homepage*
      *
-     * - **Field Type**: Rich Text
+     * - **Field Type**: Text
      * - **Placeholder**: *None*
      * - **API ID Path**: homepage.title
      * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
      *
      */
-    title: prismicT.RichTextField;
+    title: prismicT.KeyTextField;
     /**
      * Description field in *Homepage*
      *
