@@ -2,7 +2,7 @@
 const nextConfig = {
     reactStrictMode: true,
     images: {
-        domains: ['static.wixstatic.com'],
+        domains: ['static.wixstatic.com','images.prismic.io'],
     },
 };
 

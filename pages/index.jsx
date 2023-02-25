@@ -6,7 +6,7 @@ import HomepageHeader from '../components/homepage/HomepageHeader';
 import HomepageEvents from '../components/homepage/HomepageEvents';
 import HomepageNews from '../components/homepage/HomepageNews';
 
-const HomePage = ({intro}) => (
+const HomePage = ({intro,events}) => (
     <>
         <Head>
             <title>Narativ</title>
@@ -14,7 +14,7 @@ const HomePage = ({intro}) => (
         </Head>
 
         <HomepageHeader intro={intro}/>
-        <HomepageEvents />
+        <HomepageEvents events={events}/>
         <HomepageNews />
 
     </>
@@ -25,9 +25,11 @@ export default HomePage;
 export async function getStaticProps({ previewData }) {
     const client = createClient({ previewData });
     const intro = await client.getSingle('homepage');
+    const events = await client.getAllByType('event');
     return {
         props: {
-            intro
+            intro,
+            events
         },
     };
 }

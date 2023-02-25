@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import styles from './events.module.scss';
+import { PrismicRichText } from '@prismicio/react';
 
 const EventListItem = ({ id, title, description, image }) => (
     <Link href={`/akce/${id}`} className={styles.event_list__item}>
@@ -11,7 +12,7 @@ const EventListItem = ({ id, title, description, image }) => (
             <Image src={image} fill className={styles.thumb__image} alt={title} />
         </div>
         <h4>{title}</h4>
-        {description}
+        <PrismicRichText field={description} />
     </Link>
 );
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
+import { createClient } from '../../prismicio';
 import styles from 'components/events/events.module.scss';
 import FeaturedBlock from 'components/FeaturedBlock';
 import FeaturedPhoto from 'public/images/placeholders/loek.webp';
@@ -7,23 +8,24 @@ import FeaturedImage from 'components/FeaturedImage';
 import bg from 'public/images/placeholders/loek-wide.webp';
 
 import { BlockButton } from '../../components/Buttons';
+import { PrismicRichText } from '@prismicio/react';
 
-const EventDetail = () => (
+const EventDetail = ({evnt}) => (
     <>
         <FeaturedImage image={bg} />
         <div className={cx(styles.eventDetailHeadingBox, 'text-center')}>
-            <h1>Dialog: Nástroj pozitivní změny v chování žáků a &ldquo;rozpouštění&rdquo; problémů ve škole</h1>
+            <h1>{evnt.data.title}</h1>
             <span>
                 <i className="bi bi-cash-coin" />
-                3.500,- Kč
+                {evnt.data.price},- Kč
             </span>
             <span>
                 <i className="bi bi-calendar" />
-                14.-15.10.2022
+                { data.start_date } - { data.end_date }
             </span>
             <span>
                 <i className="bi bi-geo-alt" />
-                Brno, Královopolská 139 (sál ZŠ Labyrinth)
+                {evnt.data.venue}
             </span>
         </div>
         <div className="container mt-5">
@@ -56,69 +58,14 @@ const EventDetail = () => (
             </div>
             <div className="row justify-content-center">
                 <div className="col-md-3">
+                <PrismicLink  field={evnt.data.registration_link}>
                     <BlockButton>Prihlasit se na kurz</BlockButton>
+                </PrismicLink>
                 </div>
             </div>
             <div className="row justify-content-center mt-5">
                 <div className="col-md-8">
-                    <h4>Anotace workshopu</h4>
-                    <p>
-                        Jak můžeme v našich školách a třídách pracovat tak, abychom ovlivňovali chování dětí žádoucím
-                        směrem? V tomto workshopu se nejprve podíváme, co je na pozadí toho, že se děti ve třídě a škole
-                        chovají určitým způsobem. Poté budeme objevovat nové metody a možnosti, jak posílit pozitivní
-                        chování dětí, ale také jak pracovat s chováním negativním. Existuje spousta možností, co můžeme
-                        dělat, a to jak na individuální, tak skupinové a dokonce i na celoškolní úrovni!
-                    </p>
-                    <p>
-                        Koncept dialogického procesu přináší do školského prostředí možnosti spolupráce mezi pedagogem a
-                        žáky, které jsou pozitivní z pohledu rozvoje kompetencí žáků i interakce mezi pedagogem a
-                        kolektivem žáků, či jednotlivci.
-                    </p>
-                    <p>
-                        Dialogický přístup pozitivně ovlivňuje chování žáků a má své využití i při řešení problémů ve
-                        škole. Podporou vzájemných dobrých vztahů mezi učitelem a žáky a mezi žáky navzájem se navíc
-                        minimalizuje možnost vzniku sociálně patologických jevů, jakým je například tolik obávaná
-                        šikana.
-                    </p>
-                    <h4>Více o kurzu</h4>
-                    Obsah kurzu
-                    <ul>
-                        <li>Sociální konstrukcionismus a dialogická práce v kontextu českého školství</li>
-                        <li>Praktické využití při komunikaci ve školství (dialog s žáky a rodiči na našich školách)</li>
-                        <li>Vlastní cesta k dialogické práci ve školní praxi</li>
-                        <li>Dialog jako cesta k rozpouštění problémů ve škole</li>
-                        <li>Cesty k dialogu ve školním procesu, role pedagoga jako nositele konceptu</li>
-                        <li>Reflexe dialogického procesu v pedagogické praxi</li>
-                    </ul>
-                    <p>
-                        Součástí jsou praktické techniky zaměřené zejména na „rozpouštění“ problémů s dětmi na našich
-                        školách skrze „hlasy“ všech zúčastněných, praktické nápady, metody a techniky, jak podpořit
-                        dialogické procesy ve vzdělávání. Lektor přiblíží některé z konkrétních aktivit, které můžete
-                        při práci s dětmi uplatnit – např. kouzelná hůlka, mluvící kamínek, plážový balon, drama,
-                        miniinterview,…
-                    </p>
-                    Kurz se dotkne těchto témat a myšlenek:
-                    <ul>
-                        <li>Organizování skupinových setkávání s dětmi ve škole a odvaha naslouchat dětem.</li>
-                        <li>Porozumění myšlence, že děti jsou našimi partnery, od kterých se můžeme učit.</li>
-                        <li>Pravidelná skupinová setkání jako nástroj růstu školy, žáků i pedagoga.</li>
-                        <li>Demokratické momenty ve škole v rozvoji kompetencí žáků i pedagogů.</li>
-                        <li>Dialog jako nástroj motivace, cesta k sounáležitosti ale i odpovědnosti.</li>
-                        <li>
-                            Praktické využití a nácvik aktivit s cílem „rozpouštět problémy“ na základě situací běžných
-                            v českém vzdělávacím systému.
-                        </li>
-                        <li>Metodické vedení na cestě k společnému řešení problému skrze spolupráci.</li>
-                        <li>Práce s možnými scénáři na školách, s riziky a benefity.</li>
-                    </ul>
-                    <p>
-                        Krátký záznam z našeho loňského workshopu s Loekem Schoenmakersem „Jak si usnadnit výuku“, který
-                        byl podobný tomu, který nyní chystáme, si můžete pustit zde.
-                    </p>
-                    <p>
-                        Na minulý workshop nám Loek na naše přání natočil i krátkou pozvánku – podívat se na ni můžete
-                        zde.{' '}
-                    </p>
+                    <PrismicRichText field={evnt.data.description} />
                 </div>
             </div>
         </div>
@@ -178,3 +125,31 @@ const EventDetail = () => (
 );
 
 export default EventDetail;
+
+export async function getStaticProps({ params, previewData }) {
+    const client = createClient({previewData});
+    console.log("eventId: " + params.eventId)
+    const evnt = await client.getByUID('event', params.eventId);
+    
+    return {
+        props: {
+            evnt,
+        },
+    };
+}
+
+export async function getStaticPaths() {
+    const client = createClient();
+
+    const events = await client.getAllByType('event');    
+
+    const paths = events.map((e) => ({
+        params: { eventId: e.id },
+      }))
+
+
+    return {
+        paths,
+        fallback: false,
+    };
+}

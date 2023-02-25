@@ -1,0 +1,48 @@
+{
+  "id": "mock-doc-id",
+  "url": null,
+  "type": "event",
+  "href": null,
+  "tags": [],
+  "first_publication_date": "1970-01-01T00:00:01+0000",
+  "last_publication_date": "1970-01-01T00:00:01+0000",
+  "slugs": [],
+  "linked_documents": [],
+  "lang": "en-us",
+  "alternate_languages": [],
+  "data": {
+    "title": "hour",
+    "venue": "fed",
+    "image": {
+      "dimensions": {
+        "width": 900,
+        "height": 500
+      },
+      "alt": null,
+      "copyright": null,
+      "url": "https://images.unsplash.com/photo-1587905069134-008460d7a636"
+    },
+    "price": 6,
+    "description": [
+      {
+        "type": "paragraph",
+        "text": "Aliqua elit excepteur aliquip nostrud enim veniam laborum incididunt cupidatat veniam ut.",
+        "spans": []
+      }
+    ],
+    "registration_link": {
+      "link_type": "Web",
+      "url": "https://prismic.io"
+    },
+    "speakers": [
+      {
+        "speaker": {
+          "link_type": "Web",
+          "url": "http://google.com"
+        }
+      }
+    ],
+    "start_date": "2016-02-01T19:58:00+0000",
+    "end_date": "2019-10-17T20:34:10+0000"
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "id": "event",
+  "label": "Event",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID",
+          "placeholder": ""
+        }
+      },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title",
+          "placeholder": ""
+        }
+      },
+      "venue": {
+        "type": "Text",
+        "config": {
+          "label": "Venue",
+          "placeholder": ""
+        }
+      },
+      "image": {
+        "type": "Image",
+        "config": {
+          "label": "Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "price": {
+        "type": "Number",
+        "config": {
+          "label": "Price",
+          "placeholder": ""
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "registration_link": {
+        "type": "Link",
+        "config": {
+          "label": "Registration link",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "speakers": {
+        "type": "Group",
+        "config": {
+          "label": "Speakers",
+          "fields": {
+            "speaker": {
+              "type": "Link",
+              "config": {
+                "label": "Speaker",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "start_date": {
+        "type": "Timestamp",
+        "config": {
+          "label": "Start date",
+          "placeholder": ""
+        }
+      },
+      "end_date": {
+        "type": "Timestamp",
+        "config": {
+          "label": "End date",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

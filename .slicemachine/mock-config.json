@@ -12,7 +12,11 @@
     "footer": {
       "center_column": {}
     },
-    "member": {}
+    "member": {},
+    "event": {
+      "speakers": {}
+    },
+    "speaker": {}
   },
   "slices": {
     "Intro": {}

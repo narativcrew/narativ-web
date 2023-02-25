@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import { createClient } from "../../prismicio";
 import FeaturedImage from 'components/FeaturedImage';
 import { EventListItem } from 'components/events';
 import { BlockButton } from 'components/Buttons';
@@ -7,7 +8,7 @@ import stylesEvents from 'components/events/events.module.scss';
 import bg from 'public/images/events-featured-image.jpg';
 import EventThumb from 'public/images/placeholders/office.jpg';
 
-const Events = () => (
+const Events = ({ events }) => (
     <>
         <Head>
             <title>Narativ | Akce</title>
@@ -25,21 +26,23 @@ const Events = () => (
                 </div>
 
                 <div className="row">
-                    <div className="col-md-6">
-                        <EventListItem
-                            id="1"
-                            title="Úvod do teorie a praxe Otevřeného dialogu"
-                            description={
-                                <p>
-                                    Termín: 3.-4. 3. 2022 (vždy 9:00 – 16:30),
-                                    <br />
-                                    Rozsah: 16 výukových hodin; Cena: 3.200,- Kč
-                                </p>
-                            }
-                            image={EventThumb}
-                        />
-                    </div>
-                    <div className="col-md-6">
+                    {events.length > 0 && (
+                        <>
+                            {events.map((e) => (
+                            <div className="col-md-6"   >
+                                <EventListItem
+                                    key={e.uid}
+                                    id={e.uid}
+                                    title={e.data.title}
+                                    description={e.data.description}
+                                    image={e.data.image.url}
+                                />
+                            </div>
+                            ))}
+                        </>
+                    )}
+
+                    {/* <div className="col-md-6">
                         <EventListItem
                             id="2"
                             title="Úvod do teorie a praxe Otevřeného dialogu"
@@ -60,8 +63,8 @@ const Events = () => (
                             }
                             image={EventThumb}
                         />
-                    </div>
-                    <div className="col-md-6">
+                    </div> */}
+                    {/* <div className="col-md-6">
                         <EventListItem
                             id="4"
                             title="Úvod do teorie a praxe Otevřeného dialogu"
@@ -74,7 +77,7 @@ const Events = () => (
                             }
                             image={EventThumb}
                         />
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="row">
@@ -88,3 +91,14 @@ const Events = () => (
 );
 
 export default Events;
+
+export async function getStaticProps({ previewData }) {
+    const client = createClient({ previewData });
+
+    const events = await client.getAllByType('event');
+    console.log(events)
+    console.log(events[0].data.image)
+    return {
+        props: { events },
+    };
+}
