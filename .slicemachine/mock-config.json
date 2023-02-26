@@ -16,7 +16,13 @@
     "event": {
       "speakers": {}
     },
-    "speaker": {}
+    "speaker": {},
+    "news": {},
+    "members_top_banner": {},
+    "homepage_attribute": {},
+    "footer_column_left": {},
+    "footer_column_center": {},
+    "footer_column_right": {}
   },
   "slices": {
     "Intro": {}

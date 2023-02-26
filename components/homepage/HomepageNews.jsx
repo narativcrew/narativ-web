@@ -6,7 +6,7 @@ import NewsListItem from 'components/news/NewsListItem';
 
 import stylesHomepage from './homepage.module.scss';
 
-const HomepageNews = () => (
+const HomepageNews = ({news}) => (
     <div className={cx('mt-5 py-5', stylesHomepage.newsBox)}>
         <div className="container">
             <div className="row">
@@ -15,22 +15,22 @@ const HomepageNews = () => (
                 </div>
             </div>
             <div className="row">
-                <div className="col-md-12">
-                    <NewsListItem
-                        id="1"
-                        title="Nová studie potvrzuje pozitivní vliv empatie na vztahy"
-                        description={
-                            <p>
-                                Vědci z University of Cambridge zveřejnili výsledky studie, která potvrzuje pozitivní
-                                vliv empatie na vztahy mezi lidmi. Empatie, tedy schopnost vcítit se do pocitů a
-                                prožitků druhé osoby, byla spojena s lepšími komunikačními dovednostmi, vyšší mírou
-                                důvěry a nižší mírou konfliktů v rámci vztahu. Výzkumníci doporučují zaměřit se na
-                                rozvoj empatie při práci s klienty v rámci terapie nebo poradenství.
-                            </p>
-                        }
-                    />
-                </div>
-                <div className="col-md-12">
+                    {news.length > 0 && (
+                            <>
+                                {news.map((n) => (
+                                    <div className="col-md-12">
+                                        <NewsListItem
+                                            id={n.uid}
+                                            publicationDate={n.last_publication_date}
+                                            title={n.data.title}
+                                            description={n.data.description}
+                                        />
+                                    </div>
+                                ))}
+                            </>
+                        )}
+                    
+                {/* <div className="col-md-12">
                     <NewsListItem
                         id="2"
                         title="Výzkum prokazuje účinnost mindfulness při zmírňování stresu"
@@ -59,7 +59,7 @@ const HomepageNews = () => (
                             </p>
                         }
                     />
-                </div>
+                </div> */}
             </div>
             <div className="row">
                 <div className="col-md-6 offset-md-6 text-center">

@@ -13,9 +13,16 @@
         }
       },
       "name": {
-        "type": "StructuredText",
+        "type": "Text",
         "config": {
           "label": "Name",
+          "placeholder": ""
+        }
+      },
+      "motto": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Motto",
           "placeholder": "",
           "allowTargetBlank": true,
           "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
@@ -30,30 +37,24 @@
         }
       },
       "phone_number": {
-        "type": "StructuredText",
+        "type": "Text",
         "config": {
           "label": "Phone number",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          "placeholder": ""
         }
       },
       "email": {
-        "type": "StructuredText",
+        "type": "Text",
         "config": {
           "label": "Email",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          "placeholder": ""
         }
       },
       "webpage": {
-        "type": "StructuredText",
+        "type": "Text",
         "config": {
           "label": "Webpage",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          "placeholder": ""
         }
       },
       "description": {

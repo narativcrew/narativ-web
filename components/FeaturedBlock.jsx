@@ -3,29 +3,19 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 import styles from './components.module.scss';
+import { PrismicRichText } from '@prismicio/react';
 
-const FeaturedBlock = ({ text, title, subtitle, image, background }) => (
+const FeaturedBlock = ({ text, image, background }) => (
     <div className="container-fluid">
         <div className="row">
             <div className="col-md-6" style={{ background }}>
                 <div className={styles.featuredBlockContent}>
-                    <h2>{text}</h2>
-                    {(title || subtitle) && (
-                        <div className="d-flex mt-5">
-                            <div className={styles.featuredBlockLine}>
-                                <span />
-                            </div>
-                            <div className={styles.featuredBlockTexts}>
-                                {title && <h6>{title}</h6>}
-                                {subtitle && <span>{subtitle}</span>}
-                            </div>
-                        </div>
-                    )}
+                    <PrismicRichText field={text}/>
                 </div>
             </div>
             <div
                 className={cx('col-md-6', styles.featuredBlockImage)}
-                style={{ backgroundImage: `url(${image.src})` }}
+                style={{ backgroundImage: `url(${image})` }}
             />
         </div>
     </div>

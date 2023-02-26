@@ -1,15 +1,16 @@
 import React from 'react';
 import { createClient } from '../../prismicio';
+import * as prismic from "@prismicio/client"
 import Head from 'next/head';
 import cx from 'classnames';
 import FeaturedBlock from 'components/FeaturedBlock';
 import styles from 'components/members/members.module.css';
 import { MemberListItem } from 'components/members';
 
-const Members = ({ members, banner }) => (
+const ContactTeam = ({ members }) => (
     <>
         <Head>
-            <title>Narativ | Členové Narativu</title>
+            <title>Narativ | Kontaktní tým</title>
             <meta property="og:title" content="Narativ | Členové Narativu" key="title" />
         </Head>
         <div className="container">
@@ -24,15 +25,9 @@ const Members = ({ members, banner }) => (
             </div>
         </div>
 
-        <FeaturedBlock
-            text={banner.data.description}
-            image={banner.data.image.url}
-            background="#FF794D"
-        />
-
         <div className={cx(styles.membersBgBox, 'py-5')}>
             <div className="container my-5 text-center">
-                <h1>Členové Narativu</h1>
+                <h1>Kontaktní tým</h1>
             </div>
             <div className="container">
                 <div className="row justify-content-center">
@@ -55,14 +50,18 @@ const Members = ({ members, banner }) => (
     </>
 );
 
-export default Members;
+export default ContactTeam;
 
 export async function getStaticProps({ previewData }) {
     const client = createClient({ previewData });
 
-    const members = await client.getAllByType('member');
-    const banner = await client.getSingle('members_top_banner');
+    const members = await client.getAllByType('member', {
+        predicates : [
+            prismic.predicate.at( "document.tags", ["kontaktni_tym"])
+        ]
+    });
+    console.log(members);
     return {
-        props: { members, banner },
+        props: { members },
     };
 }

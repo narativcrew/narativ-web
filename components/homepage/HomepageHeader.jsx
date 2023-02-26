@@ -7,13 +7,13 @@ import BannerShape2 from 'public/images/banner-shape-2.png';
 
 import stylesHomepage from './homepage.module.scss';
 import HomepageAttribute from './HomepageAttribute';
-import { PrismicRichText, PrismicText } from '@prismicio/react';
+import { PrismicRichText } from '@prismicio/react';
 
 
 
-const HomepageHeader = ({intro}) => (
+const HomepageHeader = ({intro, attributes}) => (
     <div className={stylesHomepage.header}>
-        <div className={stylesHomepage.featuredImage} style={{ backgroundImage: `url(${bg.src})` }}>
+        <div className={stylesHomepage.featuredImage} style={{ backgroundImage: `url(${intro.data.image.url})` }}>
             <div className="container">
                 <div className="row align-items-center h-100">
                     <div className="col-md-6 offset-md-6">
@@ -29,7 +29,7 @@ const HomepageHeader = ({intro}) => (
                             
                                 <div className="content">
                                 <h2>
-                                    {intro?.data.description && <PrismicText field={intro.data.title} />}
+                                    {intro.data.title}
                                 </h2>
                                 {intro?.data.description && <PrismicRichText field={intro.data.description} />}
                                 
@@ -45,21 +45,16 @@ const HomepageHeader = ({intro}) => (
         <div className={stylesHomepage.attributes}>
             <div className="container">
                 <div className="row">
-                    <HomepageAttribute
-                        number="01"
-                        title="Terapie"
-                        description="A team of experts passionate about product management"
-                    />
-                    <HomepageAttribute
-                        number="02"
-                        title="Vzdělávání"
-                        description="A team of experts passionate about product management"
-                    />
-                    <HomepageAttribute
-                        number="03"
-                        title="Praxe"
-                        description="A team of experts passionate about product management"
-                    />
+                    {attributes.length > 0 && (
+                        attributes.map((attr) => (
+                            <HomepageAttribute
+                                key={attr.data.label}
+                                label={attr.data.label}
+                                title={attr.data.title}
+                                description={attr.data.description}
+                            />
+                        ))
+                    )}
                 </div>
             </div>
         </div>
@@ -68,6 +63,7 @@ const HomepageHeader = ({intro}) => (
 
 HomepageHeader.propTypes = {
     intro: PropTypes.object,
+    attributes: PropTypes.object
 };
 
 export default HomepageHeader;

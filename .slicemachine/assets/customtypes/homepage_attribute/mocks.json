@@ -1,7 +1,7 @@
 {
   "id": "mock-doc-id",
   "url": null,
-  "type": "homepage",
+  "type": "homepage_attribute",
   "href": null,
   "tags": [],
   "first_publication_date": "1970-01-01T00:00:01+0000",
@@ -11,23 +11,15 @@
   "lang": "en-us",
   "alternate_languages": [],
   "data": {
-    "title": "best",
+    "label": "river",
+    "title": "feathers",
     "description": [
       {
         "type": "paragraph",
-        "text": "Officia ipsum ex consectetur Lorem sint non magna quis voluptate sit.",
+        "text": "Ut quis sit velit cupidatat eiusmod.",
         "spans": []
       }
     ],
-    "image": {
-      "dimensions": {
-        "width": 900,
-        "height": 500
-      },
-      "alt": null,
-      "copyright": null,
-      "url": "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1"
-    },
-    "slices": []
+    "order": 18
   }
 }

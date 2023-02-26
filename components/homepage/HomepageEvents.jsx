@@ -1,9 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import EventThumb from 'public/images/placeholders/office.jpg';
-import MindfulnessImg from 'public/images/placeholders/mindfulness.jpg';
-import Conversation from 'public/images/placeholders/conversation.jpg';
-import Relationship from 'public/images/placeholders/relationship.jpg';
 import stylesEvents from 'components/events/events.module.scss';
 import { EventListItem } from 'components/events';
 import { BlockButton } from 'components/Buttons';
@@ -33,6 +29,9 @@ const HomepageEvents = ({ events }) => (
                                 key={e.uid}
                                 id={e.uid}
                                 title={e.data.title}
+                                startDate={e.data.start_date}
+                                endDate={e.data.end_date}
+                                venue={e.data.venue}
                                 description={e.data.description}
                                 image={e.data.image.url}
                             />

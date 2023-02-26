@@ -6,7 +6,6 @@ import { EventListItem } from 'components/events';
 import { BlockButton } from 'components/Buttons';
 import stylesEvents from 'components/events/events.module.scss';
 import bg from 'public/images/events-featured-image.jpg';
-import EventThumb from 'public/images/placeholders/office.jpg';
 
 const Events = ({ events }) => (
     <>
@@ -34,6 +33,9 @@ const Events = ({ events }) => (
                                     key={e.uid}
                                     id={e.uid}
                                     title={e.data.title}
+                                    startDate={e.data.start_date}
+                                    endDate={e.data.end_date}
+                                    venue={e.data.venue}
                                     description={e.data.description}
                                     image={e.data.image.url}
                                 />
@@ -42,42 +44,6 @@ const Events = ({ events }) => (
                         </>
                     )}
 
-                    {/* <div className="col-md-6">
-                        <EventListItem
-                            id="2"
-                            title="Úvod do teorie a praxe Otevřeného dialogu"
-                            description={<p>Termín: 3.-4. 3. 2022 (vždy 9:00 – 16:30)</p>}
-                            image={EventThumb}
-                        />
-                    </div>
-                    <div className="col-md-6">
-                        <EventListItem
-                            id="3"
-                            title="Úvod do teorie a praxe Otevřeného dialogu"
-                            description={
-                                <p>
-                                    Termín: 3.-4. 3. 2022 (vždy 9:00 – 16:30),
-                                    <br />
-                                    Rozsah: 16 výukových hodin; Cena: 3.200,- Kč
-                                </p>
-                            }
-                            image={EventThumb}
-                        />
-                    </div> */}
-                    {/* <div className="col-md-6">
-                        <EventListItem
-                            id="4"
-                            title="Úvod do teorie a praxe Otevřeného dialogu"
-                            description={
-                                <p>
-                                    Termín: 3.-4. 3. 2022 (vždy 9:00 – 16:30),
-                                    <br />
-                                    Rozsah: 16 výukových hodin; Cena: 3.200,- Kč
-                                </p>
-                            }
-                            image={EventThumb}
-                        />
-                    </div> */}
                 </div>
 
                 <div className="row">
@@ -95,7 +61,11 @@ export default Events;
 export async function getStaticProps({ previewData }) {
     const client = createClient({ previewData });
 
-    const events = await client.getAllByType('event');
+    const events = await client.getAllByType('event', {
+        orderings: [
+            {field :"document.data.start_date", direction: "asc"}
+        ]
+    });
     console.log(events)
     console.log(events[0].data.image)
     return {

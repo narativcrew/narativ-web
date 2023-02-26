@@ -11,10 +11,11 @@
   "lang": "en-us",
   "alternate_languages": [],
   "data": {
-    "name": [
+    "name": "zero",
+    "motto": [
       {
         "type": "paragraph",
-        "text": "Id velit amet elit dolore elit amet tempor commodo dolor duis. Anim amet nulla laboris irure.",
+        "text": "Est anim sit non. Voluptate mollit cillum ea occaecat magna officia ea do amet non nisi ex ad est proident.",
         "spans": []
       }
     ],
@@ -25,33 +26,15 @@
       },
       "alt": null,
       "copyright": null,
-      "url": "https://images.unsplash.com/photo-1596195689404-24d8a8d1c6ea"
+      "url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2"
     },
-    "phone_number": [
-      {
-        "type": "paragraph",
-        "text": "In sit ut enim ea velit occaecat magna in exercitation. Eu id nulla enim ex dolore commodo irure fugiat do excepteur irure.",
-        "spans": []
-      }
-    ],
-    "email": [
-      {
-        "type": "paragraph",
-        "text": "Cupidatat aute enim dolor ipsum voluptate nulla minim commodo nostrud dolor mollit nostrud amet enim.",
-        "spans": []
-      }
-    ],
-    "webpage": [
-      {
-        "type": "paragraph",
-        "text": "Ipsum aliquip pariatur magna labore veniam cillum exercitation. Deserunt veniam cupidatat fugiat laborum nostrud id consectetur amet ullamco aliquip ex quis ullamco.",
-        "spans": []
-      }
-    ],
+    "phone_number": "smell",
+    "email": "matter",
+    "webpage": "whole",
     "description": [
       {
         "type": "paragraph",
-        "text": "Enim irure exercitation irure consequat eiusmod Lorem sit consequat. Aliqua duis officia ea ex consectetur ad.",
+        "text": "Qui nulla excepteur cillum esse qui occaecat.",
         "spans": []
       }
     ]

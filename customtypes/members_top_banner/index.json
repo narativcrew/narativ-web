@@ -1,22 +1,16 @@
 {
-  "id": "news",
-  "label": "News",
-  "repeatable": true,
+  "id": "members_top_banner",
+  "label": "Members Top Banner",
+  "repeatable": false,
   "status": true,
   "json": {
     "Main": {
-      "uid": {
-        "type": "UID",
+      "image": {
+        "type": "Image",
         "config": {
-          "label": "Uid",
-          "placeholder": ""
-        }
-      },
-      "title": {
-        "type": "Text",
-        "config": {
-          "label": "Title",
-          "placeholder": ""
+          "label": "Image",
+          "constraint": {},
+          "thumbnails": []
         }
       },
       "description": {

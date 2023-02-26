@@ -4,33 +4,32 @@ import styles from 'components/members/members.module.css';
 import FeaturedBlock from 'components/FeaturedBlock';
 import { PrismicRichText } from '@prismicio/react';
 import { createClient } from '../../prismicio';
-import * as prismicH from '@prismicio/helpers';
 
 const MemberDetail = ({ member }) => (
     <>
         <div className={cx(styles.membersBgBox, 'py-5')}>
             <div className="container mt-5 text-center">
-                <h1><PrismicRichText field={member.data.name}/></h1>
+                <h1>{member.data.name}</h1>
             </div>
         </div>
         <FeaturedBlock
-            text="Členkou Narativu som sa stala s kamerou v ruke a doteraz v ňom plním hlavne túto rolu."
-            title="Petra Detersová"
+            text={member.data.motto}
+            title={member.data.name}
             image={member.data.profile_photo.url}
         />
         <div className={cx(styles.memberDetailContactsBox, 'text-center py-5')}>
             <h1>Kontakty</h1>
             <span>
                 <i className="bi bi-phone" />
-                <PrismicRichText field={member.data.phone_number} />
+                {member.data.phone_number}
             </span>
             <span>
                 <i className="bi bi-envelope" />
-                <PrismicRichText field={member.data.email}/>
+                {member.data.email}
             </span>
             <span>
                 <i className="bi bi-globe" />
-                <PrismicRichText field={member.data.webpage}/>
+                {member.data.webpage}
             </span>
         </div>
         <div>
@@ -52,8 +51,8 @@ export default MemberDetail;
 export async function getStaticProps({ params, previewData }) {
     const client = createClient({previewData});
     console.log("memberId: " + params.memberId)
-    const member = await client.getByUID('member', params.memberId);
-
+    const member = await client.getByUID("member", params.memberId);
+    console.log(member);
     return {
         props: {
             member,
@@ -67,9 +66,10 @@ export async function getStaticPaths() {
     const members = await client.getAllByType('member');    
 
     const paths = members.map((member) => ({
-        params: { memberId: member.id },
+        params: { memberId: member.uid },
       }))
 
+    console.log(paths)
 
     return {
         paths,

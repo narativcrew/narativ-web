@@ -12,7 +12,7 @@ const MemberListItem = ({ id, name, desc, image }) => (
         <div className={cx(styles.memberCard)}>
             <div className={styles.memberCardImg} style={{ backgroundImage: `url(${image})` }} />
             <div className={cx('text-start', styles.memberCardContent)}>
-                <h5 className={styles.memberCardTitle}><PrismicRichText field={name} /></h5>
+                <h5 className={styles.memberCardTitle}>{name}</h5>
                 <div className={styles.memberCardText}><PrismicRichText field={desc} /></div>
                 <div className={styles.memberCardButtonWrapper}>
                     <Link href={`/clenove/${id}`}>

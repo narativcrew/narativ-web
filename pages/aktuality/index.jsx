@@ -1,12 +1,13 @@
 import React from 'react';
 import Head from 'next/head';
+import { createClient } from "../../prismicio";
 import FeaturedImage from 'components/FeaturedImage';
 import styles from 'components/news/news.module.css';
 import { NewsListItem } from 'components/news';
 import { BlockButton } from 'components/Buttons';
 import bg from 'public/images/news-featured-image.jpg';
 
-const News = () => (
+const News = ({news}) => (
     <>
         <Head>
             <title>Narativ | Aktuality</title>
@@ -17,7 +18,19 @@ const News = () => (
         <div className={styles.newsBox}>
             <div className="container py-5 mt-6">
                 <h1>Aktuality</h1>
-                <NewsListItem
+                {news.length > 0 && (
+                        <>
+                            {news.map((n) => (
+                                <NewsListItem
+                                id={n.uid}
+                                publicationDate={n.last_publication_date}
+                                title={n.data.title}
+                                description={n.data.description}
+                            />
+                            ))}
+                        </>
+                    )}
+                {/* <NewsListItem
                     id="1"
                     title="Výroční zpráva za rok 2020"
                     description={<p>Zveřejňujeme výroční zprávu za rok 2020.</p>}
@@ -43,7 +56,7 @@ const News = () => (
                             materiálu. Možná jste to zaregistrovali, z některých akcí vznikla i DVDs.
                         </p>
                     }
-                />
+                /> */}
                 <div className="row">
                     <div className="col-md-6 offset-md-3 text-center">
                         <BlockButton>Zobrazit další aktuality</BlockButton>
@@ -55,3 +68,17 @@ const News = () => (
 );
 
 export default News;
+
+export async function getStaticProps({ previewData }) {
+    const client = createClient({ previewData });
+
+    const news = await client.getAllByType('news', {
+        orderings: [
+            { field: "document.last_publication_date", direction: "desc" },
+          ],
+    });
+    console.log(news)
+    return {
+        props: { news },
+    };
+}

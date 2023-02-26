@@ -1,0 +1,27 @@
+{
+  "id": "mock-doc-id",
+  "url": null,
+  "type": "footer_column_center",
+  "href": null,
+  "tags": [],
+  "first_publication_date": "1970-01-01T00:00:01+0000",
+  "last_publication_date": "1970-01-01T00:00:01+0000",
+  "slugs": [],
+  "linked_documents": [],
+  "lang": "en-us",
+  "alternate_languages": [],
+  "data": {
+    "title": "observe",
+    "items": [
+      {
+        "item": [
+          {
+            "type": "paragraph",
+            "text": "Ex voluptate reprehenderit velit nulla. Do consectetur velit eiusmod esse sit esse ipsum enim. Reprehenderit laborum culpa occaecat laborum ex veniam anim non dolore.",
+            "spans": []
+          }
+        ]
+      }
+    ]
+  }
+}

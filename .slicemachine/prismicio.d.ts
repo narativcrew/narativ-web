@@ -134,6 +134,159 @@ export interface EventDocumentDataSpeakersItem {
  * @typeParam Lang - Language API ID of the document.
  */
 export type EventDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<EventDocumentData>, "event", Lang>;
+/** Content for Footer Column Center documents */
+interface FooterColumnCenterDocumentData {
+    /**
+     * Title field in *Footer Column Center*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: footer_column_center.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+    /**
+     * Items field in *Footer Column Center*
+     *
+     * - **Field Type**: Group
+     * - **Placeholder**: *None*
+     * - **API ID Path**: footer_column_center.items[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/group
+     *
+     */
+    items: prismicT.GroupField<Simplify<FooterColumnCenterDocumentDataItemsItem>>;
+}
+/**
+ * Item in Footer Column Center → Items
+ *
+ */
+export interface FooterColumnCenterDocumentDataItemsItem {
+    /**
+     * Item field in *Footer Column Center → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: footer_column_center.items[].item
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    item: prismicT.RichTextField;
+}
+/**
+ * Footer Column Center document from Prismic
+ *
+ * - **API ID**: `footer_column_center`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterColumnCenterDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<FooterColumnCenterDocumentData>, "footer_column_center", Lang>;
+/** Content for Footer Column Left documents */
+interface FooterColumnLeftDocumentData {
+    /**
+     * Title field in *Footer Column Left*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: footer_column_left.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+    /**
+     * Items field in *Footer Column Left*
+     *
+     * - **Field Type**: Group
+     * - **Placeholder**: *None*
+     * - **API ID Path**: footer_column_left.items[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/group
+     *
+     */
+    items: prismicT.GroupField<Simplify<FooterColumnLeftDocumentDataItemsItem>>;
+}
+/**
+ * Item in Footer Column Left → Items
+ *
+ */
+export interface FooterColumnLeftDocumentDataItemsItem {
+    /**
+     * Item field in *Footer Column Left → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: footer_column_left.items[].item
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    item: prismicT.RichTextField;
+}
+/**
+ * Footer Column Left document from Prismic
+ *
+ * - **API ID**: `footer_column_left`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterColumnLeftDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<FooterColumnLeftDocumentData>, "footer_column_left", Lang>;
+/** Content for Footer Column Right documents */
+interface FooterColumnRightDocumentData {
+    /**
+     * Title field in *Footer Column Right*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: footer_column_right.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+    /**
+     * Items field in *Footer Column Right*
+     *
+     * - **Field Type**: Group
+     * - **Placeholder**: *None*
+     * - **API ID Path**: footer_column_right.items[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/group
+     *
+     */
+    items: prismicT.GroupField<Simplify<FooterColumnRightDocumentDataItemsItem>>;
+}
+/**
+ * Item in Footer Column Right → Items
+ *
+ */
+export interface FooterColumnRightDocumentDataItemsItem {
+    /**
+     * Item field in *Footer Column Right → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: footer_column_right.items[].item
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    item: prismicT.RichTextField;
+}
+/**
+ * Footer Column Right document from Prismic
+ *
+ * - **API ID**: `footer_column_right`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterColumnRightDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<FooterColumnRightDocumentData>, "footer_column_right", Lang>;
 /** Content for Footer documents */
 interface FooterDocumentData {
     /**
@@ -488,6 +641,63 @@ export interface FooterDocumentDataRightColumnItem {
  * @typeParam Lang - Language API ID of the document.
  */
 export type FooterDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<FooterDocumentData>, "footer", Lang>;
+/** Content for Homepage Attribute documents */
+interface HomepageAttributeDocumentData {
+    /**
+     * Label field in *Homepage Attribute*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: homepage_attribute.label
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    label: prismicT.KeyTextField;
+    /**
+     * Title field in *Homepage Attribute*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: homepage_attribute.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+    /**
+     * Description field in *Homepage Attribute*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: homepage_attribute.description
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+    /**
+     * Order field in *Homepage Attribute*
+     *
+     * - **Field Type**: Number
+     * - **Placeholder**: *None*
+     * - **API ID Path**: homepage_attribute.order
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/number
+     *
+     */
+    order: prismicT.NumberField;
+}
+/**
+ * Homepage Attribute document from Prismic
+ *
+ * - **API ID**: `homepage_attribute`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type HomepageAttributeDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<HomepageAttributeDocumentData>, "homepage_attribute", Lang>;
 /** Content for Homepage documents */
 interface HomepageDocumentData {
     /**
@@ -512,6 +722,17 @@ interface HomepageDocumentData {
      *
      */
     description: prismicT.RichTextField;
+    /**
+     * Image field in *Homepage*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: homepage.image
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    image: prismicT.ImageField<never>;
     /**
      * Slice Zone field in *Homepage*
      *
@@ -544,14 +765,25 @@ interface MemberDocumentData {
     /**
      * Name field in *Member*
      *
-     * - **Field Type**: Rich Text
+     * - **Field Type**: Text
      * - **Placeholder**: *None*
      * - **API ID Path**: member.name
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    name: prismicT.KeyTextField;
+    /**
+     * Motto field in *Member*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: member.motto
      * - **Tab**: Main
      * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    name: prismicT.RichTextField;
+    motto: prismicT.RichTextField;
     /**
      * Profile photo field in *Member*
      *
@@ -566,36 +798,36 @@ interface MemberDocumentData {
     /**
      * Phone number field in *Member*
      *
-     * - **Field Type**: Rich Text
+     * - **Field Type**: Text
      * - **Placeholder**: *None*
      * - **API ID Path**: member.phone_number
      * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
      *
      */
-    phone_number: prismicT.RichTextField;
+    phone_number: prismicT.KeyTextField;
     /**
      * Email field in *Member*
      *
-     * - **Field Type**: Rich Text
+     * - **Field Type**: Text
      * - **Placeholder**: *None*
      * - **API ID Path**: member.email
      * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
      *
      */
-    email: prismicT.RichTextField;
+    email: prismicT.KeyTextField;
     /**
      * Webpage field in *Member*
      *
-     * - **Field Type**: Rich Text
+     * - **Field Type**: Text
      * - **Placeholder**: *None*
      * - **API ID Path**: member.webpage
      * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
      *
      */
-    webpage: prismicT.RichTextField;
+    webpage: prismicT.KeyTextField;
     /**
      * Description field in *Member*
      *
@@ -618,25 +850,66 @@ interface MemberDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type MemberDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<MemberDocumentData>, "member", Lang>;
+/** Content for Members Top Banner documents */
+interface MembersTopBannerDocumentData {
+    /**
+     * Image field in *Members Top Banner*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: members_top_banner.image
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    image: prismicT.ImageField<never>;
+    /**
+     * Description field in *Members Top Banner*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: members_top_banner.description
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+}
+/**
+ * Members Top Banner document from Prismic
+ *
+ * - **API ID**: `members_top_banner`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type MembersTopBannerDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<MembersTopBannerDocumentData>, "members_top_banner", Lang>;
 /** Content for News documents */
 interface NewsDocumentData {
     /**
-     * Slice Zone field in *News*
+     * Title field in *News*
      *
-     * - **Field Type**: Slice Zone
+     * - **Field Type**: Text
      * - **Placeholder**: *None*
-     * - **API ID Path**: news.slices[]
+     * - **API ID Path**: news.title
      * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
      *
      */
-    slices: prismicT.SliceZone<NewsDocumentDataSlicesSlice>;
+    title: prismicT.KeyTextField;
+    /**
+     * Description field in *News*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: news.description
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
 }
-/**
- * Slice for *News → Slice Zone*
- *
- */
-type NewsDocumentDataSlicesSlice = NewsListItemSlice;
 /**
  * News document from Prismic
  *
@@ -718,6 +991,17 @@ interface SpeakerDocumentData {
      *
      */
     image: prismicT.ImageField<never>;
+    /**
+     * Short info field in *Speaker*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: speaker.short_info
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    short_info: prismicT.RichTextField;
 }
 /**
  * Speaker document from Prismic
@@ -729,7 +1013,7 @@ interface SpeakerDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type SpeakerDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<SpeakerDocumentData>, "speaker", Lang>;
-export type AllDocumentTypes = EventDocument | FooterDocument | HomepageDocument | MemberDocument | NewsDocument | PageDocument | SpeakerDocument;
+export type AllDocumentTypes = EventDocument | FooterColumnCenterDocument | FooterColumnLeftDocument | FooterColumnRightDocument | FooterDocument | HomepageAttributeDocument | HomepageDocument | MemberDocument | MembersTopBannerDocument | NewsDocument | PageDocument | SpeakerDocument;
 /**
  * Primary content in Intro → Primary
  *
@@ -784,6 +1068,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { EventDocumentData, EventDocumentDataSpeakersItem, EventDocument, FooterDocumentData, FooterDocumentDataLeftColumnItem, FooterDocumentDataCenterColumnItem, FooterDocumentDataRightColumnItem, FooterDocument, HomepageDocumentData, HomepageDocumentDataSlicesSlice, HomepageDocument, MemberDocumentData, MemberDocument, NewsDocumentData, NewsDocumentDataSlicesSlice, NewsDocument, PageDocumentData, PageDocument, SpeakerDocumentData, SpeakerDocument, AllDocumentTypes, IntroSliceDefaultPrimary, IntroSliceDefault, IntroSliceVariation, IntroSlice };
+        export type { EventDocumentData, EventDocumentDataSpeakersItem, EventDocument, FooterColumnCenterDocumentData, FooterColumnCenterDocumentDataItemsItem, FooterColumnCenterDocument, FooterColumnLeftDocumentData, FooterColumnLeftDocumentDataItemsItem, FooterColumnLeftDocument, FooterColumnRightDocumentData, FooterColumnRightDocumentDataItemsItem, FooterColumnRightDocument, FooterDocumentData, FooterDocumentDataLeftColumnItem, FooterDocumentDataCenterColumnItem, FooterDocumentDataRightColumnItem, FooterDocument, HomepageAttributeDocumentData, HomepageAttributeDocument, HomepageDocumentData, HomepageDocumentDataSlicesSlice, HomepageDocument, MemberDocumentData, MemberDocument, MembersTopBannerDocumentData, MembersTopBannerDocument, NewsDocumentData, NewsDocument, PageDocumentData, PageDocument, SpeakerDocumentData, SpeakerDocument, AllDocumentTypes, IntroSliceDefaultPrimary, IntroSliceDefault, IntroSliceVariation, IntroSlice };
     }
 }
