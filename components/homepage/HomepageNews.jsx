@@ -18,7 +18,7 @@ const HomepageNews = ({news}) => (
                     {news.length > 0 && (
                             <>
                                 {news.map((n) => (
-                                    <div className="col-md-12">
+                                    <div key={n.uid} className="col-md-12">
                                         <NewsListItem
                                             id={n.uid}
                                             publicationDate={n.last_publication_date}

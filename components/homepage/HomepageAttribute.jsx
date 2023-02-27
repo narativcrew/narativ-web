@@ -22,7 +22,7 @@ const HomepageAttribute = ({ label, title, description }) => (
 HomepageAttribute.propTypes = {
     label: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
+    description: PropTypes.array.isRequired,
 };
 
 export default HomepageAttribute;

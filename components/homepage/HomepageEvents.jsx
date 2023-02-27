@@ -24,9 +24,8 @@ const HomepageEvents = ({ events }) => (
             {events.length > 0 && (
                 <>
                     {events.map((e) => (
-                        <div className="col-md-6">
+                        <div key={e.uid} className="col-md-6">
                             <EventListItem
-                                key={e.uid}
                                 id={e.uid}
                                 title={e.data.title}
                                 startDate={e.data.start_date}

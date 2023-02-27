@@ -26,8 +26,8 @@ const NewsListItem = ({ id, publicationDate, title, description }) => (
 NewsListItem.propTypes = {
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    publicationDate: PropTypes.object.isRequired,
-    description: PropTypes.node.isRequired,
+    publicationDate: PropTypes.string.isRequired,
+    description: PropTypes.array.isRequired,
 };
 
 export default NewsListItem;

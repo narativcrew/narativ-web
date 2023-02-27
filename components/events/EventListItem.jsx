@@ -34,10 +34,8 @@ EventListItem.propTypes = {
     startDate: PropTypes.string.isRequired,
     endDate: PropTypes.string.isRequired,
     venue: PropTypes.string.isRequired,
-    description: PropTypes.node.isRequired,
-    image: PropTypes.shape({
-        src: PropTypes.string.isRequired,
-    }).isRequired,
+    description: PropTypes.array.isRequired,
+    image: PropTypes.string.isRequired,
 };
 
 export default EventListItem;

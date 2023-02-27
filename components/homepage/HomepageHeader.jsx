@@ -63,7 +63,7 @@ const HomepageHeader = ({intro, attributes}) => (
 
 HomepageHeader.propTypes = {
     intro: PropTypes.object,
-    attributes: PropTypes.object
+    attributes: PropTypes.array
 };
 
 export default HomepageHeader;
