@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import * as prismic from '@prismicio/client';   
+import * as prismic from '@prismicio/client';
 import FeaturedImage from 'components/FeaturedImage';
 import { EventListItem } from 'components/events';
 import { BlockButton } from 'components/Buttons';
@@ -82,9 +82,7 @@ export async function getStaticProps({ previewData }) {
     const client = createClient({ previewData });
 
     const events = await client.getAllByType('event', {
-        predicates : [
-            prismic.predicate.dateAfter("my.event.end_date", new Date())
-        ],
+        predicates: [prismic.predicate.dateAfter('my.event.end_date', new Date())],
         orderings: [{ field: 'my.event.start_date', direction: 'asc' }],
     });
     return {
