@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-// import * as prismic from '@prismicio/client';
+import * as prismic from '@prismicio/client';
 
 import { createClient } from '../prismicio';
 import HomepageHeader from '../components/homepage/HomepageHeader';
@@ -77,12 +77,10 @@ export async function getStaticProps({ previewData }) {
         orderings: [{ field: 'document.data.order', direction: 'asc' }],
     });
     const events = await client.getAllByType('event', {
-        // NOT WORKING FOR SOME REASON :/
-        // asked on SO https://stackoverflow.com/questions/75573159/prismic-query-predicates-misinterpreting-timestamp-field-type
-        // predicates : [
-        //     prismic.predicate.dateAfter("document.data.end_date", new Date())
-        // ],
-        orderings: [{ field: 'document.data.start_date', direction: 'asc' }],
+        predicates : [
+            prismic.predicate.dateAfter("my.event.end_date", new Date())
+        ],
+        orderings: [{ field: 'my.event.start_date', direction: 'asc' }],
     });
     const news = await client.getAllByType('news', {
         orderings: [{ field: 'document.last_publication_date', direction: 'desc' }],
