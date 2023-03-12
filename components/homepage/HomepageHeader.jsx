@@ -1,17 +1,14 @@
 import React from 'react';
-
 import PropTypes from 'prop-types';
 import Image from 'next/image';
-import bg from 'public/images/hp-header.jpg';
+// import bg from 'public/images/hp-header.jpg';
 import BannerShape2 from 'public/images/banner-shape-2.png';
+import { PrismicRichText } from '@prismicio/react';
 
 import stylesHomepage from './homepage.module.scss';
 import HomepageAttribute from './HomepageAttribute';
-import { PrismicRichText } from '@prismicio/react';
 
-
-
-const HomepageHeader = ({intro, attributes}) => (
+const HomepageHeader = ({ intro, attributes }) => (
     <div className={stylesHomepage.header}>
         <div className={stylesHomepage.featuredImage} style={{ backgroundImage: `url(${intro.data.image.url})` }}>
             <div className="container">
@@ -26,16 +23,11 @@ const HomepageHeader = ({intro, attributes}) => (
                             >
                                 <Image className="floating" src={BannerShape2} alt="image" />
                             </div>
-                            
-                                <div className="content">
-                                <h2>
-                                    {intro.data.title}
-                                </h2>
+
+                            <div className="content">
+                                <h2>{intro.data.title}</h2>
                                 {intro?.data.description && <PrismicRichText field={intro.data.description} />}
-                                
                             </div>
-                            
-                            
                         </div>
                     </div>
                 </div>
@@ -45,7 +37,7 @@ const HomepageHeader = ({intro, attributes}) => (
         <div className={stylesHomepage.attributes}>
             <div className="container">
                 <div className="row">
-                    {attributes.length > 0 && (
+                    {attributes.length > 0 &&
                         attributes.map((attr) => (
                             <HomepageAttribute
                                 key={attr.data.label}
@@ -53,8 +45,7 @@ const HomepageHeader = ({intro, attributes}) => (
                                 title={attr.data.title}
                                 description={attr.data.description}
                             />
-                        ))
-                    )}
+                        ))}
                 </div>
             </div>
         </div>
@@ -62,10 +53,8 @@ const HomepageHeader = ({intro, attributes}) => (
 );
 
 HomepageHeader.propTypes = {
-    intro: PropTypes.object,
-    attributes: PropTypes.array
+    intro: PropTypes.object.isRequired,
+    attributes: PropTypes.array.isRequired,
 };
 
 export default HomepageHeader;
-
-

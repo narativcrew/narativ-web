@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 import cx from 'classnames';
 import { BlockButton } from 'components/Buttons';
@@ -6,7 +7,7 @@ import NewsListItem from 'components/news/NewsListItem';
 
 import stylesHomepage from './homepage.module.scss';
 
-const HomepageNews = ({news}) => (
+const HomepageNews = ({ news }) => (
     <div className={cx('mt-5 py-5', stylesHomepage.newsBox)}>
         <div className="container">
             <div className="row">
@@ -15,21 +16,21 @@ const HomepageNews = ({news}) => (
                 </div>
             </div>
             <div className="row">
-                    {news.length > 0 && (
-                            <>
-                                {news.map((n) => (
-                                    <div key={n.uid} className="col-md-12">
-                                        <NewsListItem
-                                            id={n.uid}
-                                            publicationDate={n.last_publication_date}
-                                            title={n.data.title}
-                                            description={n.data.description}
-                                        />
-                                    </div>
-                                ))}
-                            </>
-                        )}
-                    
+                {news.length > 0 && (
+                    <>
+                        {news.map((n) => (
+                            <div key={n.uid} className="col-md-12">
+                                <NewsListItem
+                                    id={n.uid}
+                                    publicationDate={n.last_publication_date}
+                                    title={n.data.title}
+                                    description={n.data.description}
+                                />
+                            </div>
+                        ))}
+                    </>
+                )}
+
                 {/* <div className="col-md-12">
                     <NewsListItem
                         id="2"
@@ -71,5 +72,26 @@ const HomepageNews = ({news}) => (
         </div>
     </div>
 );
+
+HomepageNews.propTypes = {
+    news: PropTypes.arrayOf(
+        PropTypes.shape({
+            uid: PropTypes.string.isRequired,
+            last_publication_date: PropTypes.string.isRequired,
+            data: PropTypes.shape({
+                title: PropTypes.arrayOf(
+                    PropTypes.shape({
+                        text: PropTypes.string.isRequired,
+                    })
+                ).isRequired,
+                description: PropTypes.arrayOf(
+                    PropTypes.shape({
+                        text: PropTypes.string.isRequired,
+                    })
+                ).isRequired,
+            }).isRequired,
+        })
+    ).isRequired,
+};
 
 export default HomepageNews;

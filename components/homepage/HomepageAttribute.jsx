@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import stylesHomepage from './homepage.module.scss';
 import { PrismicRichText } from '@prismicio/react';
 
+import stylesHomepage from './homepage.module.scss';
 
 const HomepageAttribute = ({ label, title, description }) => (
     <div className={cx('col-md-4', 'align-items-center', 'd-flex', stylesHomepage.attributesItem)}>
@@ -13,7 +13,7 @@ const HomepageAttribute = ({ label, title, description }) => (
             </div>
             <div className="col-10">
                 <h3>{title}</h3>
-                <PrismicRichText field={description}/>
+                <PrismicRichText field={description} />
             </div>
         </div>
     </div>

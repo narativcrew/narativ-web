@@ -1,11 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Head from 'next/head';
-import { createClient } from "../../prismicio";
 import FeaturedImage from 'components/FeaturedImage';
 import { EventListItem } from 'components/events';
 import { BlockButton } from 'components/Buttons';
 import stylesEvents from 'components/events/events.module.scss';
 import bg from 'public/images/events-featured-image.jpg';
+
+import { createClient } from '../../prismicio';
 
 const Events = ({ events }) => (
     <>
@@ -28,22 +30,21 @@ const Events = ({ events }) => (
                     {events.length > 0 && (
                         <>
                             {events.map((e) => (
-                            <div className="col-md-6"   >
-                                <EventListItem
-                                    key={e.uid}
-                                    id={e.uid}
-                                    title={e.data.title}
-                                    startDate={e.data.start_date}
-                                    endDate={e.data.end_date}
-                                    venue={e.data.venue}
-                                    description={e.data.description}
-                                    image={e.data.image.url}
-                                />
-                            </div>
+                                <div className="col-md-6">
+                                    <EventListItem
+                                        key={e.uid}
+                                        id={e.uid}
+                                        title={e.data.title}
+                                        startDate={e.data.start_date}
+                                        endDate={e.data.end_date}
+                                        venue={e.data.venue}
+                                        description={e.data.description}
+                                        image={e.data.image.url}
+                                    />
+                                </div>
                             ))}
                         </>
                     )}
-
                 </div>
 
                 <div className="row">
@@ -56,18 +57,34 @@ const Events = ({ events }) => (
     </>
 );
 
+Events.propTypes = {
+    events: PropTypes.arrayOf(
+        PropTypes.shape({
+            uid: PropTypes.string.isRequired,
+            data: PropTypes.shape({
+                title: PropTypes.arrayOf(PropTypes.object).isRequired,
+                description: PropTypes.arrayOf(PropTypes.object).isRequired,
+                start_date: PropTypes.string.isRequired,
+                end_date: PropTypes.string,
+                venue: PropTypes.arrayOf(PropTypes.object).isRequired,
+                image: PropTypes.shape({
+                    url: PropTypes.string.isRequired,
+                }).isRequired,
+            }).isRequired,
+        }).isRequired
+    ).isRequired,
+};
+
 export default Events;
 
 export async function getStaticProps({ previewData }) {
     const client = createClient({ previewData });
 
     const events = await client.getAllByType('event', {
-        orderings: [
-            {field :"document.data.start_date", direction: "asc"}
-        ]
+        orderings: [{ field: 'document.data.start_date', direction: 'asc' }],
     });
-    console.log(events)
-    console.log(events[0].data.image)
+    // console.log(events);
+    // console.log(events[0].data.image);
     return {
         props: { events },
     };

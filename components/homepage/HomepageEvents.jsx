@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 import stylesEvents from 'components/events/events.module.scss';
 import { EventListItem } from 'components/events';
@@ -48,5 +49,23 @@ const HomepageEvents = ({ events }) => (
         </div>
     </div>
 );
+
+HomepageEvents.propTypes = {
+    events: PropTypes.arrayOf(
+        PropTypes.shape({
+            uid: PropTypes.string.isRequired,
+            data: PropTypes.shape({
+                title: PropTypes.arrayOf(PropTypes.object).isRequired,
+                description: PropTypes.arrayOf(PropTypes.object).isRequired,
+                start_date: PropTypes.string.isRequired,
+                end_date: PropTypes.string.isRequired,
+                venue: PropTypes.string.isRequired,
+                image: PropTypes.shape({
+                    url: PropTypes.string.isRequired,
+                }).isRequired,
+            }).isRequired,
+        }).isRequired
+    ).isRequired,
+};
 
 export default HomepageEvents;

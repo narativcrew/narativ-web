@@ -1,13 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Head from 'next/head';
-import { createClient } from "../../prismicio";
 import FeaturedImage from 'components/FeaturedImage';
 import styles from 'components/news/news.module.css';
 import { NewsListItem } from 'components/news';
 import { BlockButton } from 'components/Buttons';
 import bg from 'public/images/news-featured-image.jpg';
 
-const News = ({news}) => (
+import { createClient } from '../../prismicio';
+
+const News = ({ news }) => (
     <>
         <Head>
             <title>Narativ | Aktuality</title>
@@ -19,17 +21,17 @@ const News = ({news}) => (
             <div className="container py-5 mt-6">
                 <h1>Aktuality</h1>
                 {news.length > 0 && (
-                        <>
-                            {news.map((n) => (
-                                <NewsListItem
+                    <>
+                        {news.map((n) => (
+                            <NewsListItem
                                 id={n.uid}
                                 publicationDate={n.last_publication_date}
                                 title={n.data.title}
                                 description={n.data.description}
                             />
-                            ))}
-                        </>
-                    )}
+                        ))}
+                    </>
+                )}
                 {/* <NewsListItem
                     id="1"
                     title="Výroční zpráva za rok 2020"
@@ -67,17 +69,27 @@ const News = ({news}) => (
     </>
 );
 
+News.propTypes = {
+    news: PropTypes.arrayOf(
+        PropTypes.shape({
+            uid: PropTypes.string.isRequired,
+            data: PropTypes.shape({
+                title: PropTypes.arrayOf(PropTypes.object).isRequired,
+                description: PropTypes.arrayOf(PropTypes.object).isRequired,
+            }).isRequired,
+        }).isRequired
+    ).isRequired,
+};
+
 export default News;
 
 export async function getStaticProps({ previewData }) {
     const client = createClient({ previewData });
 
     const news = await client.getAllByType('news', {
-        orderings: [
-            { field: "document.last_publication_date", direction: "desc" },
-          ],
+        orderings: [{ field: 'document.last_publication_date', direction: 'desc' }],
     });
-    console.log(news)
+    // console.log(news);
     return {
         props: { news },
     };

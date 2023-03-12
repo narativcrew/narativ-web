@@ -4,14 +4,24 @@ import Image from 'next/image';
 import Link from 'next/link';
 import * as prismicH from '@prismicio/helpers';
 
-
 import styles from './events.module.scss';
 
-const dateFormatter = new Intl.DateTimeFormat("cs-CZ", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
+const dateFormatter = new Intl.DateTimeFormat('cs-CZ', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+});
+
+const getExcerpt = (textField) => {
+    const text = prismicH.asText(textField);
+
+    const excerpt = text.substring(0, 150);
+
+    if (text.length > 300) {
+        return `${excerpt.substring(0, excerpt.lastIndexOf(' '))}…`;
+    }
+    return excerpt;
+};
 
 const EventListItem = ({ id, title, startDate, endDate, venue, description, image }) => {
     const start = prismicH.asDate(startDate);
@@ -22,10 +32,13 @@ const EventListItem = ({ id, title, startDate, endDate, venue, description, imag
                 <Image src={image} fill className={styles.thumb__image} alt={title} />
             </div>
             <h4>{title}</h4>
-            <span className="font-weight-bold">{dateFormatter.format(start)}-{dateFormatter.format(end)} | {venue}</span><br/>
+            <span className="font-weight-bold">
+                {dateFormatter.format(start)}-{dateFormatter.format(end)} | {venue}
+            </span>
+            <br />
             {getExcerpt(description)}
         </Link>
-    )
+    );
 };
 
 EventListItem.propTypes = {
@@ -39,15 +52,3 @@ EventListItem.propTypes = {
 };
 
 export default EventListItem;
-
-const getExcerpt = (textField) => {
-  const text = prismicH.asText(textField)
-
-  const excerpt = text.substring(0, 150);
-
-  if (text.length > 300) {
-    return excerpt.substring(0, excerpt.lastIndexOf(" ")) + "…";
-  } else {
-    return excerpt;
-  }
-};

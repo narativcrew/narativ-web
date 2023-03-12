@@ -1,11 +1,13 @@
 import React from 'react';
-import { createClient } from '../../prismicio';
-import * as prismic from "@prismicio/client"
+import PropTypes from 'prop-types';
+import * as prismic from '@prismicio/client';
 import Head from 'next/head';
 import cx from 'classnames';
-import FeaturedBlock from 'components/FeaturedBlock';
+// import FeaturedBlock from 'components/FeaturedBlock';
 import styles from 'components/members/members.module.css';
 import { MemberListItem } from 'components/members';
+
+import { createClient } from '../../prismicio';
 
 const ContactTeam = ({ members }) => (
     <>
@@ -50,17 +52,30 @@ const ContactTeam = ({ members }) => (
     </>
 );
 
+ContactTeam.propTypes = {
+    members: PropTypes.arrayOf(
+        PropTypes.shape({
+            uid: PropTypes.string.isRequired,
+            data: PropTypes.shape({
+                name: PropTypes.arrayOf(PropTypes.object).isRequired,
+                description: PropTypes.arrayOf(PropTypes.object).isRequired,
+                profile_photo: PropTypes.shape({
+                    url: PropTypes.string.isRequired,
+                }).isRequired,
+            }).isRequired,
+        })
+    ).isRequired,
+};
+
 export default ContactTeam;
 
 export async function getStaticProps({ previewData }) {
     const client = createClient({ previewData });
 
     const members = await client.getAllByType('member', {
-        predicates : [
-            prismic.predicate.at( "document.tags", ["kontaktni_tym"])
-        ]
+        predicates: [prismic.predicate.at('document.tags', ['kontaktni_tym'])],
     });
-    console.log(members);
+    // console.log(members);
     return {
         props: { members },
     };
