@@ -63,11 +63,11 @@ Events.propTypes = {
         PropTypes.shape({
             uid: PropTypes.string.isRequired,
             data: PropTypes.shape({
-                title: PropTypes.arrayOf(PropTypes.object).isRequired,
+                title: PropTypes.string.isRequired,
                 description: PropTypes.arrayOf(PropTypes.object).isRequired,
                 start_date: PropTypes.string.isRequired,
                 end_date: PropTypes.string,
-                venue: PropTypes.arrayOf(PropTypes.object).isRequired,
+                venue: PropTypes.string.isRequired,
                 image: PropTypes.shape({
                     url: PropTypes.string.isRequired,
                 }).isRequired,

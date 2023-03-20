@@ -79,11 +79,7 @@ HomepageNews.propTypes = {
             uid: PropTypes.string.isRequired,
             last_publication_date: PropTypes.string.isRequired,
             data: PropTypes.shape({
-                title: PropTypes.arrayOf(
-                    PropTypes.shape({
-                        text: PropTypes.string.isRequired,
-                    })
-                ).isRequired,
+                title: PropTypes.string.isRequired,
                 description: PropTypes.arrayOf(
                     PropTypes.shape({
                         text: PropTypes.string.isRequired,

@@ -24,6 +24,7 @@ const News = ({ news }) => (
                     <>
                         {news.map((n) => (
                             <NewsListItem
+                                key={n.uid}
                                 id={n.uid}
                                 publicationDate={n.last_publication_date}
                                 title={n.data.title}
@@ -74,7 +75,7 @@ News.propTypes = {
         PropTypes.shape({
             uid: PropTypes.string.isRequired,
             data: PropTypes.shape({
-                title: PropTypes.arrayOf(PropTypes.object).isRequired,
+                title: PropTypes.string.isRequired,
                 description: PropTypes.arrayOf(PropTypes.object).isRequired,
             }).isRequired,
         }).isRequired

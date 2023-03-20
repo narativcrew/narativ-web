@@ -12,7 +12,7 @@ import { createClient } from '../../prismicio';
 const ContactTeam = ({ members }) => (
     <>
         <Head>
-            <title>Narativ | Kontaktní tým</title>
+            <title>Narativ | Komunitní tým</title>
             <meta property="og:title" content="Narativ | Členové Narativu" key="title" />
         </Head>
         <div className="container">
@@ -29,7 +29,7 @@ const ContactTeam = ({ members }) => (
 
         <div className={cx(styles.membersBgBox, 'py-5')}>
             <div className="container my-5 text-center">
-                <h1>Kontaktní tým</h1>
+                <h1>Komunitní tým</h1>
             </div>
             <div className="container">
                 <div className="row justify-content-center">
@@ -73,7 +73,7 @@ export async function getStaticProps({ previewData }) {
     const client = createClient({ previewData });
 
     const members = await client.getAllByType('member', {
-        predicates: [prismic.predicate.at('document.tags', ['kontaktni_tym'])],
+        predicates: [prismic.predicate.at('document.tags', ['komunitni_tym'])],
     });
     // console.log(members);
     return {

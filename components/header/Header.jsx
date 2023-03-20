@@ -52,8 +52,8 @@ const Header = () => (
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" href="/kontaktni-tym">
-                                    Kontaktní Tým
+                                <Link className="nav-link" href="/komunitni-tym">
+                                    Komunitní Tým
                                 </Link>
                             </li>
                             <li className="nav-item">
