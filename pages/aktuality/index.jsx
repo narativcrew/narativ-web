@@ -20,9 +20,9 @@ const News = ({ news }) => (
         <div className={styles.newsBox}>
             <div className="container py-5 mt-6">
                 <h1>Aktuality</h1>
-                {news.length > 0 && (
+                {news.results && news.results.length > 0 && (
                     <>
-                        {news.map((n) => (
+                        {news.results.map((n) => (
                             <NewsListItem
                                 key={n.uid}
                                 id={n.uid}
@@ -71,15 +71,17 @@ const News = ({ news }) => (
 );
 
 News.propTypes = {
-    news: PropTypes.arrayOf(
-        PropTypes.shape({
-            uid: PropTypes.string.isRequired,
-            data: PropTypes.shape({
-                title: PropTypes.string.isRequired,
-                description: PropTypes.arrayOf(PropTypes.object).isRequired,
-            }).isRequired,
-        }).isRequired
-    ).isRequired,
+    news: PropTypes.shape({
+        results: PropTypes.arrayOf(
+            PropTypes.shape({
+                uid: PropTypes.string.isRequired,
+                data: PropTypes.shape({
+                    title: PropTypes.string.isRequired,
+                    description: PropTypes.arrayOf(PropTypes.object).isRequired,
+                }).isRequired,
+            }).isRequired
+        ).isRequired,
+    }).isRequired,
 };
 
 export default News;
@@ -87,7 +89,8 @@ export default News;
 export async function getStaticProps({ previewData }) {
     const client = createClient({ previewData });
 
-    const news = await client.getAllByType('news', {
+    const news = await client.getByType('news', {
+        pageSize: 2,
         orderings: [{ field: 'document.last_publication_date', direction: 'desc' }],
     });
     // console.log(news);
