@@ -92,7 +92,6 @@ export default Contact;
 export async function getStaticProps({ previewData }) {
     const client = createClient({ previewData });
     const headerImage = await client.getSingle('contact_header_image');
-    console.log(headerImage);
     return {
         props: { headerImage },
     };
