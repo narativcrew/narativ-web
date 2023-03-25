@@ -7,7 +7,7 @@ import styles from './components.module.scss';
 const FeaturedImage = ({ image, hasOverlay, children }) => (
     <div
         className={cx(styles.featuredImage, hasOverlay ? styles.overlay : null)}
-        style={{ backgroundImage: `url(${image.src})` }}
+        style={{ backgroundImage: `url(${image})` }}
     >
         {children}
     </div>

@@ -32,7 +32,10 @@
           "blocks": 1
         }
       }
-    }
+    },
+    "news_header_image": {},
+    "events_header_image": {},
+    "contact_header_image": {}
   },
   "slices": {
     "Intro": {}

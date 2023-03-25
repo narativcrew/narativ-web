@@ -6,18 +6,17 @@ import FeaturedImage from 'components/FeaturedImage';
 import { EventListItem } from 'components/events';
 import { BlockButton } from 'components/Buttons';
 import stylesEvents from 'components/events/events.module.scss';
-import bg from 'public/images/events-featured-image.jpg';
 
 import { createClient } from '../../prismicio';
 
-const Events = ({ events }) => (
+const Events = ({ headerImage, events }) => (
     <>
         <Head>
             <title>Narativ | Akce</title>
             <meta property="og:title" content="Narativ | Akce" key="title" />
         </Head>
 
-        <FeaturedImage image={bg} />
+        <FeaturedImage image={headerImage.data.image.url} />
 
         <div className={stylesEvents.eventsBox}>
             <div className="container mt5 py-5">
@@ -59,6 +58,13 @@ const Events = ({ events }) => (
 );
 
 Events.propTypes = {
+    headerImage: PropTypes.shape({
+        data: PropTypes.shape({
+            image: PropTypes.shape({
+                url: PropTypes.string.isRequired,
+            }).isRequired,
+        }).isRequired,
+    }).isRequired,
     events: PropTypes.arrayOf(
         PropTypes.shape({
             uid: PropTypes.string.isRequired,
@@ -80,12 +86,13 @@ export default Events;
 
 export async function getStaticProps({ previewData }) {
     const client = createClient({ previewData });
+    const headerImage = await client.getSingle('events_header_image');
 
     const events = await client.getAllByType('event', {
         predicates: [prismic.predicate.dateAfter('my.event.end_date', new Date())],
         orderings: [{ field: 'my.event.start_date', direction: 'asc' }],
     });
     return {
-        props: { events },
+        props: { headerImage, events },
     };
 }
