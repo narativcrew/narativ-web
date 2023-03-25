@@ -6,10 +6,11 @@ import cx from 'classnames';
 // import FeaturedBlock from 'components/FeaturedBlock';
 import styles from 'components/members/members.module.css';
 import { MemberListItem } from 'components/members';
+import { PrismicRichText } from '@prismicio/react';
 
 import { createClient } from '../../prismicio';
 
-const ContactTeam = ({ members }) => (
+const ContactTeam = ({ topTitle, members }) => (
     <>
         <Head>
             <title>Narativ | Komunitní tým</title>
@@ -18,11 +19,8 @@ const ContactTeam = ({ members }) => (
         <div className="container">
             <div className="row justify-content-center">
                 <div className="col-md-6 mt-5 py-5 text-center">
-                    <h1>O nás</h1>
-                    <p>
-                        Narativ je vztahová či sociální platforma se záměrem šírit postmoderní praxi v České republice a
-                        na Slovensku.
-                    </p>
+                    <h1>{topTitle.data.title}</h1>
+                    {topTitle?.data.description && <PrismicRichText field={topTitle.data.description} />}
                 </div>
             </div>
         </div>
@@ -53,6 +51,12 @@ const ContactTeam = ({ members }) => (
 );
 
 ContactTeam.propTypes = {
+    topTitle: PropTypes.shape({
+        data: PropTypes.shape({
+            title: PropTypes.string.isRequired,
+            description: PropTypes.arrayOf(PropTypes.object).isRequired,
+        }).isRequired,
+    }).isRequired,
     members: PropTypes.arrayOf(
         PropTypes.shape({
             uid: PropTypes.string.isRequired,
@@ -71,12 +75,11 @@ export default ContactTeam;
 
 export async function getStaticProps({ previewData }) {
     const client = createClient({ previewData });
-
+    const topTitle = await client.getSingle('community_team_top_title');
     const members = await client.getAllByType('member', {
         predicates: [prismic.predicate.at('document.tags', ['komunitni_tym'])],
     });
-    // console.log(members);
     return {
-        props: { members },
+        props: { topTitle, members },
     };
 }

@@ -5,10 +5,11 @@ import cx from 'classnames';
 import FeaturedBlock from 'components/FeaturedBlock';
 import styles from 'components/members/members.module.css';
 import { MemberListItem } from 'components/members';
+import { PrismicRichText } from '@prismicio/react';
 
 import { createClient } from '../../prismicio';
 
-const Members = ({ members, banner }) => (
+const Members = ({ members, banner, topTitle }) => (
     <>
         <Head>
             <title>Narativ | Členové Narativu</title>
@@ -17,11 +18,8 @@ const Members = ({ members, banner }) => (
         <div className="container">
             <div className="row justify-content-center">
                 <div className="col-md-6 mt-5 py-5 text-center">
-                    <h1>O nás</h1>
-                    <p>
-                        Narativ je vztahová či sociální platforma se záměrem šírit postmoderní praxi v České republice a
-                        na Slovensku.
-                    </p>
+                    <h1>{topTitle.data.title}</h1>
+                    {topTitle?.data.description && <PrismicRichText field={topTitle.data.description} />}
                 </div>
             </div>
         </div>
@@ -74,6 +72,12 @@ Members.propTypes = {
             }).isRequired,
         }).isRequired,
     }).isRequired,
+    topTitle: PropTypes.shape({
+        data: PropTypes.shape({
+            title: PropTypes.string.isRequired,
+            description: PropTypes.arrayOf(PropTypes.object).isRequired,
+        }).isRequired,
+    }).isRequired,
 };
 
 export default Members;
@@ -83,7 +87,8 @@ export async function getStaticProps({ previewData }) {
 
     const members = await client.getAllByType('member');
     const banner = await client.getSingle('members_top_banner');
+    const topTitle = await client.getSingle('members_top_title');
     return {
-        props: { members, banner },
+        props: { topTitle, members, banner },
     };
 }

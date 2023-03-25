@@ -8,7 +8,7 @@ import HomepageHeader from '../components/homepage/HomepageHeader';
 import HomepageEvents from '../components/homepage/HomepageEvents';
 import HomepageNews from '../components/homepage/HomepageNews';
 
-const HomePage = ({ intro, attributes, events, news }) => (
+const HomePage = ({ intro, attributes, eventsHeader, events, news }) => (
     <>
         <Head>
             <title>Narativ</title>
@@ -16,7 +16,7 @@ const HomePage = ({ intro, attributes, events, news }) => (
         </Head>
 
         <HomepageHeader intro={intro} attributes={attributes} />
-        <HomepageEvents events={events} />
+        <HomepageEvents eventsHeader={eventsHeader} events={events} />
         <HomepageNews news={news} />
     </>
 );
@@ -42,6 +42,12 @@ HomePage.propTypes = {
             }).isRequired,
         }).isRequired
     ).isRequired,
+    eventsHeader: PropTypes.shape({
+        data: PropTypes.shape({
+            title: PropTypes.arrayOf(PropTypes.object).isRequired,
+            description: PropTypes.arrayOf(PropTypes.object).isRequired,
+        }).isRequired,
+    }).isRequired,
     events: PropTypes.arrayOf(
         PropTypes.shape({
             data: PropTypes.shape({
@@ -73,6 +79,7 @@ export default HomePage;
 export async function getStaticProps({ previewData }) {
     const client = createClient({ previewData });
     const intro = await client.getSingle('homepage');
+    const eventsHeader = await client.getSingle('homepage_events_header');
     const attributes = await client.getAllByType('homepage_attribute', {
         orderings: [{ field: 'document.data.order', direction: 'asc' }],
     });
@@ -98,6 +105,7 @@ export async function getStaticProps({ previewData }) {
         props: {
             intro,
             attributes,
+            eventsHeader,
             events,
             news,
         },

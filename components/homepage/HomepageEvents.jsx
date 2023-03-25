@@ -4,20 +4,17 @@ import Link from 'next/link';
 import stylesEvents from 'components/events/events.module.scss';
 import { EventListItem } from 'components/events';
 import { BlockButton } from 'components/Buttons';
+import { PrismicRichText } from '@prismicio/react';
 
-const HomepageEvents = ({ events }) => (
+const HomepageEvents = ({ eventsHeader, events }) => (
     <div className="container mt-5">
         <div className={stylesEvents.event_list__description}>
             <div className="row">
                 <div className="col-md-6">
-                    <h1>Spolek Narativ pořádá:</h1>
+                    <h1>{eventsHeader.data.title}</h1>
                 </div>
                 <div className="col-md-6">
-                    <p>
-                        Snažíme se vytvářet horizontální, neformální a mimoinstitucionální dialogické prostory -
-                        setkáváme se tak mezi sebou, s kolegy ze sociálně zaměřených praxí, účastníky našich
-                        vzdělávacích akcí, programů a workshopů, s našimi klienty, nebo s autory knih, které překládáme.
-                    </p>
+                    {eventsHeader?.data.description && <PrismicRichText field={eventsHeader.data.description} />}
                 </div>
             </div>
         </div>
@@ -51,6 +48,12 @@ const HomepageEvents = ({ events }) => (
 );
 
 HomepageEvents.propTypes = {
+    eventsHeader: PropTypes.shape({
+        data: PropTypes.shape({
+            title: PropTypes.arrayOf(PropTypes.object).isRequired,
+            description: PropTypes.arrayOf(PropTypes.object).isRequired,
+        }).isRequired,
+    }).isRequired,
     events: PropTypes.arrayOf(
         PropTypes.shape({
             uid: PropTypes.string.isRequired,
