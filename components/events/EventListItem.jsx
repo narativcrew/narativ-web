@@ -23,20 +23,23 @@ const getExcerpt = (textField) => {
     return excerpt;
 };
 
-const EventListItem = ({ id, title, startDate, endDate, venue, description, image }) => {
+const EventListItem = ({ id, title, startDate, endDate, venue, description, image, futureEvent }) => {
     const start = prismicH.asDate(startDate);
     const end = prismicH.asDate(endDate);
     return (
         <Link href={`/akce/${id}`} className={styles.event_list__item}>
-            <div className={styles.thumb__wrapper}>
-                <Image src={image} fill className={styles.thumb__image} alt={title} />
-            </div>
+            {futureEvent && (
+                <div className={styles.thumb__wrapper}>
+                    <Image src={image} fill className={styles.thumb__image} alt={title} />
+                </div>
+            )}
+
             <h4>{title}</h4>
             <span className="font-weight-bold">
                 {dateFormatter.format(start)}-{dateFormatter.format(end)} | {venue}
             </span>
             <br />
-            {getExcerpt(description)}
+            {futureEvent && getExcerpt(description)}
         </Link>
     );
 };
@@ -49,6 +52,11 @@ EventListItem.propTypes = {
     venue: PropTypes.string.isRequired,
     description: PropTypes.array.isRequired,
     image: PropTypes.string.isRequired,
+    futureEvent: PropTypes.bool,
+};
+
+EventListItem.defaultProps = {
+    futureEvent: true,
 };
 
 export default EventListItem;

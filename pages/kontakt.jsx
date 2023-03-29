@@ -92,7 +92,16 @@ export default Contact;
 export async function getStaticProps({ previewData }) {
     const client = createClient({ previewData });
     const headerImage = await client.getSingle('contact_header_image');
+    const footerLeft = await client.getSingle('footer_column_left');
+    const footerCenter = await client.getSingle('footer_column_center');
+    const footerRight = await client.getSingle('footer_column_right');
+
+    const footer = {
+        footerLeft,
+        footerCenter,
+        footerRight,
+    };
     return {
-        props: { headerImage },
+        props: { headerImage, footer },
     };
 }

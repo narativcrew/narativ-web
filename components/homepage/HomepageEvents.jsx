@@ -50,22 +50,20 @@ const HomepageEvents = ({ eventsHeader, events }) => (
 HomepageEvents.propTypes = {
     eventsHeader: PropTypes.shape({
         data: PropTypes.shape({
-            title: PropTypes.arrayOf(PropTypes.object).isRequired,
+            title: PropTypes.string.isRequired,
             description: PropTypes.arrayOf(PropTypes.object).isRequired,
         }).isRequired,
     }).isRequired,
     events: PropTypes.arrayOf(
         PropTypes.shape({
-            uid: PropTypes.string.isRequired,
             data: PropTypes.shape({
-                title: PropTypes.arrayOf(PropTypes.object).isRequired,
+                title: PropTypes.string.isRequired,
                 description: PropTypes.arrayOf(PropTypes.object).isRequired,
-                start_date: PropTypes.string.isRequired,
-                end_date: PropTypes.string.isRequired,
-                venue: PropTypes.string.isRequired,
                 image: PropTypes.shape({
                     url: PropTypes.string.isRequired,
                 }).isRequired,
+                start_date: PropTypes.string.isRequired,
+                end_date: PropTypes.string.isRequired,
             }).isRequired,
         }).isRequired
     ).isRequired,

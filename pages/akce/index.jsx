@@ -4,12 +4,11 @@ import Head from 'next/head';
 import * as prismic from '@prismicio/client';
 import FeaturedImage from 'components/FeaturedImage';
 import { EventListItem } from 'components/events';
-import { BlockButton } from 'components/Buttons';
 import stylesEvents from 'components/events/events.module.scss';
 
 import { createClient } from '../../prismicio';
 
-const Events = ({ headerImage, events }) => (
+const Events = ({ headerImage, events, pastEvents }) => (
     <>
         <Head>
             <title>Narativ | Akce</title>
@@ -29,10 +28,33 @@ const Events = ({ headerImage, events }) => (
                 <div className="row">
                     {events.length > 0 && (
                         <>
-                            {events.map((e) => (
-                                <div className="col-md-6">
+                            {events.map((pe) => (
+                                <div className="col-md-6" key={pe.uid}>
                                     <EventListItem
-                                        key={e.uid}
+                                        id={pe.uid}
+                                        title={pe.data.title}
+                                        startDate={pe.data.start_date}
+                                        endDate={pe.data.end_date}
+                                        venue={pe.data.venue}
+                                        description={pe.data.description}
+                                        image={pe.data.image.url}
+                                    />
+                                </div>
+                            ))}
+                        </>
+                    )}
+                </div>
+                <div className="row">
+                    <div className="col-md-6">
+                        <h1>Minulé akce</h1>
+                    </div>
+                </div>
+                <div className="row">
+                    {pastEvents.length > 0 && (
+                        <>
+                            {pastEvents.map((e) => (
+                                <div className="col-md-6" key={e.uid}>
+                                    <EventListItem
                                         id={e.uid}
                                         title={e.data.title}
                                         startDate={e.data.start_date}
@@ -40,17 +62,12 @@ const Events = ({ headerImage, events }) => (
                                         venue={e.data.venue}
                                         description={e.data.description}
                                         image={e.data.image.url}
+                                        futureEvent={false}
                                     />
                                 </div>
                             ))}
                         </>
                     )}
-                </div>
-
-                <div className="row">
-                    <div className="col-md-6 offset-md-6 text-center">
-                        <BlockButton>Zobrazit další akce</BlockButton>
-                    </div>
                 </div>
             </div>
         </div>
@@ -80,6 +97,21 @@ Events.propTypes = {
             }).isRequired,
         }).isRequired
     ).isRequired,
+    pastEvents: PropTypes.arrayOf(
+        PropTypes.shape({
+            uid: PropTypes.string.isRequired,
+            data: PropTypes.shape({
+                title: PropTypes.string.isRequired,
+                description: PropTypes.arrayOf(PropTypes.object).isRequired,
+                start_date: PropTypes.string.isRequired,
+                end_date: PropTypes.string,
+                venue: PropTypes.string.isRequired,
+                image: PropTypes.shape({
+                    url: PropTypes.string.isRequired,
+                }).isRequired,
+            }).isRequired,
+        }).isRequired
+    ).isRequired,
 };
 
 export default Events;
@@ -89,10 +121,26 @@ export async function getStaticProps({ previewData }) {
     const headerImage = await client.getSingle('events_header_image');
 
     const events = await client.getAllByType('event', {
-        predicates: [prismic.predicate.dateAfter('my.event.end_date', new Date())],
+        predicates: [prismic.predicate.dateAfter('my.event.start_date', new Date())],
         orderings: [{ field: 'my.event.start_date', direction: 'asc' }],
     });
+
+    const pastEvents = await client.getAllByType('event', {
+        predicates: [prismic.predicate.dateBefore('my.event.end_date', new Date())],
+        orderings: [{ field: 'my.event.start_date', direction: 'asc' }],
+    });
+
+    const footerLeft = await client.getSingle('footer_column_left');
+    const footerCenter = await client.getSingle('footer_column_center');
+    const footerRight = await client.getSingle('footer_column_right');
+
+    const footer = {
+        footerLeft,
+        footerCenter,
+        footerRight,
+    };
+
     return {
-        props: { headerImage, events },
+        props: { headerImage, events, pastEvents, footer },
     };
 }

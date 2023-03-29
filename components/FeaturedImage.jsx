@@ -19,9 +19,7 @@ FeaturedImage.defaultProps = {
 };
 
 FeaturedImage.propTypes = {
-    image: PropTypes.shape({
-        src: PropTypes.string.isRequired,
-    }).isRequired,
+    image: PropTypes.string.isRequired,
     hasOverlay: PropTypes.bool,
     children: PropTypes.node,
 };

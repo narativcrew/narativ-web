@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import FeaturedImage from 'components/FeaturedImage';
 import styles from 'components/news/news.module.css';
 import { NewsListItem } from 'components/news';
-import { BlockButton } from 'components/Buttons';
 
 import { createClient } from '../../prismicio';
 
@@ -19,9 +18,9 @@ const News = ({ headerImage, news }) => (
         <div className={styles.newsBox}>
             <div className="container py-5 mt-6">
                 <h1>Aktuality</h1>
-                {news.results && news.results.length > 0 && (
+                {news && news.length > 0 && (
                     <>
-                        {news.results.map((n) => (
+                        {news.map((n) => (
                             <NewsListItem
                                 key={n.uid}
                                 id={n.uid}
@@ -32,11 +31,6 @@ const News = ({ headerImage, news }) => (
                         ))}
                     </>
                 )}
-                <div className="row">
-                    <div className="col-md-6 offset-md-3 text-center">
-                        <BlockButton>Zobrazit další aktuality</BlockButton>
-                    </div>
-                </div>
             </div>
         </div>
     </>
@@ -50,17 +44,15 @@ News.propTypes = {
             }).isRequired,
         }).isRequired,
     }).isRequired,
-    news: PropTypes.shape({
-        results: PropTypes.arrayOf(
-            PropTypes.shape({
-                uid: PropTypes.string.isRequired,
-                data: PropTypes.shape({
-                    title: PropTypes.string.isRequired,
-                    description: PropTypes.arrayOf(PropTypes.object).isRequired,
-                }).isRequired,
-            }).isRequired
-        ).isRequired,
-    }).isRequired,
+    news: PropTypes.arrayOf(
+        PropTypes.shape({
+            uid: PropTypes.string.isRequired,
+            data: PropTypes.shape({
+                title: PropTypes.string.isRequired,
+                description: PropTypes.arrayOf(PropTypes.object).isRequired,
+            }).isRequired,
+        }).isRequired
+    ).isRequired,
 };
 
 export default News;
@@ -69,11 +61,20 @@ export async function getStaticProps({ previewData }) {
     const client = createClient({ previewData });
 
     const headerImage = await client.getSingle('news_header_image');
-    const news = await client.getByType('news', {
-        pageSize: 2,
+    const news = await client.getAllByType('news', {
         orderings: [{ field: 'document.last_publication_date', direction: 'desc' }],
     });
+    const footerLeft = await client.getSingle('footer_column_left');
+    const footerCenter = await client.getSingle('footer_column_center');
+    const footerRight = await client.getSingle('footer_column_right');
+
+    const footer = {
+        footerLeft,
+        footerCenter,
+        footerRight,
+    };
+
     return {
-        props: { headerImage, news },
+        props: { headerImage, news, footer },
     };
 }

@@ -13,14 +13,19 @@ PrimaryButton.propTypes = {
     children: PropTypes.node.isRequired,
 };
 
-export const BlockButton = ({ children, ...props }) => (
-    <button type="button" className={styles.blockButton} {...props}>
+export const BlockButton = ({ children, onClick, ...props }) => (
+    <button type="button" className={styles.blockButton} onClick={onClick} {...props}>
         {children}
     </button>
 );
 
 BlockButton.propTypes = {
     children: PropTypes.node.isRequired,
+    onClick: PropTypes.func,
+};
+
+BlockButton.defaultProps = {
+    onClick: () => {},
 };
 
 export const CardButton = ({ children, ...props }) => (

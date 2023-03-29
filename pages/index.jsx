@@ -24,7 +24,7 @@ const HomePage = ({ intro, attributes, eventsHeader, events, news }) => (
 HomePage.propTypes = {
     intro: PropTypes.shape({
         data: PropTypes.shape({
-            title: PropTypes.arrayOf(PropTypes.object).isRequired,
+            title: PropTypes.string.isRequired,
             description: PropTypes.arrayOf(PropTypes.object).isRequired,
             image: PropTypes.shape({
                 url: PropTypes.string.isRequired,
@@ -34,24 +34,21 @@ HomePage.propTypes = {
     attributes: PropTypes.arrayOf(
         PropTypes.shape({
             data: PropTypes.shape({
-                title: PropTypes.arrayOf(PropTypes.object).isRequired,
+                title: PropTypes.string.isRequired,
                 description: PropTypes.arrayOf(PropTypes.object).isRequired,
-                image: PropTypes.shape({
-                    url: PropTypes.string.isRequired,
-                }).isRequired,
             }).isRequired,
         }).isRequired
     ).isRequired,
     eventsHeader: PropTypes.shape({
         data: PropTypes.shape({
-            title: PropTypes.arrayOf(PropTypes.object).isRequired,
+            title: PropTypes.string.isRequired,
             description: PropTypes.arrayOf(PropTypes.object).isRequired,
         }).isRequired,
     }).isRequired,
     events: PropTypes.arrayOf(
         PropTypes.shape({
             data: PropTypes.shape({
-                title: PropTypes.arrayOf(PropTypes.object).isRequired,
+                title: PropTypes.string.isRequired,
                 description: PropTypes.arrayOf(PropTypes.object).isRequired,
                 image: PropTypes.shape({
                     url: PropTypes.string.isRequired,
@@ -64,11 +61,8 @@ HomePage.propTypes = {
     news: PropTypes.arrayOf(
         PropTypes.shape({
             data: PropTypes.shape({
-                title: PropTypes.arrayOf(PropTypes.object).isRequired,
+                title: PropTypes.string.isRequired,
                 description: PropTypes.arrayOf(PropTypes.object).isRequired,
-                image: PropTypes.shape({
-                    url: PropTypes.string.isRequired,
-                }).isRequired,
             }).isRequired,
         }).isRequired
     ).isRequired,
@@ -91,15 +85,15 @@ export async function getStaticProps({ previewData }) {
         orderings: [{ field: 'document.last_publication_date', direction: 'desc' }],
     });
 
-    // TODO: this needs to be somehow passed down to the Footer component
-    /*
     const footerLeft = await client.getSingle('footer_column_left');
-    console.log(footerLeft);
     const footerCenter = await client.getSingle('footer_column_center');
-    console.log(footerCenter);
     const footerRight = await client.getSingle('footer_column_right');
-    console.log(footerRight);
-    */
+
+    const footer = {
+        footerLeft,
+        footerCenter,
+        footerRight,
+    };
 
     return {
         props: {
@@ -108,6 +102,7 @@ export async function getStaticProps({ previewData }) {
             eventsHeader,
             events,
             news,
+            footer,
         },
     };
 }

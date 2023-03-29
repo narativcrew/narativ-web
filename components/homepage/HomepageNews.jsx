@@ -76,17 +76,11 @@ const HomepageNews = ({ news }) => (
 HomepageNews.propTypes = {
     news: PropTypes.arrayOf(
         PropTypes.shape({
-            uid: PropTypes.string.isRequired,
-            last_publication_date: PropTypes.string.isRequired,
             data: PropTypes.shape({
                 title: PropTypes.string.isRequired,
-                description: PropTypes.arrayOf(
-                    PropTypes.shape({
-                        text: PropTypes.string.isRequired,
-                    })
-                ).isRequired,
+                description: PropTypes.arrayOf(PropTypes.object).isRequired,
             }).isRequired,
-        })
+        }).isRequired
     ).isRequired,
 };
 

@@ -79,7 +79,18 @@ export async function getStaticProps({ previewData }) {
     const members = await client.getAllByType('member', {
         predicates: [prismic.predicate.at('document.tags', ['komunitni_tym'])],
     });
+
+    const footerLeft = await client.getSingle('footer_column_left');
+    const footerCenter = await client.getSingle('footer_column_center');
+    const footerRight = await client.getSingle('footer_column_right');
+
+    const footer = {
+        footerLeft,
+        footerCenter,
+        footerRight,
+    };
+
     return {
-        props: { topTitle, members },
+        props: { topTitle, members, footer },
     };
 }

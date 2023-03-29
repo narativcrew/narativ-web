@@ -53,8 +53,23 @@ const HomepageHeader = ({ intro, attributes }) => (
 );
 
 HomepageHeader.propTypes = {
-    intro: PropTypes.object.isRequired,
-    attributes: PropTypes.array.isRequired,
+    intro: PropTypes.shape({
+        data: PropTypes.shape({
+            title: PropTypes.string.isRequired,
+            description: PropTypes.arrayOf(PropTypes.object).isRequired,
+            image: PropTypes.shape({
+                url: PropTypes.string.isRequired,
+            }).isRequired,
+        }).isRequired,
+    }).isRequired,
+    attributes: PropTypes.arrayOf(
+        PropTypes.shape({
+            data: PropTypes.shape({
+                title: PropTypes.string.isRequired,
+                description: PropTypes.arrayOf(PropTypes.object).isRequired,
+            }).isRequired,
+        }).isRequired
+    ).isRequired,
 };
 
 export default HomepageHeader;
