@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import cx from 'classnames';
@@ -19,54 +19,79 @@ import styles from './header.module.css';
     // <Image src={scroll ? Logo : LogoWhite} alt="Narativ" />
 */
 
-const Header = () => (
-    <div className={cx(styles.header, styles.bgWhite)}>
-        <div className="container">
-            <div className="row align-items-center">
-                <div className="col-md-4">
-                    <Link href="/">
-                        <Image src={Logo} alt="Narativ" />
-                    </Link>
-                </div>
-                <div className="col-md-8">
-                    <nav>
-                        <ul className="nav justify-content-end">
-                            <li className="nav-item">
-                                <Link className="nav-link" href="/">
-                                    Úvod
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" href="/aktuality">
-                                    Aktuality
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" href="/akce">
-                                    Akce
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" href="/clenove">
-                                    Členové Narativu
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" href="/komunitni-tym">
-                                    Komunitní Tým
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" href="/kontakt">
-                                    Kontakt
-                                </Link>
-                            </li>
-                        </ul>
-                    </nav>
+const Header = () => {
+    const [isNavOpen, setIsNavOpen] = useState(false);
+
+    const handleNavToggle = () => {
+        setIsNavOpen(!isNavOpen);
+    };
+
+    return (
+        <div className={cx(styles.header, styles.bgWhite)}>
+            <div className="container">
+                <div className="row align-items-center">
+                    <div className="col-md-4">
+                        <Link href="/">
+                            <Image src={Logo} alt="Narativ" />
+                        </Link>
+                    </div>
+                    <div className="col-md-8">
+                        <nav className="navbar navbar-expand-lg justify-content-end">
+                            <button
+                                className="navbar-toggler"
+                                type="button"
+                                data-toggle="collapse"
+                                data-target="#navbarSupportedContent"
+                                aria-controls="navbarSupportedContent"
+                                aria-expanded="false"
+                                aria-label="Toggle navigation"
+                                onClick={handleNavToggle}
+                            >
+                                <span className="navbar-toggler-icon" />
+                            </button>
+                            <div
+                                className={cx('collapse navbar-collapse', isNavOpen && 'show')}
+                                id="navbarSupportedContent"
+                            >
+                                <ul className="navbar-nav nav">
+                                    <li className="nav-item">
+                                        <Link className="nav-link" href="/">
+                                            Úvod
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link" href="/aktuality">
+                                            Aktuality
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link" href="/akce">
+                                            Akce
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link" href="/clenove">
+                                            Členové Narativu
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link" href="/komunitni-tym">
+                                            Komunitní Tým
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link" href="/kontakt">
+                                            Kontakt
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-);
+    );
+};
 
 export default Header;
