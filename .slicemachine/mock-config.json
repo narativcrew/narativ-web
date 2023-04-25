@@ -12,19 +12,46 @@
     "footer": {
       "center_column": {}
     },
-    "member": {},
+    "member": {
+      "description": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      }
+    },
     "event": {
-      "speakers": {}
+      "speakers": {},
+      "description": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      }
     },
     "speaker": {},
-    "news": {},
+    "news": {
+      "description": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      }
+    },
     "members_top_banner": {},
     "homepage_attribute": {},
     "footer_column_left": {},
     "footer_column_center": {},
     "footer_column_right": {},
     "homepage_events_header": {},
-    "members_top_title": {},
+    "members_top_title": {
+      "description": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      }
+    },
     "community_team_top_title": {
       "description": {
         "config": {
