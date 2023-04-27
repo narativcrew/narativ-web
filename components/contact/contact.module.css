@@ -36,6 +36,9 @@ h1.contactHeading {
     border-bottom: 1px solid #0a043c;
     border-left: none;
     border-right: none;
-    opacity: 0.15;
     line-height: 30px;
+}
+
+.contactFormField::placeholder {
+    opacity: 0.15;
 }

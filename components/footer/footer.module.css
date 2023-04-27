@@ -1,9 +1,8 @@
-.footerColumn span {
+.footerColumn p {
     font-weight: 600;
-    line-height: 30px;
 }
 
-.footerColumn span:first-of-type {
+.footerColumn span {
     opacity: 0.6;
     line-height: 50px;
 }

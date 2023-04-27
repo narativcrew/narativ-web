@@ -1,5 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
+import { PrismicRichText } from '@prismicio/react';
 
 import styles from './footer.module.css';
 
@@ -18,10 +19,7 @@ const Footer = (data) => {
                             {footerLeft.data.items.length > 0 && (
                                 <>
                                     {footerLeft.data.items.map((i) => (
-                                        <>
-                                            <span>{i.item[0].text}</span>
-                                            <br />
-                                        </>
+                                        <PrismicRichText key={i.id} field={i.item} />
                                     ))}
                                 </>
                             )}
@@ -34,10 +32,7 @@ const Footer = (data) => {
                             {footerCenter.data.items.length > 0 && (
                                 <>
                                     {footerCenter.data.items.map((i) => (
-                                        <>
-                                            <span>{i.item[0].text}</span>
-                                            <br />
-                                        </>
+                                        <PrismicRichText key={i.id} field={i.item} />
                                     ))}
                                 </>
                             )}
@@ -50,10 +45,7 @@ const Footer = (data) => {
                             {footerRight.data.items.length > 0 && (
                                 <>
                                     {footerRight.data.items.map((i) => (
-                                        <>
-                                            <span>{i.item[0].text}</span>
-                                            <br />
-                                        </>
+                                        <PrismicRichText key={i.id} field={i.item} />
                                     ))}
                                 </>
                             )}
