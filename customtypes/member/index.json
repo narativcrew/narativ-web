@@ -51,10 +51,11 @@
         }
       },
       "webpage": {
-        "type": "Text",
+        "type": "Link",
         "config": {
           "label": "Webpage",
-          "placeholder": ""
+          "placeholder": "",
+          "select": null
         }
       },
       "description": {

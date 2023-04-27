@@ -118,14 +118,22 @@ export default EventDetail;
 
 export async function getStaticProps({ params, previewData }) {
     const client = createClient({ previewData });
-    // console.log(`eventId: ${params.eventId}`);
     const evnt = await client.getByUID('event', params.eventId, {
         fetchLinks: ['speaker.short_info', 'speaker.image', 'speaker.name', 'speaker.info', 'speaker.main_speaker'],
     });
-    // console.log(evnt.data.speakers);
+    const footerLeft = await client.getSingle('footer_column_left');
+    const footerCenter = await client.getSingle('footer_column_center');
+    const footerRight = await client.getSingle('footer_column_right');
+    const footer = {
+        footerLeft,
+        footerCenter,
+        footerRight,
+    };
+
     return {
         props: {
             evnt,
+            footer,
         },
     };
 }

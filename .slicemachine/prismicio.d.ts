@@ -112,39 +112,6 @@ interface EventDocumentData {
      */
     price: prismicT.NumberField;
     /**
-     * Description field in *Event*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: event.description
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    description: prismicT.RichTextField;
-    /**
-     * Registration link field in *Event*
-     *
-     * - **Field Type**: Link
-     * - **Placeholder**: *None*
-     * - **API ID Path**: event.registration_link
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
-     *
-     */
-    registration_link: prismicT.LinkField;
-    /**
-     * Speakers field in *Event*
-     *
-     * - **Field Type**: Group
-     * - **Placeholder**: *None*
-     * - **API ID Path**: event.speakers[]
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/group
-     *
-     */
-    speakers: prismicT.GroupField<Simplify<EventDocumentDataSpeakersItem>>;
-    /**
      * Start date field in *Event*
      *
      * - **Field Type**: Timestamp
@@ -166,6 +133,39 @@ interface EventDocumentData {
      *
      */
     end_date: prismicT.TimestampField;
+    /**
+     * Registration link field in *Event*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: event.registration_link
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    registration_link: prismicT.LinkField;
+    /**
+     * Description field in *Event*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: event.description
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+    /**
+     * Speakers field in *Event*
+     *
+     * - **Field Type**: Group
+     * - **Placeholder**: *None*
+     * - **API ID Path**: event.speakers[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/group
+     *
+     */
+    speakers: prismicT.GroupField<Simplify<EventDocumentDataSpeakersItem>>;
 }
 /**
  * Item in Event → Speakers
@@ -938,14 +938,14 @@ interface MemberDocumentData {
     /**
      * Webpage field in *Member*
      *
-     * - **Field Type**: Text
+     * - **Field Type**: Link
      * - **Placeholder**: *None*
      * - **API ID Path**: member.webpage
      * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
      *
      */
-    webpage: prismicT.KeyTextField;
+    webpage: prismicT.LinkField;
     /**
      * Description field in *Member*
      *
@@ -1086,6 +1086,17 @@ interface NewsDocumentData {
      *
      */
     description: prismicT.RichTextField;
+    /**
+     * Image field in *News*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: news.image
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    image: prismicT.ImageField<never>;
 }
 /**
  * News document from Prismic
@@ -1097,30 +1108,6 @@ interface NewsDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type NewsDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<NewsDocumentData>, "news", Lang>;
-/** Content for Page documents */
-interface PageDocumentData {
-    /**
-     * Title field in *Page*
-     *
-     * - **Field Type**: Title
-     * - **Placeholder**: *None*
-     * - **API ID Path**: page.title
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    title: prismicT.TitleField;
-}
-/**
- * Page document from Prismic
- *
- * - **API ID**: `page`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type PageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 /** Content for Speaker documents */
 interface SpeakerDocumentData {
     /**
@@ -1190,7 +1177,7 @@ interface SpeakerDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type SpeakerDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<SpeakerDocumentData>, "speaker", Lang>;
-export type AllDocumentTypes = CommunityTeamTopTitleDocument | ContactHeaderImageDocument | EventDocument | EventsHeaderImageDocument | FooterColumnCenterDocument | FooterColumnLeftDocument | FooterColumnRightDocument | FooterDocument | HomepageAttributeDocument | HomepageEventsHeaderDocument | HomepageDocument | MemberDocument | MembersTopBannerDocument | MembersTopTitleDocument | NewsHeaderImageDocument | NewsDocument | PageDocument | SpeakerDocument;
+export type AllDocumentTypes = CommunityTeamTopTitleDocument | ContactHeaderImageDocument | EventDocument | EventsHeaderImageDocument | FooterColumnCenterDocument | FooterColumnLeftDocument | FooterColumnRightDocument | FooterDocument | HomepageAttributeDocument | HomepageEventsHeaderDocument | HomepageDocument | MemberDocument | MembersTopBannerDocument | MembersTopTitleDocument | NewsHeaderImageDocument | NewsDocument | SpeakerDocument;
 /**
  * Primary content in Intro → Primary
  *
@@ -1245,6 +1232,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { CommunityTeamTopTitleDocumentData, CommunityTeamTopTitleDocument, ContactHeaderImageDocumentData, ContactHeaderImageDocument, EventDocumentData, EventDocumentDataSpeakersItem, EventDocument, EventsHeaderImageDocumentData, EventsHeaderImageDocument, FooterColumnCenterDocumentData, FooterColumnCenterDocumentDataItemsItem, FooterColumnCenterDocument, FooterColumnLeftDocumentData, FooterColumnLeftDocumentDataItemsItem, FooterColumnLeftDocument, FooterColumnRightDocumentData, FooterColumnRightDocumentDataItemsItem, FooterColumnRightDocument, FooterDocumentData, FooterDocumentDataLeftColumnItem, FooterDocumentDataCenterColumnItem, FooterDocumentDataRightColumnItem, FooterDocument, HomepageAttributeDocumentData, HomepageAttributeDocument, HomepageEventsHeaderDocumentData, HomepageEventsHeaderDocument, HomepageDocumentData, HomepageDocumentDataSlicesSlice, HomepageDocument, MemberDocumentData, MemberDocument, MembersTopBannerDocumentData, MembersTopBannerDocument, MembersTopTitleDocumentData, MembersTopTitleDocument, NewsHeaderImageDocumentData, NewsHeaderImageDocument, NewsDocumentData, NewsDocument, PageDocumentData, PageDocument, SpeakerDocumentData, SpeakerDocument, AllDocumentTypes, IntroSliceDefaultPrimary, IntroSliceDefault, IntroSliceVariation, IntroSlice };
+        export type { CommunityTeamTopTitleDocumentData, CommunityTeamTopTitleDocument, ContactHeaderImageDocumentData, ContactHeaderImageDocument, EventDocumentData, EventDocumentDataSpeakersItem, EventDocument, EventsHeaderImageDocumentData, EventsHeaderImageDocument, FooterColumnCenterDocumentData, FooterColumnCenterDocumentDataItemsItem, FooterColumnCenterDocument, FooterColumnLeftDocumentData, FooterColumnLeftDocumentDataItemsItem, FooterColumnLeftDocument, FooterColumnRightDocumentData, FooterColumnRightDocumentDataItemsItem, FooterColumnRightDocument, FooterDocumentData, FooterDocumentDataLeftColumnItem, FooterDocumentDataCenterColumnItem, FooterDocumentDataRightColumnItem, FooterDocument, HomepageAttributeDocumentData, HomepageAttributeDocument, HomepageEventsHeaderDocumentData, HomepageEventsHeaderDocument, HomepageDocumentData, HomepageDocumentDataSlicesSlice, HomepageDocument, MemberDocumentData, MemberDocument, MembersTopBannerDocumentData, MembersTopBannerDocument, MembersTopTitleDocumentData, MembersTopTitleDocument, NewsHeaderImageDocumentData, NewsHeaderImageDocument, NewsDocumentData, NewsDocument, SpeakerDocumentData, SpeakerDocument, AllDocumentTypes, IntroSliceDefaultPrimary, IntroSliceDefault, IntroSliceVariation, IntroSlice };
     }
 }

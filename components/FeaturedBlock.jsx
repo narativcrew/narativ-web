@@ -23,7 +23,7 @@ FeaturedBlock.defaultProps = {
 };
 
 FeaturedBlock.propTypes = {
-    text: PropTypes.string.isRequired,
+    text: PropTypes.array.isRequired,
     image: PropTypes.shape({
         src: PropTypes.string.isRequired,
     }).isRequired,
