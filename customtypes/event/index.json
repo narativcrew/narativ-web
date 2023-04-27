@@ -41,13 +41,18 @@
           "placeholder": ""
         }
       },
-      "description": {
-        "type": "StructuredText",
+      "start_date": {
+        "type": "Timestamp",
         "config": {
-          "label": "Description",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          "label": "Start date",
+          "placeholder": ""
+        }
+      },
+      "end_date": {
+        "type": "Timestamp",
+        "config": {
+          "label": "End date",
+          "placeholder": ""
         }
       },
       "registration_link": {
@@ -56,6 +61,15 @@
           "label": "Registration link",
           "placeholder": "",
           "select": null
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
       },
       "speakers": {
@@ -72,20 +86,6 @@
               }
             }
           }
-        }
-      },
-      "start_date": {
-        "type": "Timestamp",
-        "config": {
-          "label": "Start date",
-          "placeholder": ""
-        }
-      },
-      "end_date": {
-        "type": "Timestamp",
-        "config": {
-          "label": "End date",
-          "placeholder": ""
         }
       }
     }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import styles from 'components/members/members.module.css';
 import FeaturedBlock from 'components/FeaturedBlock';
-import { PrismicRichText } from '@prismicio/react';
+import { PrismicLink, PrismicRichText } from '@prismicio/react';
 
 import { createClient } from '../../prismicio';
 
@@ -25,10 +25,14 @@ const MemberDetail = ({ member }) => (
                 <i className="bi bi-envelope" />
                 {member.data.email}
             </span>
-            <span>
-                <i className="bi bi-globe" />
-                {member.data.webpage}
-            </span>
+            {member.data.webpage && (
+                <span>
+                    <i className="bi bi-globe" />
+                    <PrismicLink target="_blank" field={member.data.webpage}>
+                        Osobní stránky
+                    </PrismicLink>
+                </span>
+            )}
         </div>
         <div>
             <div className="container">
@@ -54,7 +58,7 @@ MemberDetail.propTypes = {
             }).isRequired,
             phone_number: PropTypes.string.isRequired,
             email: PropTypes.string.isRequired,
-            webpage: PropTypes.string.isRequired,
+            webpage: PropTypes.object.isRequired,
         }).isRequired,
     }).isRequired,
 };
@@ -65,12 +69,20 @@ export default MemberDetail;
 // https://nextjs.org/docs/basic-features/pages
 export async function getStaticProps({ params, previewData }) {
     const client = createClient({ previewData });
-    // console.log(`memberId: ${params.memberId}`);
     const member = await client.getByUID('member', params.memberId);
-    // console.log(member);
+    const footerLeft = await client.getSingle('footer_column_left');
+    const footerCenter = await client.getSingle('footer_column_center');
+    const footerRight = await client.getSingle('footer_column_right');
+    const footer = {
+        footerLeft,
+        footerCenter,
+        footerRight,
+    };
+
     return {
         props: {
             member,
+            footer,
         },
     };
 }
@@ -83,8 +95,6 @@ export async function getStaticPaths() {
     const paths = members.map((member) => ({
         params: { memberId: member.uid },
     }));
-
-    // console.log(paths);
 
     return {
         paths,

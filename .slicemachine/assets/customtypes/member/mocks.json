@@ -11,11 +11,11 @@
   "lang": "en-us",
   "alternate_languages": [],
   "data": {
-    "name": "magic",
+    "name": "state",
     "motto": [
       {
         "type": "paragraph",
-        "text": "Velit consectetur ex incididunt cupidatat velit in ad sit sint laborum fugiat culpa nostrud. Ad nostrud excepteur non.",
+        "text": "Eu nulla qui fugiat anim dolore est duis sint deserunt ipsum incididunt minim laborum est minim. Duis consectetur nostrud magna amet anim deserunt exercitation dolor mollit. Velit culpa sunt ad esse est sint nulla esse officia in aliquip occaecat.",
         "spans": []
       }
     ],
@@ -26,15 +26,18 @@
       },
       "alt": null,
       "copyright": null,
-      "url": "https://images.unsplash.com/photo-1587840171670-8b850147754e"
+      "url": "https://images.unsplash.com/photo-1571126770897-2d612d1f7b89"
     },
-    "phone_number": "front",
-    "email": "caught",
-    "webpage": "also",
+    "phone_number": "roof",
+    "email": "correctly",
+    "webpage": {
+      "link_type": "Web",
+      "url": "https://slicemachine.dev"
+    },
     "description": [
       {
         "type": "paragraph",
-        "text": "Sint non cupidatat mollit incididunt do deserunt cupidatat tempor incididunt nisi fugiat non dolore.",
+        "text": "Duis tempor velit sit laboris in. Anim Lorem laborum excepteur laboris pariatur nulla irure laboris id pariatur.",
         "spans": []
       }
     ]

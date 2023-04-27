@@ -11,8 +11,8 @@
   "lang": "en-us",
   "alternate_languages": [],
   "data": {
-    "title": "trap",
-    "venue": "show",
+    "title": "beginning",
+    "venue": "arrangement",
     "image": {
       "dimensions": {
         "width": 900,
@@ -20,20 +20,22 @@
       },
       "alt": null,
       "copyright": null,
-      "url": "https://images.unsplash.com/photo-1600861194802-a2b11076bc51"
+      "url": "https://images.unsplash.com/photo-1587905069134-008460d7a636"
     },
-    "price": 33,
+    "price": 65,
+    "start_date": "2021-11-13T11:11:42+0000",
+    "end_date": "2013-03-31T06:13:12+0000",
+    "registration_link": {
+      "link_type": "Web",
+      "url": "https://slicemachine.dev"
+    },
     "description": [
       {
         "type": "paragraph",
-        "text": "Commodo nulla nostrud veniam officia commodo sint do sint aliqua aliqua magna dolore eiusmod. Sit dolore proident consectetur incididunt et consectetur elit duis eu laboris pariatur dolor cupidatat magna Lorem. Veniam labore irure amet.",
+        "text": "Culpa in nostrud ipsum est exercitation Lorem duis laborum anim ut dolore sit ut deserunt. Esse ut ea veniam incididunt labore nostrud culpa elit quis dolor tempor tempor. Anim et sit Lorem magna Lorem pariatur ullamco excepteur velit nulla sit aliquip eu occaecat enim.",
         "spans": []
       }
     ],
-    "registration_link": {
-      "link_type": "Web",
-      "url": "http://google.com"
-    },
     "speakers": [
       {
         "speaker": {
@@ -41,8 +43,6 @@
           "url": "https://prismic.io"
         }
       }
-    ],
-    "start_date": "2019-06-01T00:26:27+0000",
-    "end_date": "2014-11-24T03:45:34+0000"
+    ]
   }
 }
