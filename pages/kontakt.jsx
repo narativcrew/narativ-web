@@ -18,7 +18,7 @@ const Contact = ({ headerImage }) => {
     const [errors, setErrors] = useState({});
 
     //   Setting button text on form submission
-    const [buttonText, setButtonText] = useState('Send');
+    const [buttonText, setButtonText] = useState('Odeslat');
 
     // Setting success or failure messages states
     const [showSuccessMessage, setShowSuccessMessage] = useState(false);
@@ -102,14 +102,14 @@ const Contact = ({ headerImage }) => {
             <div className={stylesContact.contactBgBox}>
                 <div className="container pb-5 pt-2">
                     <div className="row">
-                        <h1 className={stylesContact.contactHeading}>Napiste nam</h1>
+                        <h1 className={stylesContact.contactHeading}>Napište nám</h1>
                     </div>
                     <div className="row justify-content-center">
                         <div className={cx('col-md-5', stylesContact.contactFormWrapper)}>
                             <form onSubmit={handleSubmit}>
                                 <div className={stylesContact.formGroup}>
                                     <label htmlFor="inputName" className={stylesContact.formLabel}>
-                                        Your name
+                                        Vaše jméno
                                         <input
                                             type="name"
                                             className={stylesContact.contactFormField}
@@ -120,13 +120,13 @@ const Contact = ({ headerImage }) => {
                                             }}
                                             name="fullname"
                                             aria-describedby="nameHelp"
-                                            placeholder="Your name here"
+                                            placeholder="Vaše jméno zde"
                                         />
                                     </label>
                                 </div>
                                 <div className={stylesContact.formGroup}>
                                     <label htmlFor="inputEmail" className={stylesContact.formLabel}>
-                                        Your email
+                                        Váš email
                                         <input
                                             type="email"
                                             className={stylesContact.contactFormField}
@@ -136,13 +136,13 @@ const Contact = ({ headerImage }) => {
                                             onChange={(e) => {
                                                 setEmail(e.target.value);
                                             }}
-                                            placeholder="Your email here"
+                                            placeholder="Váš email zde"
                                         />
                                     </label>
                                 </div>
                                 <div className={stylesContact.formGroup}>
                                     <label htmlFor="inputSubject" className={stylesContact.formLabel}>
-                                        Subject
+                                        Předmět
                                         <input
                                             type="text"
                                             className={stylesContact.contactFormField}
@@ -152,13 +152,13 @@ const Contact = ({ headerImage }) => {
                                             onChange={(e) => {
                                                 setSubject(e.target.value);
                                             }}
-                                            placeholder="Subject"
+                                            placeholder="Předmět zprávy zde"
                                         />
                                     </label>
                                 </div>
                                 <div className={stylesContact.formGroup}>
                                     <label htmlFor="textareaMessage" className={stylesContact.formLabel}>
-                                        Message
+                                        Zpráva
                                         <textarea
                                             className={stylesContact.contactFormField}
                                             id="textareaMessage"
@@ -168,7 +168,7 @@ const Contact = ({ headerImage }) => {
                                             onChange={(e) => {
                                                 setMessage(e.target.value);
                                             }}
-                                            placeholder="Your message here"
+                                            placeholder="Váš text zde"
                                         />
                                     </label>
                                 </div>
@@ -176,11 +176,14 @@ const Contact = ({ headerImage }) => {
                                 <div className="text-left">
                                     {showSuccessMessage && (
                                         <p className="text-green-500 font-semibold text-sm my-2">
-                                            Thank you! Your Message has been delivered.
+                                            Děkujeme! Vaše zpráva byla úspěšně odeslána.
                                         </p>
                                     )}
                                     {showFailureMessage && (
-                                        <p className="text-red-500">Oops! Something went wrong, please try again.</p>
+                                        <p className="text-red-500">
+                                            Ups! Něco se pokazilo. Zkuste to prosím znovu, nebo nám napište na{' '}
+                                            <a href="mailto:info@narativ.cz">info@narativ.cz</a>.
+                                        </p>
                                     )}
                                 </div>
                             </form>
