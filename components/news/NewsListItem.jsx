@@ -39,7 +39,7 @@ export function shortMonth(monthNr) {
 const getExcerpt = (textField) => {
     const text = prismicH.asText(textField);
 
-    const excerpt = text.substring(0, 150);
+    const excerpt = text.substring(0, 300);
 
     if (text.length > 300) {
         return `${excerpt.substring(0, excerpt.lastIndexOf(' '))}…`;

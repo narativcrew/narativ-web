@@ -15,7 +15,7 @@ const dateFormatter = new Intl.DateTimeFormat('cs-CZ', {
 const getExcerpt = (textField) => {
     const text = prismicH.asText(textField);
 
-    const excerpt = text.substring(0, 150);
+    const excerpt = text.substring(0, 300);
 
     if (text.length > 300) {
         return `${excerpt.substring(0, excerpt.lastIndexOf(' '))}…`;
@@ -23,7 +23,7 @@ const getExcerpt = (textField) => {
     return excerpt;
 };
 
-const EventListItem = ({ id, title, startDate, endDate, venue, description, image, futureEvent }) => {
+const EventListItem = ({ id, title, startDate, endDate, venue, description, image }) => {
     const start = prismicH.asDate(startDate);
     const end = prismicH.asDate(endDate);
     return (
@@ -37,7 +37,7 @@ const EventListItem = ({ id, title, startDate, endDate, venue, description, imag
                 {dateFormatter.format(start)}-{dateFormatter.format(end)} | {venue}
             </span>
             <br />
-            {futureEvent && getExcerpt(description)}
+            {getExcerpt(description)}
         </Link>
     );
 };
@@ -50,11 +50,6 @@ EventListItem.propTypes = {
     venue: PropTypes.string.isRequired,
     description: PropTypes.array.isRequired,
     image: PropTypes.string.isRequired,
-    futureEvent: PropTypes.bool,
-};
-
-EventListItem.defaultProps = {
-    futureEvent: true,
 };
 
 export default EventListItem;

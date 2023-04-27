@@ -66,7 +66,6 @@ const Events = ({ headerImage, events, pastEvents }) => (
                                         venue={e.data.venue}
                                         description={e.data.description}
                                         image={e.data.image.url}
-                                        futureEvent={false}
                                     />
                                 </div>
                             ))}
