@@ -105,7 +105,6 @@ EventDetail.propTypes = {
                             image: PropTypes.shape({
                                 url: PropTypes.string.isRequired,
                             }).isRequired,
-                            main_speaker: PropTypes.bool.isRequired,
                         }).isRequired,
                     }).isRequired,
                 })
@@ -119,7 +118,7 @@ export default EventDetail;
 export async function getStaticProps({ params, previewData }) {
     const client = createClient({ previewData });
     const evnt = await client.getByUID('event', params.eventId, {
-        fetchLinks: ['speaker.short_info', 'speaker.image', 'speaker.name', 'speaker.info', 'speaker.main_speaker'],
+        fetchLinks: ['speaker.short_info', 'speaker.image', 'speaker.name', 'speaker.info'],
     });
     const footerLeft = await client.getSingle('footer_column_left');
     const footerCenter = await client.getSingle('footer_column_center');

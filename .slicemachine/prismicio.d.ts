@@ -1122,18 +1122,6 @@ interface SpeakerDocumentData {
      */
     name: prismicT.KeyTextField;
     /**
-     * Main speaker field in *Speaker*
-     *
-     * - **Field Type**: Boolean
-     * - **Placeholder**: *None*
-     * - **Default Value**: false
-     * - **API ID Path**: speaker.main_speaker
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/boolean
-     *
-     */
-    main_speaker: prismicT.BooleanField;
-    /**
      * Info field in *Speaker*
      *
      * - **Field Type**: Rich Text
