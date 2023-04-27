@@ -19,7 +19,11 @@ const HomepageEvents = ({ eventsHeader, events }) => (
             </div>
         </div>
         <div className="row">
-            {events.length > 0 && (
+            {events.length === 0 ? (
+                <div className="text-center py-5">
+                    Žádné nadcházející akce. Podívejte se na naše <Link href="/akce">minulé akce</Link>
+                </div>
+            ) : (
                 <>
                     {events.map((e) => (
                         <div key={e.uid} className="col-md-6">
@@ -37,13 +41,15 @@ const HomepageEvents = ({ eventsHeader, events }) => (
                 </>
             )}
         </div>
-        <div className="row">
-            <div className="col-md-6 offset-md-6 text-center">
-                <Link href="/akce">
-                    <BlockButton>Zobrazit další akce</BlockButton>
-                </Link>
+        {events.length > 0 && (
+            <div className="row">
+                <div className="col-md-6 offset-md-6 text-center">
+                    <Link href="/akce">
+                        <BlockButton>Zobrazit další akce</BlockButton>
+                    </Link>
+                </div>
             </div>
-        </div>
+        )}
     </div>
 );
 

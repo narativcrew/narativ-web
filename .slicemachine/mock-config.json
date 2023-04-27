@@ -40,9 +40,36 @@
     },
     "members_top_banner": {},
     "homepage_attribute": {},
-    "footer_column_left": {},
-    "footer_column_center": {},
-    "footer_column_right": {},
+    "footer_column_left": {
+      "items": {
+        "item": {
+          "config": {
+            "patternType": "PARAGRAPH",
+            "blocks": 1
+          }
+        }
+      }
+    },
+    "footer_column_center": {
+      "items": {
+        "item": {
+          "config": {
+            "patternType": "PARAGRAPH",
+            "blocks": 1
+          }
+        }
+      }
+    },
+    "footer_column_right": {
+      "items": {
+        "item": {
+          "config": {
+            "patternType": "PARAGRAPH",
+            "blocks": 1
+          }
+        }
+      }
+    },
     "homepage_events_header": {},
     "members_top_title": {
       "description": {

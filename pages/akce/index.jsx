@@ -26,7 +26,9 @@ const Events = ({ headerImage, events, pastEvents }) => (
                 </div>
 
                 <div className="row">
-                    {events.length > 0 && (
+                    {events.length === 0 ? (
+                        <div className="text-center py-5">Žádné nadcházející akce.</div>
+                    ) : (
                         <>
                             {events.map((pe) => (
                                 <div className="col-md-6" key={pe.uid}>
@@ -50,7 +52,9 @@ const Events = ({ headerImage, events, pastEvents }) => (
                     </div>
                 </div>
                 <div className="row">
-                    {pastEvents.length > 0 && (
+                    {pastEvents.length === 0 ? (
+                        <div className="text-center py-5">Žádné minlé akce.</div>
+                    ) : (
                         <>
                             {pastEvents.map((e) => (
                                 <div className="col-md-6" key={e.uid}>

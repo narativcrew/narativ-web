@@ -18,7 +18,9 @@ const News = ({ headerImage, news }) => (
         <div className={styles.newsBox}>
             <div className="container py-5 mt-6">
                 <h1>Aktuality</h1>
-                {news && news.length > 0 && (
+                {news.length === 0 ? (
+                    <div className="text-center py-5">Žádné aktuality.</div>
+                ) : (
                     <>
                         {news.map((n) => (
                             <NewsListItem

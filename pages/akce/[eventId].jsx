@@ -3,13 +3,10 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { PrismicLink, PrismicRichText } from '@prismicio/react';
 import * as prismicH from '@prismicio/helpers';
-import FeaturedBlock from 'components/FeaturedBlock';
 import styles from 'components/events/events.module.scss';
 import FeaturedImage from 'components/FeaturedImage';
-import bg from 'public/images/placeholders/loek-wide.webp';
 
 import { createClient } from '../../prismicio';
-import { BlockButton } from '../../components/Buttons';
 
 const dateFormatter = new Intl.DateTimeFormat('cs-CZ', {
     month: 'short',
@@ -22,7 +19,7 @@ const EventDetail = ({ evnt }) => {
     const end = prismicH.asDate(evnt.data.end_date);
     return (
         <>
-            <FeaturedImage image={bg} />
+            <FeaturedImage image={evnt.data.image.url} />
             <div className={cx(styles.eventDetailHeadingBox, 'text-center')}>
                 <h1>{evnt.data.title}</h1>
                 <span>
@@ -37,6 +34,12 @@ const EventDetail = ({ evnt }) => {
                     <i className="bi bi-geo-alt" />
                     {evnt.data.venue}
                 </span>
+                <span>
+                    <i className="bi bi-pen" />
+                    <PrismicLink target="_blank" field={evnt.data.registration_link}>
+                        Přihláška
+                    </PrismicLink>
+                </span>
             </div>
             <div className="container mt-5 mb-5">
                 <div className="row justify-content-center">
@@ -44,32 +47,33 @@ const EventDetail = ({ evnt }) => {
                         <PrismicRichText field={evnt.data.description} />
                     </div>
                 </div>
-                <div className="row justify-content-center">
-                    <div className="col-md-3">
-                        <BlockButton>
-                            <PrismicLink field={evnt.data.registration_link}>Prihlasit se na kurz</PrismicLink>
-                        </BlockButton>
-                    </div>
-                </div>
             </div>
             {evnt.data.speakers.length > 0 && (
-                <>
-                    {evnt.data.speakers.map((s) => (
-                        <>
-                            {s.speaker.data && s.speaker.data.main_speaker === true && (
-                                <FeaturedBlock text={s.speaker.data.short_info} image={s.speaker?.data?.image.url} />
-                            )}
-                            <div className="container">
-                                <div className="row justify-content-center mt-5">
-                                    <div className="col-md-8">
-                                        <h4>{s.speaker?.data?.name || 'N/A'}</h4>
-                                        <PrismicRichText field={s.speaker?.data?.info} />
+                <div>
+                    <h2 className="text-center">Lektoři</h2>
+                    <div className={styles.eventDetailSpeakerBox}>
+                        <div className="container">
+                            <div className="row justify-content-center mt-5">
+                                {evnt.data.speakers.map((s) => (
+                                    <div key={s.id} className="col-lg-6">
+                                        <div className={cx(styles.speakerCard)}>
+                                            <div
+                                                className={styles.speakerCardImg}
+                                                style={{ backgroundImage: `url(${s.speaker?.data?.image.url})` }}
+                                            />
+                                            <div className={cx('text-start', styles.speakerCardContent)}>
+                                                <h5 className={styles.speakerCardTitle}>{s.speaker?.data?.name}</h5>
+                                                <div className={styles.speakerCardText}>
+                                                    <PrismicRichText field={s.speaker?.data?.info} />
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                ))}
                             </div>
-                        </>
-                    ))}
-                </>
+                        </div>
+                    </div>
+                </div>
             )}
         </>
     );
@@ -84,18 +88,12 @@ EventDetail.propTypes = {
             end_date: PropTypes.string.isRequired,
             venue: PropTypes.string.isRequired,
             price: PropTypes.string.isRequired,
+            image: PropTypes.shape({
+                url: PropTypes.string.isRequired,
+            }).isRequired,
             registration_link: PropTypes.shape({
-                link_type: PropTypes.string.isRequired,
                 url: PropTypes.string,
                 target: PropTypes.string,
-                size: PropTypes.string,
-                id: PropTypes.string,
-                type: PropTypes.string,
-                tags: PropTypes.arrayOf(PropTypes.string),
-                lang: PropTypes.string,
-                slug: PropTypes.string,
-                uid: PropTypes.string,
-                isBroken: PropTypes.bool,
             }).isRequired,
             speakers: PropTypes.arrayOf(
                 PropTypes.shape({

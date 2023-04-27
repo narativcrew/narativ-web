@@ -37,14 +37,47 @@
 
 .eventDetailHeadingBox {
     background: #f9fafb;
+    padding: 1.5rem 3rem;
+    i {
+        padding-right: 0.2rem;
+        color: #ff794d;
+    }
+    span {
+        padding: 0.5rem;
+    }
+}
+
+.eventDetailSpeakerBox {
+    background: #f9fafb;
     padding: 1.5rem 3rem
 }
 
-.eventDetailHeadingBox span {
-    padding: 0.5rem;
+.speakerCard {
+    text-align: center;
+    border: 1px solid #e1ecf0;
+    border-radius: 10px;
+    background-color: #ffffff;
+    /* margin-bottom: 3rem; */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-.eventDetailHeadingBox i {
-    padding-right: 0.2rem;
-    color: #ff794d;
+.speakerCardImg {
+    width: 100%;
+    min-height: 300px;
+    background: center no-repeat;
+    background-size: cover;
+}
+
+.speakerCardContent {
+    padding: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.speakerCardText {
+    line-height: 30px;
+    opacity: 0.8;
 }
