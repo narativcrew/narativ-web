@@ -5,7 +5,7 @@ import cx from 'classnames';
 import Logo from 'public/images/logo.svg';
 // import LogoWhite from 'public/images/logo-white.svg';
 
-import styles from './header.module.css';
+import styles from './header.module.scss';
 
 /*
     const [scroll, setScroll] = useState(false);
@@ -19,6 +19,33 @@ import styles from './header.module.css';
     // <Image src={scroll ? Logo : LogoWhite} alt="Narativ" />
 */
 
+const navItems = [
+    {
+        label: 'Úvod',
+        href: '/',
+    },
+    {
+        label: 'Aktuality',
+        href: '/aktuality',
+    },
+    {
+        label: 'Akce',
+        href: '/akce',
+    },
+    {
+        label: 'Členové Narativu',
+        href: '/clenove',
+    },
+    {
+        label: 'Komunitní Tým',
+        href: '/komunitni-tym',
+    },
+    {
+        label: 'Kontakt',
+        href: '/kontakt',
+    },
+];
+
 const Header = () => {
     const [isNavOpen, setIsNavOpen] = useState(false);
 
@@ -29,14 +56,12 @@ const Header = () => {
     return (
         <div className={cx(styles.header, styles.bgWhite)}>
             <div className="container">
-                <div className="row align-items-center">
-                    <div className="col-md-4">
-                        <Link href="/">
-                            <Image src={Logo} alt="Narativ" />
-                        </Link>
-                    </div>
-                    <div className="col-md-8">
+                <div className="row">
+                    <div className="col-12">
                         <nav className="navbar navbar-expand-lg justify-content-end">
+                            <Link href="/" className="navbar-brand">
+                                <Image src={Logo} alt="Narativ" />
+                            </Link>
                             <button
                                 className="navbar-toggler"
                                 type="button"
@@ -50,40 +75,21 @@ const Header = () => {
                                 <span className="navbar-toggler-icon" />
                             </button>
                             <div
-                                className={cx('collapse navbar-collapse', isNavOpen && 'show')}
+                                className={cx('collapse navbar-collapse justify-content-end', isNavOpen && 'show')}
                                 id="navbarSupportedContent"
                             >
-                                <ul className="navbar-nav nav">
-                                    <li className="nav-item">
-                                        <Link className="nav-link" href="/">
-                                            Úvod
-                                        </Link>
-                                    </li>
-                                    <li className="nav-item">
-                                        <Link className="nav-link" href="/aktuality">
-                                            Aktuality
-                                        </Link>
-                                    </li>
-                                    <li className="nav-item">
-                                        <Link className="nav-link" href="/akce">
-                                            Akce
-                                        </Link>
-                                    </li>
-                                    <li className="nav-item">
-                                        <Link className="nav-link" href="/clenove">
-                                            Členové Narativu
-                                        </Link>
-                                    </li>
-                                    <li className="nav-item">
-                                        <Link className="nav-link" href="/komunitni-tym">
-                                            Komunitní Tým
-                                        </Link>
-                                    </li>
-                                    <li className="nav-item">
-                                        <Link className="nav-link" href="/kontakt">
-                                            Kontakt
-                                        </Link>
-                                    </li>
+                                <ul className={cx('navbar-nav nav', styles.navigation)}>
+                                    {navItems.map((item) => (
+                                        <li className="nav-item" key={item.label}>
+                                            <Link
+                                                className="nav-link"
+                                                href={item.href}
+                                                onClick={() => setIsNavOpen(false)}
+                                            >
+                                                {item.label}
+                                            </Link>
+                                        </li>
+                                    ))}
                                 </ul>
                             </div>
                         </nav>
