@@ -74,9 +74,7 @@ export async function getStaticProps({ previewData }) {
     const client = createClient({ previewData });
     const intro = await client.getSingle('homepage');
     const eventsHeader = await client.getSingle('homepage_events_header');
-    const attributes = await client.getAllByType('homepage_attribute', {
-        orderings: [{ field: 'document.data.order', direction: 'asc' }],
-    });
+    const attributes = await client.getAllByType('homepage_attribute');
     const events = await client.getAllByType('event', {
         predicates: [prismic.predicate.dateAfter('my.event.end_date', new Date())],
         orderings: [{ field: 'my.event.start_date', direction: 'asc' }],

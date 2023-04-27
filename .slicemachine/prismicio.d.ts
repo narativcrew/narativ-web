@@ -727,17 +727,6 @@ export type FooterDocument<Lang extends string = string> = prismicT.PrismicDocum
 /** Content for Homepage Attribute documents */
 interface HomepageAttributeDocumentData {
     /**
-     * Label field in *Homepage Attribute*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: homepage_attribute.label
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    label: prismicT.KeyTextField;
-    /**
      * Title field in *Homepage Attribute*
      *
      * - **Field Type**: Text
@@ -759,17 +748,6 @@ interface HomepageAttributeDocumentData {
      *
      */
     description: prismicT.RichTextField;
-    /**
-     * Order field in *Homepage Attribute*
-     *
-     * - **Field Type**: Number
-     * - **Placeholder**: *None*
-     * - **API ID Path**: homepage_attribute.order
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/number
-     *
-     */
-    order: prismicT.NumberField;
 }
 /**
  * Homepage Attribute document from Prismic

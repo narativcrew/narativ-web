@@ -38,10 +38,10 @@ const HomepageHeader = ({ intro, attributes }) => (
             <div className="container">
                 <div className="row">
                     {attributes.length > 0 &&
-                        attributes.map((attr) => (
+                        attributes.map((attr, index) => (
                             <HomepageAttribute
-                                key={attr.data.label}
-                                label={attr.data.label}
+                                key={attr.id}
+                                label={index}
                                 title={attr.data.title}
                                 description={attr.data.description}
                             />
