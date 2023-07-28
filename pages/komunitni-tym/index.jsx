@@ -24,7 +24,7 @@ const ContactTeam = ({ topTitle, bottomText, members }) => (
                     <h1>{topTitle.data.title}</h1>
                     {topTitle?.data.description && <PrismicRichText field={topTitle.data.description} />}
                     <Link href="#more-info">
-                        <BlockButton>Vice</BlockButton>
+                        <BlockButton>Více</BlockButton>
                     </Link>
                 </div>
             </div>
