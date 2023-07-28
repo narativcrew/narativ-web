@@ -7,10 +7,12 @@ import cx from 'classnames';
 import styles from 'components/members/members.module.css';
 import { MemberListItem } from 'components/members';
 import { PrismicRichText } from '@prismicio/react';
+import Link from 'next/link';
+import { BlockButton } from 'components/Buttons';
 
 import { createClient } from '../../prismicio';
 
-const ContactTeam = ({ topTitle, members }) => (
+const ContactTeam = ({ topTitle, bottomText, members }) => (
     <>
         <Head>
             <title>Narativ | Komunitní tým</title>
@@ -21,12 +23,15 @@ const ContactTeam = ({ topTitle, members }) => (
                 <div className="col-md-6 mt-5 py-5 text-center">
                     <h1>{topTitle.data.title}</h1>
                     {topTitle?.data.description && <PrismicRichText field={topTitle.data.description} />}
+                    <Link href="#more-info">
+                        <BlockButton>Vice</BlockButton>
+                    </Link>
                 </div>
             </div>
         </div>
 
         <div className={cx(styles.membersBgBox, 'py-5')}>
-            <div className="container my-5 text-center">
+            <div className="container mb-5 text-center">
                 <h1>Komunitní tým</h1>
             </div>
             <div className="container">
@@ -47,11 +52,26 @@ const ContactTeam = ({ topTitle, members }) => (
                 </div>
             </div>
         </div>
+
+        <div id="more-info" className="container">
+            <div className="row justify-content-center">
+                <div className="col-md-6 py-5 text-center">
+                    <h1>{bottomText.data.title}</h1>
+                    {bottomText?.data.description && <PrismicRichText field={bottomText.data.description} />}
+                </div>
+            </div>
+        </div>
     </>
 );
 
 ContactTeam.propTypes = {
     topTitle: PropTypes.shape({
+        data: PropTypes.shape({
+            title: PropTypes.string.isRequired,
+            description: PropTypes.arrayOf(PropTypes.object).isRequired,
+        }).isRequired,
+    }).isRequired,
+    bottomText: PropTypes.shape({
         data: PropTypes.shape({
             title: PropTypes.string.isRequired,
             description: PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -76,6 +96,8 @@ export default ContactTeam;
 export async function getStaticProps({ previewData }) {
     const client = createClient({ previewData });
     const topTitle = await client.getSingle('community_team_top_title');
+    const bottomText = await client.getSingle('community_team_bottom_text');
+
     const members = await client.getAllByType('member', {
         predicates: [prismic.predicate.at('document.tags', ['komunitni_tym'])],
     });
@@ -91,6 +113,6 @@ export async function getStaticProps({ previewData }) {
     };
 
     return {
-        props: { topTitle, members, footer },
+        props: { topTitle, bottomText, members, footer },
     };
 }

@@ -32,3 +32,11 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## SendGrid integration
+SendGrid API key can be found in `.env.local`. This API key has to be added in Vercel environment variables as well.
+## Prismic integration
+
+### Slicemachine
+Slicemachine can be run using `yarn slicemachine`. All changes need to be pushed to Prismic after they are tested on local environment.
+All the custom types are then saved under `/customtypes` directory.

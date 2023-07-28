@@ -89,7 +89,15 @@
     },
     "news_header_image": {},
     "events_header_image": {},
-    "contact_header_image": {}
+    "contact_header_image": {},
+    "community_team_bottom_text": {
+      "description": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      }
+    }
   },
   "slices": {
     "Intro": {}
