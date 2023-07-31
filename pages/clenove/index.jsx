@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import * as prismic from '@prismicio/client';
 import Head from 'next/head';
 import cx from 'classnames';
 import FeaturedBlock from 'components/FeaturedBlock';
@@ -56,7 +57,7 @@ Members.propTypes = {
         PropTypes.shape({
             uid: PropTypes.string.isRequired,
             data: PropTypes.shape({
-                name: PropTypes.arrayOf(PropTypes.object).isRequired,
+                name: PropTypes.string.isRequired,
                 description: PropTypes.arrayOf(PropTypes.object).isRequired,
                 profile_photo: PropTypes.shape({
                     url: PropTypes.string.isRequired,
@@ -69,7 +70,7 @@ Members.propTypes = {
             description: PropTypes.arrayOf(PropTypes.object).isRequired,
             image: PropTypes.shape({
                 url: PropTypes.string.isRequired,
-            }).isRequired,
+            }),
         }).isRequired,
     }).isRequired,
     topTitle: PropTypes.shape({
@@ -85,7 +86,9 @@ export default Members;
 export async function getStaticProps({ previewData }) {
     const client = createClient({ previewData });
 
-    const members = await client.getAllByType('member');
+    const members = await client.getAllByType('member', {
+        predicates: [prismic.predicate.at('document.tags', ['narativ_tym'])],
+    });
     const banner = await client.getSingle('members_top_banner');
     const topTitle = await client.getSingle('members_top_title');
 

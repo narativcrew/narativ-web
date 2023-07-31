@@ -12,7 +12,7 @@ import { BlockButton } from 'components/Buttons';
 
 import { createClient } from '../../prismicio';
 
-const ContactTeam = ({ topTitle, bottomText, members }) => (
+const CommunityTeam = ({ topTitle, bottomText, members }) => (
     <>
         <Head>
             <title>Narativ | Komunitní tým</title>
@@ -64,7 +64,7 @@ const ContactTeam = ({ topTitle, bottomText, members }) => (
     </>
 );
 
-ContactTeam.propTypes = {
+CommunityTeam.propTypes = {
     topTitle: PropTypes.shape({
         data: PropTypes.shape({
             title: PropTypes.string.isRequired,
@@ -81,7 +81,7 @@ ContactTeam.propTypes = {
         PropTypes.shape({
             uid: PropTypes.string.isRequired,
             data: PropTypes.shape({
-                name: PropTypes.arrayOf(PropTypes.object).isRequired,
+                name: PropTypes.string.isRequired,
                 description: PropTypes.arrayOf(PropTypes.object).isRequired,
                 profile_photo: PropTypes.shape({
                     url: PropTypes.string.isRequired,
@@ -91,7 +91,7 @@ ContactTeam.propTypes = {
     ).isRequired,
 };
 
-export default ContactTeam;
+export default CommunityTeam;
 
 export async function getStaticProps({ previewData }) {
     const client = createClient({ previewData });
