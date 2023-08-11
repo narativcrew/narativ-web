@@ -16,22 +16,31 @@ const MemberDetail = ({ member }) => (
         </div>
         <FeaturedBlock text={member.data.motto} title={member.data.name} image={member.data.profile_photo.url} />
         <div className={cx(styles.memberDetailContactsBox, 'text-center py-5')}>
-            <h1>Kontakty</h1>
-            <span>
-                <i className="bi bi-phone" />
-                {member.data.phone_number}
-            </span>
-            <span>
-                <i className="bi bi-envelope" />
-                {member.data.email}
-            </span>
-            {member.data.webpage && (
-                <span>
-                    <i className="bi bi-globe" />
-                    <PrismicLink target="_blank" field={member.data.webpage}>
-                        Osobní stránky
-                    </PrismicLink>
-                </span>
+            {(member.data.phone_number || member.data.email || member.data.webpage.url) && (
+                <>
+                    <h1>Kontakty</h1>
+                    {member.data.phone_number && (
+                        <span>
+                            <i className="bi bi-phone" />
+                            {member.data.phone_number}
+                        </span>
+                    )}
+                    {member.data.email && (
+                        <span>
+                            <i className="bi bi-envelope" />
+                            {member.data.email}
+                        </span>
+                    )}
+
+                    {member.data.webpage && member.data.webpage.url && (
+                        <span>
+                            <i className="bi bi-globe" />
+                            <PrismicLink target="_blank" field={member.data.webpage}>
+                                Osobní stránky
+                            </PrismicLink>
+                        </span>
+                    )}
+                </>
             )}
         </div>
         <div>
