@@ -28,11 +28,13 @@ const Members = ({ members, headerImage }) => (
                         <>
                             {members.map((member) => (
                                 <MemberListItem
-                                    key={member.uid}
                                     id={member.uid}
                                     name={member.data.name}
                                     desc={member.data.description}
                                     image={member.data.profile_photo.url}
+                                    phoneNumber={member.data.phoneNumber}
+                                    email={member.data.email}
+                                    webpage={member.data.we}
                                 />
                             ))}
                         </>

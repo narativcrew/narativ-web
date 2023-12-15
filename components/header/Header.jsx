@@ -37,7 +37,7 @@ const navItems = [
         href: '/clenove',
     },
     {
-        label: 'Komunitní Tým',
+        label: 'Komunitní tým',
         href: '/komunitni-tym',
     },
     {

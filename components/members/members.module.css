@@ -64,15 +64,6 @@
     line-height: 30px;
 }
 
-.memberDetailContactsBox {
-    background-color: #F9FAFB;
-    margin-bottom: 1.5rem;
-}
-
-.memberDetailContactsBox span {
-    padding: 0.5rem;
-}
-
 .memberDetailContactsBox i {
     padding-right: 0.2rem;
     color: #ff794d;

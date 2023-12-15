@@ -1,34 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'next/link';
-import { CardButton } from 'components/Buttons';
 import cx from 'classnames';
-import * as prismicH from '@prismicio/helpers';
+import { PrismicLink, PrismicRichText } from '@prismicio/react';
 
 import styles from './members.module.css';
 
-const getExcerpt = (textField) => {
-    const text = prismicH.asText(textField);
-
-    const excerpt = text.substring(0, 300);
-
-    if (text.length > 300) {
-        return `${excerpt.substring(0, excerpt.lastIndexOf(' '))}…`;
-    }
-    return excerpt;
-};
-
-const MemberListItem = ({ id, name, desc, image }) => (
+const MemberListItem = ({ name, desc, image, phoneNumber, email, webpage }) => (
     <div className="col-lg-4 mb-4">
         <div className={cx(styles.memberCard)}>
             <div className={styles.memberCardImg} style={{ backgroundImage: `url(${image})` }} />
             <div className={cx('text-start', styles.memberCardContent)}>
                 <h5 className={styles.memberCardTitle}>{name}</h5>
-                <div className={styles.memberCardText}>{getExcerpt(desc)}</div>
-                <div className={styles.memberCardButtonWrapper}>
-                    <Link href={`/clenove/${id}`}>
-                        <CardButton>Vice</CardButton>
-                    </Link>
+                {(phoneNumber || email || webpage) && (
+                    <>
+                        <div className={cx(styles.memberDetailContactsBox, 'text-right py-1')}>
+                            {phoneNumber && (
+                                <span>
+                                    <i className="bi bi-phone" />
+                                    {phoneNumber}
+                                </span>
+                            )}
+                            {email && (
+                                <span>
+                                    <i className="bi bi-envelope" />
+                                    {email}
+                                </span>
+                            )}
+
+                            {webpage && webpage.url && (
+                                <span>
+                                    <i className="bi bi-globe" />
+                                    <PrismicLink target="_blank" field={webpage}>
+                                        Osobní stránky
+                                    </PrismicLink>
+                                </span>
+                            )}
+                        </div>
+                        <hr />
+                    </>
+                )}
+                <div className={styles.memberCardText}>
+                    <PrismicRichText field={desc} />
                 </div>
             </div>
         </div>
@@ -36,10 +48,18 @@ const MemberListItem = ({ id, name, desc, image }) => (
 );
 
 MemberListItem.propTypes = {
-    id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     desc: PropTypes.array.isRequired,
     image: PropTypes.string.isRequired,
+    phoneNumber: PropTypes.string,
+    email: PropTypes.string,
+    webpage: PropTypes.object,
+};
+
+MemberListItem.defaultProps = {
+    phoneNumber: null,
+    email: null,
+    webpage: null,
 };
 
 export default MemberListItem;
