@@ -3,29 +3,20 @@ import PropTypes from 'prop-types';
 import * as prismic from '@prismicio/client';
 import Head from 'next/head';
 import cx from 'classnames';
-import FeaturedBlock from 'components/FeaturedBlock';
 import styles from 'components/members/members.module.css';
 import { MemberListItem } from 'components/members';
-import { PrismicRichText } from '@prismicio/react';
+import FeaturedImage from 'components/FeaturedImage';
 
 import { createClient } from '../../prismicio';
 
-const Members = ({ members, banner, topTitle }) => (
+const Members = ({ members, headerImage }) => (
     <>
         <Head>
             <title>Narativ | Členové Narativu</title>
             <meta property="og:title" content="Narativ | Členové Narativu" key="title" />
         </Head>
-        <div className="container">
-            <div className="row justify-content-center">
-                <div className="col-md-6 mt-5 py-5 text-center">
-                    <h1>{topTitle.data.title}</h1>
-                    {topTitle?.data.description && <PrismicRichText field={topTitle.data.description} />}
-                </div>
-            </div>
-        </div>
 
-        <FeaturedBlock text={banner.data.description} image={banner.data.image.url} background="#FF794D" />
+        <FeaturedImage image={headerImage.data.image.url} />
 
         <div className={cx(styles.membersBgBox, 'py-5')}>
             <div className="container my-5 text-center">
@@ -65,18 +56,11 @@ Members.propTypes = {
             }).isRequired,
         }).isRequired
     ).isRequired,
-    banner: PropTypes.shape({
+    headerImage: PropTypes.shape({
         data: PropTypes.shape({
-            description: PropTypes.arrayOf(PropTypes.object).isRequired,
             image: PropTypes.shape({
                 url: PropTypes.string.isRequired,
-            }),
-        }).isRequired,
-    }).isRequired,
-    topTitle: PropTypes.shape({
-        data: PropTypes.shape({
-            title: PropTypes.string.isRequired,
-            description: PropTypes.arrayOf(PropTypes.object).isRequired,
+            }).isRequired,
         }).isRequired,
     }).isRequired,
 };
@@ -89,7 +73,8 @@ export async function getStaticProps({ previewData }) {
     const members = await client.getAllByType('member', {
         predicates: [prismic.predicate.at('document.tags', ['narativ_tym'])],
     });
-    const banner = await client.getSingle('members_top_banner');
+    const headerImage = await client.getSingle('members_header_image');
+
     const topTitle = await client.getSingle('members_top_title');
 
     const footerLeft = await client.getSingle('footer_column_left');
@@ -103,6 +88,6 @@ export async function getStaticProps({ previewData }) {
     };
 
     return {
-        props: { topTitle, members, banner, footer },
+        props: { topTitle, members, headerImage, footer },
     };
 }
