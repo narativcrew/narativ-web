@@ -12,8 +12,6 @@ const HomepageEvents = ({ eventsHeader, events }) => (
             <div className="row">
                 <div className="col-md-6">
                     <h1>{eventsHeader.data.title}</h1>
-                </div>
-                <div className="col-md-6">
                     {eventsHeader?.data.description && <PrismicRichText field={eventsHeader.data.description} />}
                 </div>
             </div>
