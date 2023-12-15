@@ -9,18 +9,22 @@ import { MemberListItem } from 'components/members';
 import { PrismicRichText } from '@prismicio/react';
 import Link from 'next/link';
 import { BlockButton } from 'components/Buttons';
+import FeaturedImage from 'components/FeaturedImage';
 
 import { createClient } from '../../prismicio';
 
-const CommunityTeam = ({ topTitle, bottomText, members }) => (
+const CommunityTeam = ({ topTitle, bottomText, headerImage, members }) => (
     <>
         <Head>
             <title>Narativ | Komunitní tým</title>
             <meta property="og:title" content="Narativ | Členové Narativu" key="title" />
         </Head>
+
+        <FeaturedImage image={headerImage.data.image.url} />
+
         <div className="container">
             <div className="row justify-content-center">
-                <div className="col-md-6 mt-5 py-5 text-center">
+                <div className="col-md-12 mt-5 py-5 text-center">
                     <h1>{topTitle.data.title}</h1>
                     {topTitle?.data.description && <PrismicRichText field={topTitle.data.description} />}
                     <Link href="#more-info">
@@ -45,6 +49,9 @@ const CommunityTeam = ({ topTitle, bottomText, members }) => (
                                     name={member.data.name}
                                     desc={member.data.description}
                                     image={member.data.profile_photo.url}
+                                    phoneNumber={member.data.phoneNumber}
+                                    email={member.data.email}
+                                    webpage={member.data.we}
                                 />
                             ))}
                         </>
@@ -55,7 +62,7 @@ const CommunityTeam = ({ topTitle, bottomText, members }) => (
 
         <div id="more-info" className="container">
             <div className="row justify-content-center">
-                <div className="col-md-6 py-5 text-center">
+                <div className="col-md-12 py-5 text-center">
                     <h1>{bottomText.data.title}</h1>
                     {bottomText?.data.description && <PrismicRichText field={bottomText.data.description} />}
                 </div>
@@ -69,6 +76,13 @@ CommunityTeam.propTypes = {
         data: PropTypes.shape({
             title: PropTypes.string.isRequired,
             description: PropTypes.arrayOf(PropTypes.object).isRequired,
+        }).isRequired,
+    }).isRequired,
+    headerImage: PropTypes.shape({
+        data: PropTypes.shape({
+            image: PropTypes.shape({
+                url: PropTypes.string.isRequired,
+            }).isRequired,
         }).isRequired,
     }).isRequired,
     bottomText: PropTypes.shape({
@@ -101,6 +115,7 @@ export async function getStaticProps({ previewData }) {
     const members = await client.getAllByType('member', {
         predicates: [prismic.predicate.at('document.tags', ['komunitni_tym'])],
     });
+    const headerImage = await client.getSingle('community_team_header_image');
 
     const footerLeft = await client.getSingle('footer_column_left');
     const footerCenter = await client.getSingle('footer_column_center');
@@ -113,6 +128,6 @@ export async function getStaticProps({ previewData }) {
     };
 
     return {
-        props: { topTitle, bottomText, members, footer },
+        props: { topTitle, bottomText, headerImage, members, footer },
     };
 }

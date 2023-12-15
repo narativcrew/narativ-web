@@ -1,0 +1,18 @@
+{
+  "id": "community_team_header_image",
+  "label": "Community Team Header Image",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "image": {
+        "type": "Image",
+        "config": {
+          "label": "image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

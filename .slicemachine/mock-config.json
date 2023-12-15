@@ -98,7 +98,8 @@
         }
       }
     },
-    "members_header_image": {}
+    "members_header_image": {},
+    "community_team_header_image": {}
   },
   "slices": {
     "Intro": {}
