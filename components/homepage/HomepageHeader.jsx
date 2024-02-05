@@ -13,21 +13,19 @@ const HomepageHeader = ({ intro, attributes }) => (
         <div className={stylesHomepage.featuredImage} style={{ backgroundImage: `url(${intro.data.image.url})` }}>
             <div className="container">
                 <div className="row align-items-center h-100">
-                    <div className="col-md-6 offset-md-6">
-                        <div className={stylesHomepage.bannerContent}>
-                            <div
-                                className="hero-l3-shape-2 d-none d-md-block aos-init aos-animate"
-                                data-aos="fade-up"
-                                data-aos-delay="700"
-                                data-aos-duration="1000"
-                            >
-                                <Image className="floating" src={BannerShape2} alt="image" />
-                            </div>
+                    <div className={stylesHomepage.bannerContent}>
+                        <div
+                            className="hero-l3-shape-2 d-none d-md-block aos-init aos-animate"
+                            data-aos="fade-up"
+                            data-aos-delay="700"
+                            data-aos-duration="1000"
+                        >
+                            <Image className="floating" src={BannerShape2} alt="image" />
+                        </div>
 
-                            <div className="content">
-                                <h2>{intro.data.title}</h2>
-                                {intro?.data.description && <PrismicRichText field={intro.data.description} />}
-                            </div>
+                        <div className="content">
+                            <h2>{intro.data.title}</h2>
+                            {intro?.data.description && <PrismicRichText field={intro.data.description} />}
                         </div>
                     </div>
                 </div>
