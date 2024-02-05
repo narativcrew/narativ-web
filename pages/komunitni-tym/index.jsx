@@ -114,6 +114,7 @@ export async function getStaticProps({ previewData }) {
 
     const members = await client.getAllByType('member', {
         predicates: [prismic.predicate.at('document.tags', ['komunitni_tym'])],
+        orderings: [{ field: 'document.first_publication_date', direction: 'asc' }],
     });
     const headerImage = await client.getSingle('community_team_header_image');
 
