@@ -6,10 +6,13 @@ import cx from 'classnames';
 import styles from 'components/members/members.module.css';
 import { MemberListItem } from 'components/members';
 import FeaturedImage from 'components/FeaturedImage';
+import Link from 'next/link';
+import { BlockButton } from 'components/Buttons';
+import { PrismicRichText } from '@prismicio/react';
 
 import { createClient } from '../../prismicio';
 
-const Members = ({ members, headerImage }) => (
+const Members = ({ topTitle, members, headerImage, footer }) => (
     <>
         <Head>
             <title>Narativ | Členové Narativu</title>
@@ -17,6 +20,15 @@ const Members = ({ members, headerImage }) => (
         </Head>
 
         <FeaturedImage image={headerImage.data.image.url} />
+
+        <div className="container">
+            <div className="row justify-content-center">
+                <div className="col-md-12 mt-5 py-5 text-center">
+                    <h1>{topTitle.data.title}</h1>
+                    {topTitle?.data.description && <PrismicRichText field={topTitle.data.description} />}
+                </div>
+            </div>
+        </div>
 
         <div className={cx(styles.membersBgBox, 'py-5')}>
             <div className="container my-5 text-center">
@@ -46,6 +58,12 @@ const Members = ({ members, headerImage }) => (
 );
 
 Members.propTypes = {
+    topTitle: PropTypes.shape({
+        data: PropTypes.shape({
+            title: PropTypes.string.isRequired,
+            description: PropTypes.arrayOf(PropTypes.object).isRequired,
+        }).isRequired,
+    }).isRequired,
     members: PropTypes.arrayOf(
         PropTypes.shape({
             uid: PropTypes.string.isRequired,
