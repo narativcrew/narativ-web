@@ -6,13 +6,11 @@ import cx from 'classnames';
 import styles from 'components/members/members.module.css';
 import { MemberListItem } from 'components/members';
 import FeaturedImage from 'components/FeaturedImage';
-import Link from 'next/link';
-import { BlockButton } from 'components/Buttons';
 import { PrismicRichText } from '@prismicio/react';
 
 import { createClient } from '../../prismicio';
 
-const Members = ({ topTitle, members, headerImage, footer }) => (
+const Members = ({ topTitle, members, headerImage }) => (
     <>
         <Head>
             <title>Narativ | Členové Narativu</title>
