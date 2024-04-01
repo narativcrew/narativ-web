@@ -6,9 +6,8 @@ import BannerShape2 from 'public/images/banner-shape-2.png';
 import { PrismicRichText } from '@prismicio/react';
 
 import stylesHomepage from './homepage.module.scss';
-import HomepageAttribute from './HomepageAttribute';
 
-const HomepageHeader = ({ intro, attributes }) => (
+const HomepageHeader = ({ intro }) => (
     <div className={stylesHomepage.header}>
         <div className={stylesHomepage.featuredImage} style={{ backgroundImage: `url(${intro.data.image.url})` }}>
             <div className="container">

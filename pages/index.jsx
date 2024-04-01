@@ -31,14 +31,6 @@ HomePage.propTypes = {
             }).isRequired,
         }).isRequired,
     }).isRequired,
-    attributes: PropTypes.arrayOf(
-        PropTypes.shape({
-            data: PropTypes.shape({
-                title: PropTypes.string.isRequired,
-                description: PropTypes.arrayOf(PropTypes.object).isRequired,
-            }).isRequired,
-        }).isRequired
-    ).isRequired,
     eventsHeader: PropTypes.shape({
         data: PropTypes.shape({
             title: PropTypes.string.isRequired,
