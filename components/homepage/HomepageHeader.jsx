@@ -31,21 +31,6 @@ const HomepageHeader = ({ intro, attributes }) => (
                 </div>
             </div>
         </div>
-
-        <div className={stylesHomepage.attributes}>
-            <div className="container">
-                <div className="row">
-                    {attributes.length > 0 &&
-                        attributes.map((attr) => (
-                            <HomepageAttribute
-                                key={attr.id}
-                                title={attr.data.title}
-                                description={attr.data.description}
-                            />
-                        ))}
-                </div>
-            </div>
-        </div>
     </div>
 );
 
@@ -59,14 +44,6 @@ HomepageHeader.propTypes = {
             }).isRequired,
         }).isRequired,
     }).isRequired,
-    attributes: PropTypes.arrayOf(
-        PropTypes.shape({
-            data: PropTypes.shape({
-                title: PropTypes.string.isRequired,
-                description: PropTypes.arrayOf(PropTypes.object).isRequired,
-            }).isRequired,
-        }).isRequired
-    ).isRequired,
 };
 
 export default HomepageHeader;

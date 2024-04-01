@@ -8,14 +8,14 @@ import HomepageHeader from '../components/homepage/HomepageHeader';
 import HomepageEvents from '../components/homepage/HomepageEvents';
 import HomepageNews from '../components/homepage/HomepageNews';
 
-const HomePage = ({ intro, attributes, eventsHeader, events, news }) => (
+const HomePage = ({ intro, eventsHeader, events, news }) => (
     <>
         <Head>
             <title>Narativ</title>
             <meta property="og:title" content="Narativ" key="title" />
         </Head>
 
-        <HomepageHeader intro={intro} attributes={attributes} />
+        <HomepageHeader intro={intro} />
         <HomepageEvents eventsHeader={eventsHeader} events={events} />
         <HomepageNews news={news} />
     </>
@@ -74,7 +74,6 @@ export async function getStaticProps({ previewData }) {
     const client = createClient({ previewData });
     const intro = await client.getSingle('homepage');
     const eventsHeader = await client.getSingle('homepage_events_header');
-    const attributes = await client.getAllByType('homepage_attribute');
     const events = await client.getAllByType('event', {
         predicates: [prismic.predicate.dateAfter('my.event.end_date', new Date())],
         orderings: [{ field: 'my.event.start_date', direction: 'asc' }],
@@ -96,7 +95,6 @@ export async function getStaticProps({ previewData }) {
     return {
         props: {
             intro,
-            attributes,
             eventsHeader,
             events,
             news,
