@@ -27,7 +27,7 @@ const EventListItem = ({ id, title, startDate, endDate, venue, description, imag
     const start = prismicH.asDate(startDate);
     const end = prismicH.asDate(endDate);
     return (
-        <Link href={`/akce/${id}`} className={styles.event_list__item}>
+        <Link href={`/vzdelavani/${id}`} className={styles.event_list__item}>
             <div className={styles.thumb__wrapper}>
                 <Image src={image} fill className={styles.thumb__image} alt={title} />
             </div>

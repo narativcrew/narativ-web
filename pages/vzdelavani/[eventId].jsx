@@ -24,7 +24,7 @@ const EventDetail = ({ evnt }) => {
                 <h1>{evnt.data.title}</h1>
                 <span>
                     <i className="bi bi-cash-coin" />
-                    {evnt.data.price},- Kč
+                    {evnt.data.price},- {evnt.data.currency}
                 </span>
                 <span>
                     <i className="bi bi-calendar" />
@@ -48,7 +48,7 @@ const EventDetail = ({ evnt }) => {
                     </div>
                 </div>
             </div>
-            {evnt.data.speakers.length > 0 && (
+            {evnt.data.speakers && evnt.data.speakers.length > 0 && (
                 <div>
                     <h2 className="text-center">Lektoři</h2>
                     <div className={styles.eventDetailSpeakerBox}>
@@ -88,6 +88,7 @@ EventDetail.propTypes = {
             end_date: PropTypes.string.isRequired,
             venue: PropTypes.string.isRequired,
             price: PropTypes.string.isRequired,
+            currency: PropTypes.string.isRequired,
             image: PropTypes.shape({
                 url: PropTypes.string.isRequired,
             }).isRequired,

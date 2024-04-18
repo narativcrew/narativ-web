@@ -41,6 +41,13 @@
           "placeholder": ""
         }
       },
+      "currency": {
+        "type": "Text",
+        "config": {
+          "label": "Currency",
+          "placeholder": ""
+        }
+      },
       "start_date": {
         "type": "Timestamp",
         "config": {

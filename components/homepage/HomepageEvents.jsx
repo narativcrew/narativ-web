@@ -19,7 +19,7 @@ const HomepageEvents = ({ eventsHeader, events }) => (
         <div className="row">
             {events.length === 0 ? (
                 <div className="text-center py-5">
-                    Žádné nadcházející akce. Podívejte se na naše <Link href="/akce">minulé akce</Link>
+                    Žádné nadcházející akce. Podívejte se na naše <Link href="/vzdelavani">minulé akce</Link>
                 </div>
             ) : (
                 <>
@@ -42,7 +42,7 @@ const HomepageEvents = ({ eventsHeader, events }) => (
         {events.length > 0 && (
             <div className="row">
                 <div className="col-md-6 offset-md-6 text-center">
-                    <Link href="/akce">
+                    <Link href="/vzdelavani">
                         <BlockButton>Zobrazit další akce</BlockButton>
                     </Link>
                 </div>

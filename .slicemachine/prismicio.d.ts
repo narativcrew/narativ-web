@@ -171,6 +171,17 @@ interface EventDocumentData {
      */
     price: prismicT.NumberField;
     /**
+     * Currency field in *Event*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: event.currency
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    currency: prismicT.KeyTextField;
+    /**
      * Start date field in *Event*
      *
      * - **Field Type**: Timestamp
