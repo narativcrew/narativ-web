@@ -1123,6 +1123,41 @@ interface NewsHeaderImageDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type NewsHeaderImageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<NewsHeaderImageDocumentData>, "news_header_image", Lang>;
+/** Content for News Top Title documents */
+interface NewsTopTitleDocumentData {
+    /**
+     * Title field in *News Top Title*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: news_top_title.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+    /**
+     * Body field in *News Top Title*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: news_top_title.body
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    body: prismicT.RichTextField;
+}
+/**
+ * News Top Title document from Prismic
+ *
+ * - **API ID**: `news_top_title`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type NewsTopTitleDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<NewsTopTitleDocumentData>, "news_top_title", Lang>;
 /** Content for News documents */
 interface NewsDocumentData {
     /**
@@ -1226,7 +1261,7 @@ interface SpeakerDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type SpeakerDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<SpeakerDocumentData>, "speaker", Lang>;
-export type AllDocumentTypes = CommunityTeamBottomTextDocument | CommunityTeamHeaderImageDocument | CommunityTeamTopTitleDocument | ContactHeaderImageDocument | EventDocument | EventsHeaderImageDocument | FooterColumnCenterDocument | FooterColumnLeftDocument | FooterColumnRightDocument | FooterDocument | HomepageAttributeDocument | HomepageEventsHeaderDocument | HomepageDocument | MemberDocument | MembersHeaderImageDocument | MembersTopBannerDocument | MembersTopTitleDocument | NewsHeaderImageDocument | NewsDocument | SpeakerDocument;
+export type AllDocumentTypes = CommunityTeamBottomTextDocument | CommunityTeamHeaderImageDocument | CommunityTeamTopTitleDocument | ContactHeaderImageDocument | EventDocument | EventsHeaderImageDocument | FooterColumnCenterDocument | FooterColumnLeftDocument | FooterColumnRightDocument | FooterDocument | HomepageAttributeDocument | HomepageEventsHeaderDocument | HomepageDocument | MemberDocument | MembersHeaderImageDocument | MembersTopBannerDocument | MembersTopTitleDocument | NewsHeaderImageDocument | NewsTopTitleDocument | NewsDocument | SpeakerDocument;
 /**
  * Primary content in Intro → Primary
  *
@@ -1281,6 +1316,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { CommunityTeamBottomTextDocumentData, CommunityTeamBottomTextDocument, CommunityTeamHeaderImageDocumentData, CommunityTeamHeaderImageDocument, CommunityTeamTopTitleDocumentData, CommunityTeamTopTitleDocument, ContactHeaderImageDocumentData, ContactHeaderImageDocument, EventDocumentData, EventDocumentDataSpeakersItem, EventDocument, EventsHeaderImageDocumentData, EventsHeaderImageDocument, FooterColumnCenterDocumentData, FooterColumnCenterDocumentDataItemsItem, FooterColumnCenterDocument, FooterColumnLeftDocumentData, FooterColumnLeftDocumentDataItemsItem, FooterColumnLeftDocument, FooterColumnRightDocumentData, FooterColumnRightDocumentDataItemsItem, FooterColumnRightDocument, FooterDocumentData, FooterDocumentDataLeftColumnItem, FooterDocumentDataCenterColumnItem, FooterDocumentDataRightColumnItem, FooterDocument, HomepageAttributeDocumentData, HomepageAttributeDocument, HomepageEventsHeaderDocumentData, HomepageEventsHeaderDocument, HomepageDocumentData, HomepageDocumentDataSlicesSlice, HomepageDocument, MemberDocumentData, MemberDocument, MembersHeaderImageDocumentData, MembersHeaderImageDocument, MembersTopBannerDocumentData, MembersTopBannerDocument, MembersTopTitleDocumentData, MembersTopTitleDocument, NewsHeaderImageDocumentData, NewsHeaderImageDocument, NewsDocumentData, NewsDocument, SpeakerDocumentData, SpeakerDocument, AllDocumentTypes, IntroSliceDefaultPrimary, IntroSliceDefault, IntroSliceVariation, IntroSlice };
+        export type { CommunityTeamBottomTextDocumentData, CommunityTeamBottomTextDocument, CommunityTeamHeaderImageDocumentData, CommunityTeamHeaderImageDocument, CommunityTeamTopTitleDocumentData, CommunityTeamTopTitleDocument, ContactHeaderImageDocumentData, ContactHeaderImageDocument, EventDocumentData, EventDocumentDataSpeakersItem, EventDocument, EventsHeaderImageDocumentData, EventsHeaderImageDocument, FooterColumnCenterDocumentData, FooterColumnCenterDocumentDataItemsItem, FooterColumnCenterDocument, FooterColumnLeftDocumentData, FooterColumnLeftDocumentDataItemsItem, FooterColumnLeftDocument, FooterColumnRightDocumentData, FooterColumnRightDocumentDataItemsItem, FooterColumnRightDocument, FooterDocumentData, FooterDocumentDataLeftColumnItem, FooterDocumentDataCenterColumnItem, FooterDocumentDataRightColumnItem, FooterDocument, HomepageAttributeDocumentData, HomepageAttributeDocument, HomepageEventsHeaderDocumentData, HomepageEventsHeaderDocument, HomepageDocumentData, HomepageDocumentDataSlicesSlice, HomepageDocument, MemberDocumentData, MemberDocument, MembersHeaderImageDocumentData, MembersHeaderImageDocument, MembersTopBannerDocumentData, MembersTopBannerDocument, MembersTopTitleDocumentData, MembersTopTitleDocument, NewsHeaderImageDocumentData, NewsHeaderImageDocument, NewsTopTitleDocumentData, NewsTopTitleDocument, NewsDocumentData, NewsDocument, SpeakerDocumentData, SpeakerDocument, AllDocumentTypes, IntroSliceDefaultPrimary, IntroSliceDefault, IntroSliceVariation, IntroSlice };
     }
 }

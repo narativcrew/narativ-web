@@ -99,7 +99,8 @@
       }
     },
     "members_header_image": {},
-    "community_team_header_image": {}
+    "community_team_header_image": {},
+    "news_top_title": {}
   },
   "slices": {
     "Intro": {}

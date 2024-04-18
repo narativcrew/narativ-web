@@ -4,10 +4,11 @@ import Head from 'next/head';
 import FeaturedImage from 'components/FeaturedImage';
 import styles from 'components/news/news.module.css';
 import { NewsListItem } from 'components/news';
+import { PrismicRichText } from '@prismicio/react';
 
 import { createClient } from '../../prismicio';
 
-const News = ({ headerImage, news }) => (
+const News = ({ headerImage, topTitle, news }) => (
     <>
         <Head>
             <title>Narativ | Aktuality</title>
@@ -15,9 +16,16 @@ const News = ({ headerImage, news }) => (
         </Head>
 
         <FeaturedImage image={headerImage.data.image.url} />
+        <div className="container">
+            <div className="row">
+                <div className="col-md-12 mt-5">
+                    <h1>{topTitle.data.title}</h1>
+                    {topTitle?.data.body && <PrismicRichText field={topTitle.data.body} />}
+                </div>
+            </div>
+        </div>
         <div className={styles.newsBox}>
             <div className="container py-5 mt-6">
-                <h1>Aktuality</h1>
                 {news.length === 0 ? (
                     <div className="text-center py-5">Žádné aktuality.</div>
                 ) : (
@@ -39,6 +47,12 @@ const News = ({ headerImage, news }) => (
 );
 
 News.propTypes = {
+    topTitle: PropTypes.shape({
+        data: PropTypes.shape({
+            title: PropTypes.string.isRequired,
+            body: PropTypes.arrayOf(PropTypes.object).isRequired,
+        }).isRequired,
+    }).isRequired,
     headerImage: PropTypes.shape({
         data: PropTypes.shape({
             image: PropTypes.shape({
@@ -66,6 +80,8 @@ export async function getStaticProps({ previewData }) {
     const news = await client.getAllByType('news', {
         orderings: [{ field: 'document.last_publication_date', direction: 'desc' }],
     });
+    const topTitle = await client.getSingle('news_top_title');
+
     const footerLeft = await client.getSingle('footer_column_left');
     const footerCenter = await client.getSingle('footer_column_center');
     const footerRight = await client.getSingle('footer_column_right');
@@ -77,6 +93,6 @@ export async function getStaticProps({ previewData }) {
     };
 
     return {
-        props: { headerImage, news, footer },
+        props: { headerImage, topTitle, news, footer },
     };
 }
