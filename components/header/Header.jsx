@@ -33,8 +33,8 @@ const navItems = [
         href: '/vzdelavani',
     },
     {
-        label: 'Členové Narativu',
-        href: '/clenove',
+        label: 'O nás',
+        href: '/o-nas',
     },
     {
         label: 'Komunitní tým',
