@@ -4,7 +4,6 @@ import cx from 'classnames';
 import { PrismicLink, PrismicRichText } from '@prismicio/react';
 import * as prismicH from '@prismicio/helpers';
 import styles from 'components/events/events.module.scss';
-import FeaturedImage from 'components/FeaturedImage';
 
 import { createClient } from '../../prismicio';
 
@@ -19,7 +18,6 @@ const EventDetail = ({ evnt }) => {
     const end = prismicH.asDate(evnt.data.end_date);
     return (
         <>
-            <FeaturedImage image={evnt.data.image.url} />
             <div className={cx(styles.eventDetailHeadingBox, 'text-center')}>
                 <h1>{evnt.data.title}</h1>
                 <span>
