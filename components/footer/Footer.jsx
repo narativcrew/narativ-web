@@ -13,7 +13,7 @@ const Footer = (data) => {
             <div className="container mt-5 py-5">
                 <div className="row">
                     {footerLeft?.data && (
-                        <div className={cx('col-md-6 col-sm-12', styles.footerColumn)}>
+                        <div className={cx('col-md-4 col-sm-12', styles.footerColumn)}>
                             <span>{footerLeft.data.title}</span>
                             <br />
                             {footerLeft.data.items.length > 0 && (
@@ -26,7 +26,7 @@ const Footer = (data) => {
                         </div>
                     )}
                     {footerCenter?.data && (
-                        <div className={cx('col-md-3 col-sm-12', styles.footerColumn)}>
+                        <div className={cx('col-md-4 col-sm-12', styles.footerColumn)}>
                             <span>{footerCenter.data.title}</span>
                             <br />
                             {footerCenter.data.items.length > 0 && (
@@ -39,7 +39,7 @@ const Footer = (data) => {
                         </div>
                     )}
                     {footerRight?.data && (
-                        <div className={cx('col-md-3 col-sm-12', styles.footerColumn)}>
+                        <div className={cx('col-md-4 col-sm-12', styles.footerColumn)}>
                             <span>{footerRight.data.title}</span>
                             <br />
                             {footerRight.data.items.length > 0 && (
