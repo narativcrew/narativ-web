@@ -90,6 +90,15 @@ const Header = () => {
                                             </Link>
                                         </li>
                                     ))}
+                                    <li className="nav-item">
+                                        <Link
+                                            className="nav-link"
+                                            href="https://www.facebook.com/groups/123857190986755"
+                                            target="_blank"
+                                        >
+                                            <i className="bi bi-facebook" />
+                                        </Link>
+                                    </li>
                                 </ul>
                             </div>
                         </nav>

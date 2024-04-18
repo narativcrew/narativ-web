@@ -28,7 +28,7 @@ const CommunityTeam = ({ topTitle, bottomText, headerImage, members }) => (
                     <h1>{topTitle.data.title}</h1>
                     {topTitle?.data.description && <PrismicRichText field={topTitle.data.description} />}
                     <Link href="#more-info">
-                        <BlockButton>Více</BlockButton>
+                        <BlockButton>Jak funguje spolupráce s komunitním týmem</BlockButton>
                     </Link>
                 </div>
             </div>
