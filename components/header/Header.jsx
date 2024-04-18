@@ -29,8 +29,8 @@ const navItems = [
         href: '/aktuality',
     },
     {
-        label: 'Akce',
-        href: '/akce',
+        label: 'Vzdělávání',
+        href: '/vzdelavani',
     },
     {
         label: 'Členové Narativu',
