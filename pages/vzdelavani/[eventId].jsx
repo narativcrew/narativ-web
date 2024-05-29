@@ -53,16 +53,18 @@ const EventDetail = ({ evnt }) => {
                         <div className="container">
                             <div className="row justify-content-center mt-5">
                                 {evnt.data.speakers.map((s) => (
-                                    <div key={s.id} className="col-lg-6">
+                                    <div key={s.speaker.id} className="col-lg-6">
                                         <div className={cx(styles.speakerCard)}>
                                             <div
                                                 className={styles.speakerCardImg}
-                                                style={{ backgroundImage: `url(${s.speaker?.data?.image.url})` }}
+                                                style={{
+                                                    backgroundImage: `url(${s.speaker?.data?.profile_photo.url})`,
+                                                }}
                                             />
                                             <div className={cx('text-start', styles.speakerCardContent)}>
                                                 <h5 className={styles.speakerCardTitle}>{s.speaker?.data?.name}</h5>
                                                 <div className={styles.speakerCardText}>
-                                                    <PrismicRichText field={s.speaker?.data?.info} />
+                                                    <PrismicRichText field={s.speaker?.data?.description} />
                                                 </div>
                                             </div>
                                         </div>
@@ -116,9 +118,19 @@ export default EventDetail;
 
 export async function getStaticProps({ params, previewData }) {
     const client = createClient({ previewData });
-    const evnt = await client.getByUID('event', params.eventId, {
-        fetchLinks: ['speaker.short_info', 'speaker.image', 'speaker.name', 'speaker.info'],
-    });
+    const evnt = await client.getByUID('event', params.eventId);
+
+    // Fetch each speaker document
+    const speakers = await Promise.all(
+        evnt.data.speakers.map(async (s) => {
+            const speakerDoc = await client.getByUID('member', s.speaker.uid);
+            return { speaker: speakerDoc };
+        })
+    );
+
+    // Replace speaker links with full speaker documents
+    evnt.data.speakers = speakers;
+
     const footerLeft = await client.getSingle('footer_column_left');
     const footerCenter = await client.getSingle('footer_column_center');
     const footerRight = await client.getSingle('footer_column_right');
