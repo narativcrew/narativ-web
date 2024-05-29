@@ -120,13 +120,16 @@ export async function getStaticProps({ params, previewData }) {
     const client = createClient({ previewData });
     const evnt = await client.getByUID('event', params.eventId);
 
-    // Fetch each speaker document
     const speakers = await Promise.all(
         evnt.data.speakers.map(async (s) => {
-            const speakerDoc = await client.getByUID('member', s.speaker.uid);
-            return { speaker: speakerDoc };
+            try {
+                const speakerDoc = await client.getByUID('member', s.speaker.uid);
+                return { speaker: speakerDoc };
+            } catch (error) {
+                return null; // Return null if there's an error
+            }
         })
-    );
+    ).then((results) => results.filter((s) => s !== null));
 
     // Replace speaker links with full speaker documents
     evnt.data.speakers = speakers;
