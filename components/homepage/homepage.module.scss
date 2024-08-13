@@ -1,5 +1,5 @@
 .header {
-    min-height: 60vh;
+    min-height: 35vh;
     display: flex;
     flex-direction: column;
 }
@@ -40,7 +40,7 @@
     color: #fff;
     flex: 1;
     display: flex;
-    padding: 100px 20px;
+    padding: 100px 20px 0;
 }
 
 .featuredImage::after {

@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import * as prismic from '@prismicio/client';
-import FeaturedImage from 'components/FeaturedImage';
 import { EventListItem } from 'components/events';
 import stylesEvents from 'components/events/events.module.scss';
 
 import { createClient } from '../../prismicio';
+import HeaderBanner from '../../components/HeaderBanner';
 
 const Events = ({ headerImage, events, pastEvents }) => (
     <>
@@ -15,7 +15,7 @@ const Events = ({ headerImage, events, pastEvents }) => (
             <meta property="og:title" content="Narativ | Akce" key="title" />
         </Head>
 
-        <FeaturedImage image={headerImage.data.image.url} />
+        <HeaderBanner image={headerImage.data.image.url} />
 
         <div className={stylesEvents.eventsBox}>
             <div className="container mt5 py-5">

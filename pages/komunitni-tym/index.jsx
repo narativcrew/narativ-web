@@ -3,15 +3,14 @@ import PropTypes from 'prop-types';
 import * as prismic from '@prismicio/client';
 import Head from 'next/head';
 import cx from 'classnames';
-// import FeaturedBlock from 'components/FeaturedBlock';
 import styles from 'components/members/members.module.css';
 import { MemberListItem } from 'components/members';
 import { PrismicRichText } from '@prismicio/react';
 import Link from 'next/link';
 import { BlockButton } from 'components/Buttons';
-import FeaturedImage from 'components/FeaturedImage';
 
 import { createClient } from '../../prismicio';
+import HeaderBanner from '../../components/HeaderBanner';
 
 const CommunityTeam = ({ topTitle, bottomText, headerImage, members }) => (
     <>
@@ -20,26 +19,27 @@ const CommunityTeam = ({ topTitle, bottomText, headerImage, members }) => (
             <meta property="og:title" content="Narativ | Členové Narativu" key="title" />
         </Head>
 
-        <FeaturedImage image={headerImage.data.image.url} />
+        <HeaderBanner title={topTitle.data.title} image={headerImage.data.image.url} />
 
         <div className="container">
-            <div className="row justify-content-center">
-                <div className="col-md-12 mt-5 py-5 text-center">
-                    <h1>{topTitle.data.title}</h1>
+            <div className="row">
+                <div className="col-md-12 mt-4 mb-2 py-4">
                     {topTitle?.data.description && <PrismicRichText field={topTitle.data.description} />}
-                    <Link href="#more-info">
-                        <BlockButton>Jak funguje spolupráce s komunitním týmem</BlockButton>
-                    </Link>
+                    <div className="mt-5">
+                        <Link href="#more-info">
+                            <BlockButton>Jak funguje spolupráce s komunitním týmem</BlockButton>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div className={cx(styles.membersBgBox, 'py-5')}>
-            <div className="container mb-5 text-center">
+            <div className="container mb-5">
                 <h1>Komunitní tým</h1>
             </div>
             <div className="container">
-                <div className="row justify-content-center">
+                <div className="row">
                     {members.length > 0 && (
                         <>
                             {members.map((member) => (
@@ -60,10 +60,10 @@ const CommunityTeam = ({ topTitle, bottomText, headerImage, members }) => (
             </div>
         </div>
 
-        <div id="more-info" className="container">
+        <div id="more-info" className={cx(styles.scrollMargin, 'container')}>
             <div className="row justify-content-center">
                 <div className="col-md-12 py-5 text-center">
-                    <h1>{bottomText.data.title}</h1>
+                    <h1 className="mb-5">{bottomText.data.title}</h1>
                     {bottomText?.data.description && <PrismicRichText field={bottomText.data.description} />}
                 </div>
             </div>

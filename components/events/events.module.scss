@@ -36,9 +36,8 @@
 }
 
 .eventDetailHeadingBox {
-    background: #f9fafb;
-    margin-top: 6rem;
-    padding: 1.5rem 3rem;
+    background: #ddf1d3;
+    padding: var(--space-lg);
     i {
         padding-right: 0.2rem;
         color: #ff794d;
@@ -69,6 +68,7 @@
     min-height: 300px;
     background: center no-repeat;
     background-size: cover;
+    border-radius: 10px;
 }
 
 .speakerCardContent {

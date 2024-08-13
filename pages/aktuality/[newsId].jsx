@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import styles from 'components/news/news.module.scss';
 import cx from 'classnames';
 import { PrismicRichText } from '@prismicio/react';
-import FeaturedImage from 'components/FeaturedImage';
 import * as prismicH from '@prismicio/helpers';
 
 import { createClient } from '../../prismicio';
@@ -75,23 +74,24 @@ const NewsDetail = ({ news }) => {
     const minutes = pubDate.getMinutes();
     return (
         <>
-            <FeaturedImage image={news.data.image.url} />
             <div>
                 <div className={cx(styles.newsDetailHeadingBox, 'text-center')}>
                     <h1>{news.data.title}</h1>
-                    <span>
-                        <i className="bi bi-calendar" />
-                        {dayOfMonth}. {month} {fullYear} {hours}:{minutes}
-                    </span>
-                    <span>
-                        <i className="bi bi-person" />
-                        Narativ
-                    </span>
+                    <div className="mt-4">
+                        <span>
+                            <i className="bi bi-calendar" />
+                            {dayOfMonth}. {month} {fullYear} {hours}:{minutes}
+                        </span>
+                        <span>
+                            <i className="bi bi-person" />
+                            Narativ
+                        </span>
+                    </div>
                 </div>
             </div>
             <div className="container mt-5">
-                <div className="row">
-                    <div className="col-md-12">
+                <div className="row justify-content-center">
+                    <div className="col-md-10">
                         <PrismicRichText field={news.data.description} />
                     </div>
                 </div>

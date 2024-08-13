@@ -20,36 +20,38 @@ const EventDetail = ({ evnt }) => {
         <>
             <div className={cx(styles.eventDetailHeadingBox, 'text-center')}>
                 <h1>{evnt.data.title}</h1>
-                <span>
-                    <i className="bi bi-cash-coin" />
-                    {evnt.data.price},- {evnt.data.currency}
-                </span>
-                <span>
-                    <i className="bi bi-calendar" />
-                    {dateFormatter.format(start)} - {dateFormatter.format(end)}
-                </span>
-                <span>
-                    <i className="bi bi-geo-alt" />
-                    {evnt.data.venue}
-                </span>
-                <span>
-                    <i className="bi bi-pen" />
-                    <PrismicLink target="_blank" field={evnt.data.registration_link}>
-                        Přihláška
-                    </PrismicLink>
-                </span>
+                <div className="mt-4">
+                    <span>
+                        <i className="bi bi-cash-coin" />
+                        {evnt.data.price},- {evnt.data.currency}
+                    </span>
+                    <span>
+                        <i className="bi bi-calendar" />
+                        {dateFormatter.format(start)} - {dateFormatter.format(end)}
+                    </span>
+                    <span>
+                        <i className="bi bi-geo-alt" />
+                        {evnt.data.venue}
+                    </span>
+                    <span>
+                        <i className="bi bi-pen" />
+                        <PrismicLink target="_blank" field={evnt.data.registration_link}>
+                            Přihláška
+                        </PrismicLink>
+                    </span>
+                </div>
             </div>
             <div className="container mt-5 mb-5">
                 <div className="row justify-content-center">
-                    <div className="col-md-8">
+                    <div className="col-md-10">
                         <PrismicRichText field={evnt.data.description} />
                     </div>
                 </div>
             </div>
             {evnt.data.speakers && evnt.data.speakers.length > 0 && (
                 <div>
-                    <h2 className="text-center">Lektoři</h2>
                     <div className={styles.eventDetailSpeakerBox}>
+                        <h2 className="text-center">Lektoři</h2>
                         <div className="container">
                             <div className="row justify-content-center mt-5">
                                 {evnt.data.speakers.map((s) => (

@@ -1,5 +1,6 @@
 .contactBgBox {
-    background: #1d263a;
+    background: #75b2a5;
+    padding: var(--space-xl);
 }
 
 h1.contactHeading {
@@ -10,7 +11,8 @@ h1.contactHeading {
 
 .contactFormWrapper {
     background-color: white;
-    padding: 1.25rem;
+    padding: 2rem;
+    border-radius: 10px;
 }
 
 .formGroup {
@@ -28,7 +30,6 @@ h1.contactHeading {
     padding: 0.375rem 0.75rem;
     font-size: 1rem;
     font-weight: 400;
-    line-height: 1.5;
     color: #212529;
     background-color: #fff;
     background-clip: padding-box;
@@ -40,5 +41,5 @@ h1.contactHeading {
 }
 
 .contactFormField::placeholder {
-    opacity: 0.15;
+    opacity: 0.65;
 }

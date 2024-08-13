@@ -22,6 +22,7 @@
     min-height: 300px;
     background: center no-repeat;
     background-size: cover;
+    border-radius: 10px;
 }
 
 .memberCardContent {
@@ -73,3 +74,7 @@
     padding: 0 !important;
     margin: 0 !important;
  }
+
+.scrollMargin {
+    scroll-margin-top: 96px;
+}

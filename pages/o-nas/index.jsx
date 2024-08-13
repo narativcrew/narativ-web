@@ -5,10 +5,10 @@ import Head from 'next/head';
 import cx from 'classnames';
 import styles from 'components/members/members.module.css';
 import { MemberListItem } from 'components/members';
-import FeaturedImage from 'components/FeaturedImage';
 import { PrismicRichText } from '@prismicio/react';
 
 import { createClient } from '../../prismicio';
+import HeaderBanner from '../../components/HeaderBanner';
 
 const Members = ({ topTitle, members, headerImage }) => (
     <>
@@ -17,23 +17,22 @@ const Members = ({ topTitle, members, headerImage }) => (
             <meta property="og:title" content="Narativ | Členové Narativu" key="title" />
         </Head>
 
-        <FeaturedImage image={headerImage.data.image.url} />
+        <HeaderBanner title={topTitle.data.title} image={headerImage.data.image.url} />
 
         <div className="container">
-            <div className="row justify-content-center">
-                <div className="col-md-12 mt-5 py-5 text-center">
-                    <h1>{topTitle.data.title}</h1>
+            <div className="row">
+                <div className="col-md-12 mt-4 py-4">
                     {topTitle?.data.description && <PrismicRichText field={topTitle.data.description} />}
                 </div>
             </div>
         </div>
 
-        <div className={cx(styles.membersBgBox, 'py-5')}>
-            <div className="container my-5 text-center">
+        <div className={cx(styles.membersBgBox, 'py-4')}>
+            <div className="container my-5">
                 <h1>Členové Narativu</h1>
             </div>
             <div className="container">
-                <div className="row justify-content-center">
+                <div className="row">
                     {members.length > 0 && (
                         <>
                             {members.map((member) => (

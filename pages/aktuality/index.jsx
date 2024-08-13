@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import FeaturedImage from 'components/FeaturedImage';
 import styles from 'components/news/news.module.scss';
 import { NewsListItem } from 'components/news';
-import { PrismicRichText } from '@prismicio/react';
 
 import { createClient } from '../../prismicio';
+import HeaderBanner from '../../components/HeaderBanner';
 
 const News = ({ headerImage, topTitle, news }) => (
     <>
@@ -14,16 +13,7 @@ const News = ({ headerImage, topTitle, news }) => (
             <title>Narativ | Aktuality</title>
             <meta property="og:title" content="Narativ | Aktuality" key="title" />
         </Head>
-
-        <FeaturedImage image={headerImage.data.image.url} />
-        <div className="container">
-            <div className="row">
-                <div className="col-md-12 mt-5">
-                    <h1>{topTitle.data.title}</h1>
-                    {topTitle?.data.body && <PrismicRichText field={topTitle.data.body} />}
-                </div>
-            </div>
-        </div>
+        <HeaderBanner title={topTitle.data.title} description={topTitle.data.body} image={headerImage.data.image.url} />
         <div className={styles.newsBox}>
             <div className="container py-5 mt-6">
                 {news.length === 0 ? (

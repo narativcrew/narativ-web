@@ -3,11 +3,10 @@ import Head from 'next/head';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import stylesContact from 'components/contact/contact.module.css';
-import FeaturedImage from 'components/FeaturedImage';
 import { BlockButton } from 'components/Buttons';
 import { createClient } from 'prismicio';
 
-const Contact = ({ headerImage }) => {
+const Contact = () => {
     // States for contact form fields
     const [fullname, setFullname] = useState('');
     const [email, setEmail] = useState('');
@@ -98,7 +97,6 @@ const Contact = ({ headerImage }) => {
                 <meta property="og:title" content="Narativ | Kontakt" key="title" />
             </Head>
 
-            <FeaturedImage image={headerImage.data.image.url} />
             <div className={stylesContact.contactBgBox}>
                 <div className="container pb-5 pt-2">
                     <div className="row">
@@ -168,7 +166,7 @@ const Contact = ({ headerImage }) => {
                                             onChange={(e) => {
                                                 setMessage(e.target.value);
                                             }}
-                                            placeholder="Váš text zde"
+                                            placeholder="Vaše zpráva zde"
                                         />
                                     </label>
                                 </div>
