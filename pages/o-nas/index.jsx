@@ -91,7 +91,7 @@ export async function getStaticProps({ previewData }) {
 
     const members = await client.getAllByType('member', {
         predicates: [prismic.predicate.at('document.tags', ['narativ_tym'])],
-        orderings: [{ field: 'document.first_publication_date', direction: 'asc' }],
+        orderings: [{ field: 'my.member.order', direction: 'asc' }],
     });
     const headerImage = await client.getSingle('members_header_image');
 

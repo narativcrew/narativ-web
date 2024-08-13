@@ -940,6 +940,17 @@ interface MemberDocumentData {
      */
     name: prismicT.KeyTextField;
     /**
+     * Order field in *Member*
+     *
+     * - **Field Type**: Number
+     * - **Placeholder**: *None*
+     * - **API ID Path**: member.order
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/number
+     *
+     */
+    order: prismicT.NumberField;
+    /**
      * Motto field in *Member*
      *
      * - **Field Type**: Rich Text
