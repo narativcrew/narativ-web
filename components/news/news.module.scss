@@ -40,9 +40,8 @@
 }
 
 .newsDetailHeadingBox {
-    background: #f9fafb;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    background: #d3edf1;
+    padding: var(--space-lg);
 }
 
 .newsDetailHeadingBox span {
@@ -56,7 +55,7 @@
 
 .portfolioCardMasonry {
     position: relative;
-    
+
     .textBlock {
         position: absolute;
         bottom: 0px;

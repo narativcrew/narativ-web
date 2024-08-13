@@ -1,13 +1,13 @@
-import React,{ useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import styles from 'components/news/news.module.scss';
 import cx from 'classnames';
 import { PrismicRichText } from '@prismicio/react';
 import * as prismicH from '@prismicio/helpers';
+import Image from 'next/image';
 
 import { createClient } from '../../prismicio';
-import Image from 'next/image';
 
 export function shortMonth(monthNr) {
     switch (monthNr) {
@@ -99,20 +99,37 @@ const NewsDetail = ({ news }) => {
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-12">
-                        <div ref={isotopeGrid} class="row">
-                            {news.data.images && news.data.images.length > 0 && news.data.images.map((i, index) => (
-                                    <div key={index} className="col-lg-4 col-md-6  col-sm-6 gr-pb-7  isotope-item isotope-mas-item all branding transition-all">
+                        <div ref={isotopeGrid} className="row">
+                            {news.data.images &&
+                                news.data.images.length > 0 &&
+                                news.data.images.map((i, index) => (
+                                    <div
+                                        key={index}
+                                        className="col-lg-4 col-md-6  col-sm-6 gr-pb-7  isotope-item isotope-mas-item all branding transition-all"
+                                    >
                                         <div className={cx(styles.portfolioCard, styles.portfolioCardMasonry)}>
                                             <a href="#" className={cx(styles.cardImage, styles.dBlock)}>
-                                                
-                                                <Image src={i.image.url} alt={i.image.alt} width={i.image.dimensions.width} height={i.image.dimensions.height}  className="w-100"/>
+                                                <Image
+                                                    src={i.image.url}
+                                                    alt={i.image.alt}
+                                                    width={i.image.dimensions.width}
+                                                    height={i.image.dimensions.height}
+                                                    className="w-100"
+                                                />
                                             </a>
-                                            <div className={cx(styles.textStart,styles.textBlock, styles.grBgOpacity, styles.dBlock)}>
+                                            <div
+                                                className={cx(
+                                                    styles.textStart,
+                                                    styles.textBlock,
+                                                    styles.grBgOpacity,
+                                                    styles.dBlock
+                                                )}
+                                            >
                                                 <h3 className="">{i.image.alt}</h3>
                                             </div>
                                         </div>
                                     </div>
-                            ))}
+                                ))}
                         </div>
                     </div>
                 </div>
