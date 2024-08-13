@@ -86,7 +86,7 @@ EventDetail.propTypes = {
             description: PropTypes.arrayOf(PropTypes.object).isRequired,
             start_date: PropTypes.string.isRequired,
             end_date: PropTypes.string.isRequired,
-            venue: PropTypes.string.isRequired,
+            venue: PropTypes.string,
             price: PropTypes.string.isRequired,
             currency: PropTypes.string.isRequired,
             image: PropTypes.shape({

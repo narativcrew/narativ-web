@@ -1,13 +1,14 @@
-import React from 'react';
+import React,{ useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
-import styles from 'components/news/news.module.css';
+import styles from 'components/news/news.module.scss';
 import cx from 'classnames';
 import { PrismicRichText } from '@prismicio/react';
 import FeaturedImage from 'components/FeaturedImage';
 import * as prismicH from '@prismicio/helpers';
 
 import { createClient } from '../../prismicio';
+import Image from 'next/image';
 
 export function shortMonth(monthNr) {
     switch (monthNr) {
@@ -42,6 +43,28 @@ export function shortMonth(monthNr) {
 
 const NewsDetail = ({ news }) => {
     const router = useRouter();
+    const isotopeGrid = useRef(null); // Create a ref for the grid element
+    const [isotopeInstance, setIsotopeInstance] = useState(null);
+
+    useEffect(() => {
+        const loadIsotope = async () => {
+            // Dynamically import Isotope to ensure `window` is defined
+            const IsotopeModule = await import('isotope-layout');
+            const IsotopeConstructor = IsotopeModule.default || IsotopeModule;
+
+            if (isotopeGrid.current && !isotopeInstance) {
+                const instance = new IsotopeConstructor(isotopeGrid.current, {
+                    itemSelector: '.isotope-item',
+                    layoutMode: 'fitRows',
+                });
+                setIsotopeInstance(instance);
+                console.log('Isotope instance created:', instance);
+            }
+        };
+
+        loadIsotope();
+    }, [news]);
+
     // eslint-disable-next-line no-unused-vars
     const { newsId } = router.query;
     const pubDate = prismicH.asDate(news.last_publication_date);
@@ -73,6 +96,27 @@ const NewsDetail = ({ news }) => {
                     </div>
                 </div>
             </div>
+            <div className="container">
+                <div className="row justify-content-center">
+                    <div className="col-12">
+                        <div ref={isotopeGrid} class="row">
+                            {news.data.images && news.data.images.length > 0 && news.data.images.map((i, index) => (
+                                    <div key={index} className="col-lg-4 col-md-6  col-sm-6 gr-pb-7  isotope-item isotope-mas-item all branding transition-all">
+                                        <div className={cx(styles.portfolioCard, styles.portfolioCardMasonry)}>
+                                            <a href="#" className={cx(styles.cardImage, styles.dBlock)}>
+                                                
+                                                <Image src={i.image.url} alt={i.image.alt} width={i.image.dimensions.width} height={i.image.dimensions.height}  className="w-100"/>
+                                            </a>
+                                            <div className={cx(styles.textStart,styles.textBlock, styles.grBgOpacity, styles.dBlock)}>
+                                                <h3 className="">{i.image.alt}</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </>
     );
 };
@@ -89,13 +133,20 @@ NewsDetail.propTypes = {
         }).isRequired,
         last_publication_date: PropTypes.string.isRequired,
     }).isRequired,
+    images: PropTypes.arrayOf(
+        PropTypes.shape({
+            image: PropTypes.shape({
+                url: PropTypes.string.isRequired,
+                alt: PropTypes.string,
+            }).isRequired,
+        })
+    ).isRequired,
 };
 
 export default NewsDetail;
 
 export async function getStaticProps({ params, previewData }) {
     const client = createClient({ previewData });
-    // console.log(`newsId: ${params.newsId}`);
     const news = await client.getByUID('news', params.newsId);
     const footerLeft = await client.getSingle('footer_column_left');
     const footerCenter = await client.getSingle('footer_column_center');

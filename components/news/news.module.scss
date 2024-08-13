@@ -1,0 +1,131 @@
+.newsListItem {
+    display: flex;
+}
+
+.dateBoxWrapper {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+}
+
+.dateBox {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    background: #258aff;
+    border-radius: 5px;
+    color: #fff;
+    padding: 0.25rem;
+}
+
+.dateBox span:first-of-type {
+    font-size: 1.3em;
+    font-weight: 600;
+    white-space: nowrap;
+    display: block;
+    margin-top: 30%;
+}
+
+.dateBox span:last-of-type {
+    font-size: 0.8em;
+    font-weight: normal;
+}
+
+.newsText {
+    padding: 1.25rem;
+}
+
+.newsBox {
+    background: #f9fafb;
+    padding-bottom: 1.25rem;
+}
+
+.newsDetailHeadingBox {
+    background: #f9fafb;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.newsDetailHeadingBox span {
+    padding: 0.5rem;
+}
+
+.newsDetailHeadingBox i {
+    padding-right: 0.2rem;
+    color: #ff794d;
+}
+
+.portfolioCardMasonry {
+    position: relative;
+    
+    .textBlock {
+        position: absolute;
+        bottom: 0px;
+        left: 20px;
+        right: 20px;
+        opacity: 0;
+        transition: .4s;
+        padding: 30px 15px 15px 30px;
+    }
+
+    span {
+        color: #161c2d;
+        font-size: 13px;
+        font-weight: 700;
+        font-style: normal;
+        letter-spacing: 1.63px;
+        line-height: normal;
+        opacity: 0.5;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+    }
+
+    img {
+        height: auto;
+    }
+
+    h3 {
+            color: #161c2d;
+            font-size: 24px;
+            font-weight: 700;
+            font-style: normal;
+            letter-spacing: -1.2px;
+            line-height: 44px;
+
+            // @include tablet {
+            //         font-size: 26px;
+            // }
+    }
+}
+
+.portfolioCardMasonry:hover .textBlock {
+    bottom: 20px;
+    opacity: 1;
+}
+
+.grBgOpacity {
+    z-index: 1;
+}
+
+.grBgOpacity:before {
+    position: absolute;
+    content: "";
+    background: #fff;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: .9;
+    border-radius: 8px;
+}
+
+.textStart {
+    text-align: left !important;
+}
+.dBlock {
+    display: block !important;
+}
+
+.gr-pb-7, .gr-py-7 {
+    padding-bottom: 25px !important;
+}

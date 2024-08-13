@@ -35,6 +35,22 @@
           "constraint": {},
           "thumbnails": []
         }
+      },
+      "images": {
+        "type": "Group",
+        "config": {
+          "label": "images",
+          "fields": {
+            "image": {
+              "type": "Image",
+              "config": {
+                "label": "image",
+                "constraint": {},
+                "thumbnails": []
+              }
+            }
+          }
+        }
       }
     }
   }

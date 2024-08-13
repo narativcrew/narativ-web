@@ -38,6 +38,7 @@ const Members = ({ topTitle, members, headerImage }) => (
                         <>
                             {members.map((member) => (
                                 <MemberListItem
+                                    key={member.uid}
                                     id={member.uid}
                                     name={member.data.name}
                                     desc={member.data.description}

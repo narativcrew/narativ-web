@@ -36,7 +36,7 @@ const HomepageHeader = ({ intro }) => (
 HomepageHeader.propTypes = {
     intro: PropTypes.shape({
         data: PropTypes.shape({
-            title: PropTypes.string.isRequired,
+            title: PropTypes.string,
             description: PropTypes.arrayOf(PropTypes.object).isRequired,
             image: PropTypes.shape({
                 url: PropTypes.string.isRequired,

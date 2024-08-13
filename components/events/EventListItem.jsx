@@ -47,7 +47,7 @@ EventListItem.propTypes = {
     title: PropTypes.string.isRequired,
     startDate: PropTypes.string.isRequired,
     endDate: PropTypes.string.isRequired,
-    venue: PropTypes.string.isRequired,
+    venue: PropTypes.string,
     description: PropTypes.array.isRequired,
     image: PropTypes.string.isRequired,
 };

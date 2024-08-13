@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import FeaturedImage from 'components/FeaturedImage';
-import styles from 'components/news/news.module.css';
+import styles from 'components/news/news.module.scss';
 import { NewsListItem } from 'components/news';
 import { PrismicRichText } from '@prismicio/react';
 

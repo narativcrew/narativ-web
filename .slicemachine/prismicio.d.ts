@@ -1204,6 +1204,33 @@ interface NewsDocumentData {
      *
      */
     image: prismicT.ImageField<never>;
+    /**
+     * images field in *News*
+     *
+     * - **Field Type**: Group
+     * - **Placeholder**: *None*
+     * - **API ID Path**: news.images[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/group
+     *
+     */
+    images: prismicT.GroupField<Simplify<NewsDocumentDataImagesItem>>;
+}
+/**
+ * Item in News → images
+ *
+ */
+export interface NewsDocumentDataImagesItem {
+    /**
+     * image field in *News → images*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: news.images[].image
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    image: prismicT.ImageField<never>;
 }
 /**
  * News document from Prismic
@@ -1327,6 +1354,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { CommunityTeamBottomTextDocumentData, CommunityTeamBottomTextDocument, CommunityTeamHeaderImageDocumentData, CommunityTeamHeaderImageDocument, CommunityTeamTopTitleDocumentData, CommunityTeamTopTitleDocument, ContactHeaderImageDocumentData, ContactHeaderImageDocument, EventDocumentData, EventDocumentDataSpeakersItem, EventDocument, EventsHeaderImageDocumentData, EventsHeaderImageDocument, FooterColumnCenterDocumentData, FooterColumnCenterDocumentDataItemsItem, FooterColumnCenterDocument, FooterColumnLeftDocumentData, FooterColumnLeftDocumentDataItemsItem, FooterColumnLeftDocument, FooterColumnRightDocumentData, FooterColumnRightDocumentDataItemsItem, FooterColumnRightDocument, FooterDocumentData, FooterDocumentDataLeftColumnItem, FooterDocumentDataCenterColumnItem, FooterDocumentDataRightColumnItem, FooterDocument, HomepageAttributeDocumentData, HomepageAttributeDocument, HomepageEventsHeaderDocumentData, HomepageEventsHeaderDocument, HomepageDocumentData, HomepageDocumentDataSlicesSlice, HomepageDocument, MemberDocumentData, MemberDocument, MembersHeaderImageDocumentData, MembersHeaderImageDocument, MembersTopBannerDocumentData, MembersTopBannerDocument, MembersTopTitleDocumentData, MembersTopTitleDocument, NewsHeaderImageDocumentData, NewsHeaderImageDocument, NewsTopTitleDocumentData, NewsTopTitleDocument, NewsDocumentData, NewsDocument, SpeakerDocumentData, SpeakerDocument, AllDocumentTypes, IntroSliceDefaultPrimary, IntroSliceDefault, IntroSliceVariation, IntroSlice };
+        export type { CommunityTeamBottomTextDocumentData, CommunityTeamBottomTextDocument, CommunityTeamHeaderImageDocumentData, CommunityTeamHeaderImageDocument, CommunityTeamTopTitleDocumentData, CommunityTeamTopTitleDocument, ContactHeaderImageDocumentData, ContactHeaderImageDocument, EventDocumentData, EventDocumentDataSpeakersItem, EventDocument, EventsHeaderImageDocumentData, EventsHeaderImageDocument, FooterColumnCenterDocumentData, FooterColumnCenterDocumentDataItemsItem, FooterColumnCenterDocument, FooterColumnLeftDocumentData, FooterColumnLeftDocumentDataItemsItem, FooterColumnLeftDocument, FooterColumnRightDocumentData, FooterColumnRightDocumentDataItemsItem, FooterColumnRightDocument, FooterDocumentData, FooterDocumentDataLeftColumnItem, FooterDocumentDataCenterColumnItem, FooterDocumentDataRightColumnItem, FooterDocument, HomepageAttributeDocumentData, HomepageAttributeDocument, HomepageEventsHeaderDocumentData, HomepageEventsHeaderDocument, HomepageDocumentData, HomepageDocumentDataSlicesSlice, HomepageDocument, MemberDocumentData, MemberDocument, MembersHeaderImageDocumentData, MembersHeaderImageDocument, MembersTopBannerDocumentData, MembersTopBannerDocument, MembersTopTitleDocumentData, MembersTopTitleDocument, NewsHeaderImageDocumentData, NewsHeaderImageDocument, NewsTopTitleDocumentData, NewsTopTitleDocument, NewsDocumentData, NewsDocumentDataImagesItem, NewsDocument, SpeakerDocumentData, SpeakerDocument, AllDocumentTypes, IntroSliceDefaultPrimary, IntroSliceDefault, IntroSliceVariation, IntroSlice };
     }
 }
