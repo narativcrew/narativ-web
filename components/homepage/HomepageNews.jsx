@@ -15,7 +15,7 @@ const HomepageNews = ({ news }) => (
                     <h1>Aktuality</h1>
                 </div>
             </div>
-            <div className="row">
+            <div className="row mb-4">
                 {news.length === 0 ? (
                     <div className="text-center">Nejsou žádné aktuality.</div>
                 ) : (
@@ -35,7 +35,7 @@ const HomepageNews = ({ news }) => (
             </div>
             {news.length > 0 && (
                 <div className="row">
-                    <div className="col-md-6 offset-md-6 text-center">
+                    <div className="col text-center">
                         <Link href="/aktuality">
                             <BlockButton>Zobrazit všechny aktuality</BlockButton>
                         </Link>

@@ -57,7 +57,7 @@ const NewsDetail = ({ news }) => {
                     layoutMode: 'fitRows',
                 });
                 setIsotopeInstance(instance);
-                console.log('Isotope instance created:', instance);
+                // console.log('Isotope instance created:', instance);
             }
         };
 
@@ -103,32 +103,35 @@ const NewsDetail = ({ news }) => {
                             {news.data.images &&
                                 news.data.images.length > 0 &&
                                 news.data.images.map((i, index) => (
-                                    <div
-                                        key={index}
-                                        className="col-lg-4 col-md-6  col-sm-6 gr-pb-7  isotope-item isotope-mas-item all branding transition-all"
-                                    >
-                                        <div className={cx(styles.portfolioCard, styles.portfolioCardMasonry)}>
-                                            <a href="#" className={cx(styles.cardImage, styles.dBlock)}>
-                                                <Image
-                                                    src={i.image.url}
-                                                    alt={i.image.alt}
-                                                    width={i.image.dimensions.width}
-                                                    height={i.image.dimensions.height}
-                                                    className="w-100"
-                                                />
-                                            </a>
-                                            <div
-                                                className={cx(
-                                                    styles.textStart,
-                                                    styles.textBlock,
-                                                    styles.grBgOpacity,
-                                                    styles.dBlock
-                                                )}
-                                            >
-                                                <h3 className="">{i.image.alt}</h3>
+                                    <>
+                                        {/* eslint-disable react/no-array-index-key */}
+                                        <div
+                                            key={index}
+                                            className="col-lg-4 col-md-6  col-sm-6 gr-pb-7  isotope-item isotope-mas-item all branding transition-all"
+                                        >
+                                            <div className={cx(styles.portfolioCard, styles.portfolioCardMasonry)}>
+                                                <div className={cx(styles.cardImage, styles.dBlock)}>
+                                                    <Image
+                                                        src={i.image.url}
+                                                        alt={i.image.alt}
+                                                        width={i.image.dimensions.width}
+                                                        height={i.image.dimensions.height}
+                                                        className="w-100"
+                                                    />
+                                                </div>
+                                                <div
+                                                    className={cx(
+                                                        styles.textStart,
+                                                        styles.textBlock,
+                                                        styles.grBgOpacity,
+                                                        styles.dBlock
+                                                    )}
+                                                >
+                                                    <h3 className="">{i.image.alt}</h3>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </>
                                 ))}
                         </div>
                     </div>
@@ -147,6 +150,7 @@ NewsDetail.propTypes = {
             image: PropTypes.shape({
                 url: PropTypes.string.isRequired,
             }).isRequired,
+            images: PropTypes.arrayOf(PropTypes.object).isRequired,
         }).isRequired,
         last_publication_date: PropTypes.string.isRequired,
     }).isRequired,

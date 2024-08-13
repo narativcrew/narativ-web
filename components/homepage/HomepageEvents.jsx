@@ -41,7 +41,7 @@ const HomepageEvents = ({ eventsHeader, events }) => (
         </div>
         {events.length > 0 && (
             <div className="row">
-                <div className="col-md-6 offset-md-6 text-center">
+                <div className="col text-center">
                     <Link href="/vzdelavani">
                         <BlockButton>Zobrazit další akce</BlockButton>
                     </Link>
