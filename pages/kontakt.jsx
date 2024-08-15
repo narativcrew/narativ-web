@@ -12,9 +12,7 @@ const Contact = () => {
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
-
-    //   Form validation state
-    const [errors, setErrors] = useState({});
+    const [errorMessage, setErrorMessage] = useState('');
 
     //   Setting button text on form submission
     const [buttonText, setButtonText] = useState('Odeslat');
@@ -45,8 +43,6 @@ const Contact = () => {
             isValid = false;
         }
 
-        setErrors({ ...tempErrors });
-        console.log('errors', errors);
         return isValid;
     };
 
@@ -74,7 +70,7 @@ const Contact = () => {
 
             const { error } = await res.json();
             if (error) {
-                console.log(error);
+                setErrorMessage(`Server odpověděl správou: ${error}`);
                 setShowSuccessMessage(false);
                 setShowFailureMessage(true);
                 setButtonText('Send');
@@ -171,20 +167,21 @@ const Contact = () => {
                                     </label>
                                 </div>
                                 <BlockButton type="submit">{buttonText}</BlockButton>
-                                <div className="text-left">
-                                    {showSuccessMessage && (
-                                        <p className="text-green-500 font-semibold text-sm my-2">
-                                            Děkujeme! Vaše zpráva byla úspěšně odeslána.
-                                        </p>
-                                    )}
-                                    {showFailureMessage && (
-                                        <p className="text-red-500">
-                                            Ups! Něco se pokazilo. Zkuste to prosím znovu, nebo nám napište na{' '}
-                                            <a href="mailto:info@narativ.cz">info@narativ.cz</a>.
-                                        </p>
-                                    )}
-                                </div>
                             </form>
+                            <div className="text-left">
+                                {showSuccessMessage && (
+                                    <p className="text-success font-semibold text-sm my-2">
+                                        Děkujeme! Vaše zpráva byla úspěšně odeslána.
+                                    </p>
+                                )}
+                                {showFailureMessage && (
+                                    <p className="text-danger">
+                                        Ups! Něco se pokazilo.{' '}
+                                        {errorMessage || 'Zkuste to prosím znovu, nebo nám napište na '}
+                                        {!errorMessage && <a href="mailto:info@narativ.cz">info@narativ.cz</a>}.
+                                    </p>
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>
