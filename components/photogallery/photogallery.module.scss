@@ -1,0 +1,62 @@
+.dBlock {
+    display: block !important;
+}
+
+.textStart {
+    text-align: left !important;
+}
+
+.grid-item {
+    transition: .4s;
+}
+
+.itemRounded {
+    border-radius: 10px;
+}
+
+.itemCard {
+    position: relative;
+
+    .textBlock {
+        position: absolute;
+        bottom: 0;
+        left: 20px;
+        right: 20px;
+        opacity: 0;
+        transition: .4s;
+        padding: 16px;
+    }
+
+    img {
+        height: auto;
+    }
+
+    p {
+        color: #161c2d;
+        font-size: 0.8rem;
+        line-height: 1;
+        margin: 0;
+    }
+}
+
+.itemCard:hover .textBlock {
+    bottom: 20px;
+    opacity: 1;
+}
+
+.grBgOpacity {
+    z-index: 1;
+}
+
+.grBgOpacity:before {
+    position: absolute;
+    content: "";
+    background: #fff;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: .8;
+    border-radius: 8px;
+}

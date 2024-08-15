@@ -1,15 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import styles from 'components/news/news.module.scss';
 import cx from 'classnames';
 import { PrismicRichText } from '@prismicio/react';
 import * as prismicH from '@prismicio/helpers';
-import Image from 'next/image';
-import Link from 'next/link';
-import Fancybox from 'components/Fancybox';
 
 import { createClient } from '../../prismicio';
+import PhotoGallery from '../../components/photogallery/PhotoGallery';
 
 export function shortMonth(monthNr) {
     switch (monthNr) {
@@ -44,27 +42,6 @@ export function shortMonth(monthNr) {
 
 const NewsDetail = ({ news }) => {
     const router = useRouter();
-    const isotopeGrid = useRef(null); // Create a ref for the grid element
-    const [isotopeInstance, setIsotopeInstance] = useState(null);
-
-    useEffect(() => {
-        const loadIsotope = async () => {
-            // Dynamically import Isotope to ensure `window` is defined
-            const IsotopeModule = await import('isotope-layout');
-            const IsotopeConstructor = IsotopeModule.default || IsotopeModule;
-
-            if (isotopeGrid.current && !isotopeInstance) {
-                const instance = new IsotopeConstructor(isotopeGrid.current, {
-                    itemSelector: '.isotope-item',
-                    layoutMode: 'fitRows',
-                });
-                setIsotopeInstance(instance);
-                // console.log('Isotope instance created:', instance);
-            }
-        };
-
-        loadIsotope();
-    }, [news]);
 
     // eslint-disable-next-line no-unused-vars
     const { newsId } = router.query;
@@ -91,64 +68,22 @@ const NewsDetail = ({ news }) => {
                     </div>
                 </div>
             </div>
-            <div className="container mt-5">
+            <div className="container my-5">
                 <div className="row justify-content-center">
-                    <div className="col-md-10">
+                    <div className="col-10">
                         <PrismicRichText field={news.data.description} />
                     </div>
                 </div>
             </div>
-            <div className="container">
-                <div className="row justify-content-center">
-                    <div className="col-12">
-                        <div ref={isotopeGrid} className="row">
-                            <Fancybox
-                                options={{
-                                    Carousel: {
-                                        infinite: false,
-                                    },
-                                }}
-                            >
-                                {news.data.images &&
-                                    news.data.images.length > 0 &&
-                                    news.data.images.map((i) => (
-                                        <div
-                                            key={i.id}
-                                            className="col-lg-4 col-md-6  col-sm-6 gr-pb-7  isotope-item isotope-mas-item all branding transition-all"
-                                        >
-                                            <div className={cx(styles.portfolioCard, styles.portfolioCardMasonry)}>
-                                                <Link
-                                                    key={`link-${i.id}`}
-                                                    data-fancybox="gallery"
-                                                    href={i.image.url}
-                                                    className={cx(styles.cardImage, styles.dBlock)}
-                                                >
-                                                    <Image
-                                                        src={i.image.url}
-                                                        alt={i.image.alt}
-                                                        width={i.image.dimensions.width}
-                                                        height={i.image.dimensions.height}
-                                                        className="w-100"
-                                                    />
-                                                </Link>
-                                                <div
-                                                    className={cx(
-                                                        styles.textStart,
-                                                        styles.textBlock,
-                                                        styles.grBgOpacity,
-                                                        styles.dBlock
-                                                    )}
-                                                >
-                                                    <h3 className="">{i.image.alt}</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    ))}
-                            </Fancybox>
+            {news.data.images && news.data.images.length > 0 && (
+                <div className="container">
+                    <div className="row justify-content-center">
+                        <div className="col-10">
+                            <PhotoGallery items={news.data.images} />
                         </div>
                     </div>
                 </div>
-            </div>
+            )}
         </>
     );
 };
@@ -166,18 +101,6 @@ NewsDetail.propTypes = {
         }).isRequired,
         last_publication_date: PropTypes.string.isRequired,
     }).isRequired,
-    images: PropTypes.arrayOf(
-        PropTypes.shape({
-            image: PropTypes.shape({
-                url: PropTypes.string.isRequired,
-                alt: PropTypes.string,
-            }).isRequired,
-        })
-    ),
-};
-
-NewsDetail.defaultProps = {
-    images: [],
 };
 
 export default NewsDetail;

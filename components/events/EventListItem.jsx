@@ -34,7 +34,7 @@ const EventListItem = ({ id, title, startDate, endDate, venue, description, imag
 
             <h4>{title}</h4>
             <span className="font-weight-bold">
-                {dateFormatter.format(start)}-{dateFormatter.format(end)}
+                {dateFormatter.format(start)} - {dateFormatter.format(end)}
                 {venue ? ` | ${venue}` : ''}
             </span>
             <br />
