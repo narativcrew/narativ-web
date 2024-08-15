@@ -4,6 +4,13 @@ import { PrismicRichText } from '@prismicio/react';
 
 import styles from './footer.module.css';
 
+// Custom components to add keys
+const customComponents = {
+    listItem: ({ children, key }) => <li key={key}>{children}</li>,
+    paragraph: ({ children, key }) => <p key={key}>{children}</p>,
+    // Add other custom components as needed
+};
+
 const Footer = (data) => {
     const footers = data || {};
     const { footerLeft, footerCenter, footerRight } = footers.data || {};
@@ -19,7 +26,7 @@ const Footer = (data) => {
                             {footerLeft.data.items.length > 0 && (
                                 <>
                                     {footerLeft.data.items.map((i) => (
-                                        <PrismicRichText key={i.id} field={i.item} />
+                                        <PrismicRichText key={i.id} field={i.item} components={customComponents} />
                                     ))}
                                 </>
                             )}
@@ -32,7 +39,7 @@ const Footer = (data) => {
                             {footerCenter.data.items.length > 0 && (
                                 <>
                                     {footerCenter.data.items.map((i) => (
-                                        <PrismicRichText key={i.id} field={i.item} />
+                                        <PrismicRichText key={i.id} field={i.item} components={customComponents} />
                                     ))}
                                 </>
                             )}
@@ -45,7 +52,7 @@ const Footer = (data) => {
                             {footerRight.data.items.length > 0 && (
                                 <>
                                     {footerRight.data.items.map((i) => (
-                                        <PrismicRichText key={i.id} field={i.item} />
+                                        <PrismicRichText key={i.id} field={i.item} components={customComponents} />
                                     ))}
                                 </>
                             )}

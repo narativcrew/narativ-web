@@ -6,6 +6,8 @@ import cx from 'classnames';
 import { PrismicRichText } from '@prismicio/react';
 import * as prismicH from '@prismicio/helpers';
 import Image from 'next/image';
+import Link from 'next/link';
+import Fancybox from 'components/Fancybox';
 
 import { createClient } from '../../prismicio';
 
@@ -100,17 +102,27 @@ const NewsDetail = ({ news }) => {
                 <div className="row justify-content-center">
                     <div className="col-12">
                         <div ref={isotopeGrid} className="row">
-                            {news.data.images &&
-                                news.data.images.length > 0 &&
-                                news.data.images.map((i, index) => (
-                                    <>
-                                        {/* eslint-disable react/no-array-index-key */}
+                            <Fancybox
+                                options={{
+                                    Carousel: {
+                                        infinite: false,
+                                    },
+                                }}
+                            >
+                                {news.data.images &&
+                                    news.data.images.length > 0 &&
+                                    news.data.images.map((i) => (
                                         <div
-                                            key={index}
+                                            key={i.id}
                                             className="col-lg-4 col-md-6  col-sm-6 gr-pb-7  isotope-item isotope-mas-item all branding transition-all"
                                         >
                                             <div className={cx(styles.portfolioCard, styles.portfolioCardMasonry)}>
-                                                <div className={cx(styles.cardImage, styles.dBlock)}>
+                                                <Link
+                                                    key={`link-${i.id}`}
+                                                    data-fancybox="gallery"
+                                                    href={i.image.url}
+                                                    className={cx(styles.cardImage, styles.dBlock)}
+                                                >
                                                     <Image
                                                         src={i.image.url}
                                                         alt={i.image.alt}
@@ -118,7 +130,7 @@ const NewsDetail = ({ news }) => {
                                                         height={i.image.dimensions.height}
                                                         className="w-100"
                                                     />
-                                                </div>
+                                                </Link>
                                                 <div
                                                     className={cx(
                                                         styles.textStart,
@@ -131,8 +143,8 @@ const NewsDetail = ({ news }) => {
                                                 </div>
                                             </div>
                                         </div>
-                                    </>
-                                ))}
+                                    ))}
+                            </Fancybox>
                         </div>
                     </div>
                 </div>
@@ -161,7 +173,11 @@ NewsDetail.propTypes = {
                 alt: PropTypes.string,
             }).isRequired,
         })
-    ).isRequired,
+    ),
+};
+
+NewsDetail.defaultProps = {
+    images: [],
 };
 
 export default NewsDetail;
