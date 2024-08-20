@@ -13,9 +13,11 @@ const News = ({ headerImage, topTitle, news }) => (
             <title>Narativ | Aktuality</title>
             <meta property="og:title" content="Narativ | Aktuality" key="title" />
         </Head>
+
         <HeaderBanner title={topTitle.data.title} description={topTitle.data.body} image={headerImage.data.image.url} />
+
         <div className={styles.newsBox}>
-            <div className="container py-5 mt-6">
+            <div className="container py-5">
                 {news.length === 0 ? (
                     <div className="text-center py-5">Žádné aktuality.</div>
                 ) : (

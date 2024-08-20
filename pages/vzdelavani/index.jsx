@@ -15,16 +15,10 @@ const Events = ({ headerImage, events, pastEvents }) => (
             <meta property="og:title" content="Narativ | Akce" key="title" />
         </Head>
 
-        <HeaderBanner image={headerImage.data.image.url} />
+        <HeaderBanner title="Spolek Narativ pořádá" image={headerImage.data.image.url} />
 
         <div className={stylesEvents.eventsBox}>
-            <div className="container mt5 py-5">
-                <div className="row">
-                    <div className="col-md-6">
-                        <h1>Spolek Narativ pořádá</h1>
-                    </div>
-                </div>
-
+            <div className="container py-5">
                 <div className="row">
                     {events.length === 0 ? (
                         <div className="text-center py-5">Žádné nadcházející akce.</div>
