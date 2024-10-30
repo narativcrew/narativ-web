@@ -35,6 +35,9 @@
     },
     "devDependencies": {
         "@prismicio/types": "^0.2.4",
+        "@types/imagesloaded": "^4.1.6",
+        "@types/prop-types": "^15.7.13",
+        "@types/react": "^18.3.12",
         "eslint-config-airbnb": "^19.0.4",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-import": "^2.26.0",

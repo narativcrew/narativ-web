@@ -56,39 +56,43 @@ const PhotoGallery = ({ items }) => {
             }}
         >
             <div ref={gridRef} className="row g-4">
-                {items.map((i) => (
-                    // eslint-disable react/no-array-index-key
-                    <div key={i.id} className="col-lg-4 col-md-6 col-sm-6 grid-item">
-                        <div className={styles.itemCard}>
-                            <Link
-                                key={`link-${i.id}`}
-                                data-fancybox="gallery"
-                                href={i.image.url}
-                                className={cx(styles.dBlock)}
-                            >
-                                <Image
-                                    src={i.image.url}
-                                    alt={i.image.alt}
-                                    width={i.image.dimensions.width}
-                                    height={i.image.dimensions.height}
-                                    className={cx('w-100', styles.itemRounded)}
-                                />
-                            </Link>
-                            {i.image.alt && (
-                                <div
-                                    className={cx(
-                                        styles.textStart,
-                                        styles.textBlock,
-                                        styles.grBgOpacity,
-                                        styles.dBlock
+                {items.map(
+                    (i) =>
+                        i.image &&
+                        i.image.dimensions && (
+                            // eslint-disable react/no-array-index-key
+                            <div key={i.id} className="col-lg-4 col-md-6 col-sm-6 grid-item">
+                                <div className={styles.itemCard}>
+                                    <Link
+                                        key={`link-${i.id}`}
+                                        data-fancybox="gallery"
+                                        href={i.image.url}
+                                        className={cx(styles.dBlock)}
+                                    >
+                                        <Image
+                                            src={i.image.url}
+                                            alt={i.image.alt}
+                                            width={i.image.dimensions.width}
+                                            height={i.image.dimensions.height}
+                                            className={cx('w-100', styles.itemRounded)}
+                                        />
+                                    </Link>
+                                    {i.image.alt && (
+                                        <div
+                                            className={cx(
+                                                styles.textStart,
+                                                styles.textBlock,
+                                                styles.grBgOpacity,
+                                                styles.dBlock
+                                            )}
+                                        >
+                                            <p>{i.image.alt}</p>
+                                        </div>
                                     )}
-                                >
-                                    <p>{i.image.alt}</p>
                                 </div>
-                            )}
-                        </div>
-                    </div>
-                ))}
+                            </div>
+                        )
+                )}
             </div>
         </Fancybox>
     );
