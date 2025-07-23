@@ -47,6 +47,9 @@
         "prettier": "^2.8.1",
         "slice-machine-ui": "^0.5.2"
     },
+    "engines": {
+        "node": ">=20"
+    },
     "lint-staged": {
         "*.{js, jsx, ts, tsx}": "eslint --cache --fix",
         "*.{js, css, md}": "prettier --write"
