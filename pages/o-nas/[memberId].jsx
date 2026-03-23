@@ -16,7 +16,7 @@ const MemberDetail = ({ member }) => (
         </div>
         <FeaturedBlock text={member.data.motto} title={member.data.name} image={member.data.profile_photo.url} />
         <div className={cx(styles.memberDetailContactsBox, 'text-center py-5')}>
-            {(member.data.phone_number || member.data.email || member.data.webpage.url) && (
+            {(member.data.phone_number || member.data.email || member.data.webpage?.url) && (
                 <>
                     <h1>Kontakty</h1>
                     {member.data.phone_number && (

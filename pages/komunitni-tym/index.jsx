@@ -49,9 +49,9 @@ const CommunityTeam = ({ topTitle, bottomText, headerImage, members }) => (
                                     name={member.data.name}
                                     desc={member.data.description}
                                     image={member.data.profile_photo.url}
-                                    phoneNumber={member.data.phoneNumber}
+                                    phoneNumber={member.data.phone_number}
                                     email={member.data.email}
-                                    webpage={member.data.we}
+                                    webpage={member.data.webpage}
                                 />
                             ))}
                         </>
