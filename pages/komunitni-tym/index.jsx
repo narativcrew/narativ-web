@@ -52,6 +52,7 @@ const CommunityTeam = ({ topTitle, bottomText, headerImage, members }) => (
                                     phoneNumber={member.data.phone_number}
                                     email={member.data.email}
                                     webpage={member.data.webpage}
+                                    motto={member.data.motto}
                                 />
                             ))}
                         </>
