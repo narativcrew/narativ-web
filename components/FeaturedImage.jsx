@@ -4,7 +4,7 @@ import cx from 'classnames';
 
 import styles from './components.module.scss';
 
-const FeaturedImage = ({ image, hasOverlay, children }) => (
+const FeaturedImage = ({ image, hasOverlay = false, children = null }) => (
     <div
         className={cx(styles.featuredImage, hasOverlay ? styles.overlay : null)}
         style={{ backgroundImage: `url(${image})` }}
@@ -12,11 +12,6 @@ const FeaturedImage = ({ image, hasOverlay, children }) => (
         {children}
     </div>
 );
-
-FeaturedImage.defaultProps = {
-    hasOverlay: false,
-    children: null,
-};
 
 FeaturedImage.propTypes = {
     image: PropTypes.string.isRequired,

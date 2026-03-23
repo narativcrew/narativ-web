@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from 'react';
 import { Fancybox as NativeFancybox } from '@fancyapps/ui';
 import '@fancyapps/ui/dist/fancybox/fancybox.css';
 
-function Fancybox({ children, delegate = '[data-fancybox]', options = {} }) {
+function Fancybox({ children = null, delegate = '[data-fancybox]', options = {} }) {
     const containerRef = useRef(null);
 
     useEffect(() => {
@@ -24,12 +24,6 @@ Fancybox.propTypes = {
     children: PropTypes.any,
     delegate: PropTypes.string,
     options: PropTypes.object,
-};
-
-Fancybox.defaultProps = {
-    children: null,
-    delegate: '',
-    options: {},
 };
 
 export default Fancybox;

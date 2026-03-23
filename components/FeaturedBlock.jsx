@@ -5,7 +5,7 @@ import { PrismicRichText } from '@prismicio/react';
 
 import styles from './components.module.scss';
 
-const FeaturedBlock = ({ text, image, background }) => (
+const FeaturedBlock = ({ text, image, background = 'linear-gradient(270.32deg, #047af5 0.34%, rgba(23, 135, 252, 0.6) 99.79%)' }) => (
     <div className="container-fluid">
         <div className="row">
             <div className="col-md-6" style={{ background }}>
@@ -17,10 +17,6 @@ const FeaturedBlock = ({ text, image, background }) => (
         </div>
     </div>
 );
-
-FeaturedBlock.defaultProps = {
-    background: 'linear-gradient(270.32deg, #047af5 0.34%, rgba(23, 135, 252, 0.6) 99.79%)',
-};
 
 FeaturedBlock.propTypes = {
     text: PropTypes.array.isRequired,
