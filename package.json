@@ -13,8 +13,8 @@
     "dependencies": {
         "@fancyapps/ui": "^5.0.36",
         "@prismicio/client": "^7.21.6",
-        "@prismicio/next": "^2.2.2",
-        "@prismicio/react": "^3.4.0",
+        "@prismicio/next": "^1.7.0",
+        "@prismicio/react": "^2.9.0",
         "@prismicio/slice-simulator-react": "^0.2.2",
         "@sendgrid/mail": "^8.1.6",
         "bootstrap": "^5.2.2",

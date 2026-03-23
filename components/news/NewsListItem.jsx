@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import * as prismicH from '@prismicio/helpers';
+import * as prismicH from '@prismicio/client';
 
 import styles from './news.module.scss';
 

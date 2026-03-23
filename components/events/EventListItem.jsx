@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Image from 'next/image';
 import Link from 'next/link';
-import * as prismicH from '@prismicio/helpers';
+import * as prismicH from '@prismicio/client';
 
 import styles from './events.module.scss';
 
