@@ -65,8 +65,19 @@
     line-height: 30px;
 }
 
+.memberDetailContactsBox {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.memberDetailContactsBox span {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
 .memberDetailContactsBox i {
-    padding-right: 0.2rem;
     color: #ff794d;
 }
 

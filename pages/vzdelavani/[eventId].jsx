@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { PrismicLink, PrismicRichText } from '@prismicio/react';
-import * as prismicH from '@prismicio/helpers';
+import * as prismicH from '@prismicio/client';
 import styles from 'components/events/events.module.scss';
 
 import { createClient } from '../../prismicio';
