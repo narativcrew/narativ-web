@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import styles from 'components/news/news.module.scss';
 import cx from 'classnames';
 import { PrismicRichText } from '@prismicio/react';
-import * as prismicH from '@prismicio/client';
+import * as prismicH from '@prismicio/helpers';
 
 import { createClient } from '../../prismicio';
 import PhotoGallery from '../../components/photogallery/PhotoGallery';
