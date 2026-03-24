@@ -89,3 +89,17 @@
 .scrollMargin {
     scroll-margin-top: 96px;
 }
+
+.memberCardMotto {
+    margin-top: auto;
+    padding: 1rem;
+    background: #f9fafb;
+    border-left: 3px solid #ff794d;
+    border-radius: 0 5px 5px 0;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.memberCardMotto p {
+    margin: 0;
+}

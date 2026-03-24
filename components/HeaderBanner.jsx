@@ -5,7 +5,7 @@ import { PrismicRichText } from '@prismicio/react';
 import styles from './components.module.scss';
 import FeaturedImage from './FeaturedImage';
 
-const HeaderBanner = ({ title, description, image }) => (
+const HeaderBanner = ({ title = null, description = null, image }) => (
     <FeaturedImage hasOverlay image={image}>
         <div className={styles.featuredImageHeader}>
             <div className="container mb-3">
@@ -15,11 +15,6 @@ const HeaderBanner = ({ title, description, image }) => (
         </div>
     </FeaturedImage>
 );
-
-HeaderBanner.defaultProps = {
-    title: null,
-    description: null,
-};
 
 HeaderBanner.propTypes = {
     title: PropTypes.string,

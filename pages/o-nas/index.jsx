@@ -45,6 +45,7 @@ const Members = ({ topTitle, members, headerImage }) => (
                                     phoneNumber={member.data.phone_number}
                                     email={member.data.email}
                                     webpage={member.data.webpage}
+                                    motto={member.data.motto}
                                 />
                             ))}
                         </>

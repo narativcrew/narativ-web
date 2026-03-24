@@ -23,7 +23,7 @@ const getExcerpt = (textField) => {
     return excerpt;
 };
 
-const EventListItem = ({ id, title, startDate, endDate, venue, description, image }) => {
+const EventListItem = ({ id, title, startDate, endDate, venue = null, description, image }) => {
     const start = prismicH.asDate(startDate);
     const end = prismicH.asDate(endDate);
     return (
@@ -41,10 +41,6 @@ const EventListItem = ({ id, title, startDate, endDate, venue, description, imag
             {getExcerpt(description)}
         </Link>
     );
-};
-
-EventListItem.defaultProps = {
-    venue: null,
 };
 
 EventListItem.propTypes = {
