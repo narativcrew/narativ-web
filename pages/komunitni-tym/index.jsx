@@ -53,6 +53,7 @@ const CommunityTeam = ({ topTitle, bottomText, headerImage, members }) => (
                                     email={member.data.email}
                                     webpage={member.data.webpage}
                                     motto={member.data.motto}
+                                    memberType={member.data.member_type}
                                 />
                             ))}
                         </>
