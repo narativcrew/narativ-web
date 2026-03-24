@@ -5,7 +5,16 @@ import { PrismicLink, PrismicRichText } from '@prismicio/react';
 
 import styles from './members.module.css';
 
-const MemberListItem = ({ name, desc, image, phoneNumber = null, email = null, webpage = null, motto = null, memberType = null }) => (
+const MemberListItem = ({
+    name,
+    desc,
+    image,
+    phoneNumber = null,
+    email = null,
+    webpage = null,
+    motto = null,
+    memberType = null,
+}) => (
     <div className="col-lg-4 mb-4">
         <div className={cx(styles.memberCard)}>
             <div className={styles.memberCardImg} style={{ backgroundImage: `url(${image})` }} />
