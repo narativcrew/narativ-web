@@ -103,3 +103,8 @@
 .memberCardMotto p {
     margin: 0;
 }
+
+.memberType {
+    font-weight: 400;
+    color: #6b7280;
+}

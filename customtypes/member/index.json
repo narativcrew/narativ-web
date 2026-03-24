@@ -19,6 +19,14 @@
           "placeholder": ""
         }
       },
+      "member_type": {
+        "type": "Select",
+        "config": {
+          "label": "Member type",
+          "placeholder": "",
+          "options": ["Člen", "Členka", "Partner", "Partnerka"]
+        }
+      },
       "order": {
         "type": "Number",
         "config": {

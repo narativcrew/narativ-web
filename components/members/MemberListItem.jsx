@@ -5,12 +5,15 @@ import { PrismicLink, PrismicRichText } from '@prismicio/react';
 
 import styles from './members.module.css';
 
-const MemberListItem = ({ name, desc, image, phoneNumber = null, email = null, webpage = null, motto = null }) => (
+const MemberListItem = ({ name, desc, image, phoneNumber = null, email = null, webpage = null, motto = null, memberType = null }) => (
     <div className="col-lg-4 mb-4">
         <div className={cx(styles.memberCard)}>
             <div className={styles.memberCardImg} style={{ backgroundImage: `url(${image})` }} />
             <div className={cx('text-start', styles.memberCardContent)}>
-                <h5 className={styles.memberCardTitle}>{name}</h5>
+                <h5 className={styles.memberCardTitle}>
+                    {name}
+                    {memberType && <span className={styles.memberType}> | {memberType}</span>}
+                </h5>
                 {(phoneNumber || email || webpage) && (
                     <>
                         <div className={cx(styles.memberDetailContactsBox, 'text-right py-1')}>
@@ -60,6 +63,7 @@ MemberListItem.propTypes = {
     email: PropTypes.string,
     webpage: PropTypes.object,
     motto: PropTypes.array,
+    memberType: PropTypes.string,
 };
 
 export default MemberListItem;
